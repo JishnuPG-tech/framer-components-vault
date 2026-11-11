@@ -4,15 +4,17 @@ on:
   push:
     branches: [ main ]
     paths:
-      - 'components/**'
+      - 'fixtures/**'
       - 'packages/**'
       - 'policies/**'
+      - 'tools/**'
   pull_request:
     branches: [ main ]
     paths:
-      - 'components/**'
+      - 'fixtures/**'
       - 'packages/**'
       - 'policies/**'
+      - 'tools/**'
   workflow_dispatch:
 
 concurrency:
@@ -33,14 +35,12 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 22
-          cache: 'npm'
-          cache-dependency-path: 'packages/anti-slop-engine/package.json'
 
-      - name: Run Anti-Slop Unit Tests
+      - name: Run Anti-Slop Unit & Repair Loop Tests
         run: |
           cd packages/anti-slop-engine
           node --test tests/*.test.js
 
-      - name: Run Framer Craft Verification
+      - name: Run Quality Gate Verification Against Accepted Fixtures
         run: |
-          node packages/cli/bin/framer-craft.js verify components/accordions
+          node packages/cli/bin/framer-craft.js verify fixtures/accepted

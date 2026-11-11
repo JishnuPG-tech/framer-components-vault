@@ -52,23 +52,22 @@ export function inspectCodeSyntax(options) {
     }
 
     // 3. Detect raw hex styling bypassing design tokens
-    // Skip if using stylex.create or Astryx theme tokens
-    if (!isAstryxProject) {
-      const rawHexInlineRegex = /(?:color|background|borderColor|fill|stroke)\s*:\s*["']#(?:[0-9a-fA-F]{3,8})["']/g;
-      const rawTailwindHexRegex = /(?:bg|text|border)-\[#(?:[0-9a-fA-F]{3,8})\]/g;
-      const hexMatches = [
-        ...(content.match(rawHexInlineRegex) || []),
-        ...(content.match(rawTailwindHexRegex) || [])
-      ];
+    // Allow stylex.create definitions, but flag any raw hex in JSX or inline styles
+    const contentWithoutStylex = content.replace(/stylex\.create\(\{[\s\S]*?\}\)/g, '');
+    const rawHexInlineRegex = /(?:color|background|borderColor|fill|stroke)\s*:\s*["']#(?:[0-9a-fA-F]{3,8})["']/g;
+    const rawTailwindHexRegex = /(?:bg|text|border|fill|stroke)-\[#(?:[0-9a-fA-F]{3,8})\]/g;
+    const hexMatches = [
+      ...(contentWithoutStylex.match(rawHexInlineRegex) || []),
+      ...(contentWithoutStylex.match(rawTailwindHexRegex) || [])
+    ];
 
-      if (hexMatches.length >= 3) {
-        findings.push(createFindingFromRule(
-          "TOKEN-RAW-STYLING-BYPASS",
-          `Component has ${hexMatches.length} raw hex styling overrides (e.g. ${hexMatches.slice(0, 3).join(', ')}), bypassing semantic theme tokens.`,
-          relPath,
-          "Refactor raw hex colors to semantic theme variables (e.g. bg-background, text-foreground, border-border, bg-primary) or Astryx/StyleX theme tokens."
-        ));
-      }
+    if (hexMatches.length >= 1) {
+      findings.push(createFindingFromRule(
+        "TOKEN-RAW-STYLING-BYPASS",
+        `Component has ${hexMatches.length} raw hex styling override(s) (${hexMatches.slice(0, 3).join(', ')}), bypassing semantic theme tokens.`,
+        relPath,
+        "Refactor raw hex colors to semantic theme variables (e.g. bg-background, text-foreground, border-border, bg-primary) or Astryx/StyleX theme tokens."
+      ));
     }
 
     // 4. Detect unresolved relative local imports
@@ -91,17 +90,17 @@ export function inspectCodeSyntax(options) {
     }
 
     // 5. Detect dead interactive buttons (missing onClick, href, or action)
-    // Note: Astryx <Button label="..." onClick={...} /> or standard <button>
+    // Catches ANY single non-functional button without action handlers
     const deadButtonRegex = /<button(?![^>]*\b(onClick|type="submit"|type="reset"|disabled|aria-disabled)\b)[^>]*>(.*?)<\/button>/gi;
     let btnMatch;
     let deadButtonCount = 0;
     while ((btnMatch = deadButtonRegex.exec(content)) !== null) {
       deadButtonCount++;
     }
-    if (deadButtonCount >= 2) {
+    if (deadButtonCount >= 1) {
       findings.push(createFindingFromRule(
         "INTERACTION-BROKEN-ACTIONS",
-        `Found ${deadButtonCount} button element(s) with no onClick handler, form submit type, or disabled state.`,
+        `Found ${deadButtonCount} non-functional button(s) with no onClick handler, form submit type, or disabled state.`,
         relPath,
         "Attach functional interactive callbacks or replace with a non-interactive semantic tag if purely decorative."
       ));

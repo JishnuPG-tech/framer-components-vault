@@ -17,7 +17,7 @@ test.after(() => {
   if (fs.existsSync(TEMP_DIR)) fs.rmSync(TEMP_DIR, { recursive: true, force: true });
 });
 
-test('Astryx component with StyleX atomic styles passes cleanly without false raw-hex penalties', () => {
+test('Astryx component with StyleX atomic styles passes cleanly without false raw-hex penalties', async () => {
   const astryxComponent = `
     import * as React from 'react';
     import { Button } from '@astryxdesign/core/Button';
@@ -47,7 +47,7 @@ test('Astryx component with StyleX atomic styles passes cleanly without false ra
   fs.writeFileSync(filePath, astryxComponent, 'utf-8');
 
   const codeFindings = inspectCodeSyntax({ files: [filePath], rootDir: TEMP_DIR });
-  const browserFindings = inspectBrowserAndA11y({ files: [filePath], rootDir: TEMP_DIR });
+  const browserFindings = await inspectBrowserAndA11y({ files: [filePath], rootDir: TEMP_DIR });
   const designFindings = inspectDesignQuality({ files: [filePath], rootDir: TEMP_DIR });
 
   const allFindings = [...codeFindings, ...browserFindings, ...designFindings];

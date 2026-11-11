@@ -14,6 +14,8 @@ OUTPUT_DIR = os.environ.get('OUTPUT_DIR', os.path.join(REPO_ROOT, 'components'))
 GIT_REPO_DIR = os.environ.get('GIT_REPO_DIR', REPO_ROOT)
 
 # Target categories and search feeds
+CATEGORY_TARGET_ENV = os.environ.get('CATEGORY_TARGET', 'all').strip().lower()
+
 CATEGORY_TARGETS = [
     ("heroes", "https://www.framer.com/marketplace/components/?search=hero"),
     ("bento", "https://www.framer.com/marketplace/components/?search=bento"),
@@ -38,6 +40,17 @@ CATEGORY_TARGETS = [
     ("players", "https://www.framer.com/marketplace/components/categories/players/"),
     ("all-free", "https://www.framer.com/marketplace/components/?pricing=free"),
 ]
+
+def get_active_category_targets():
+    target = os.environ.get('CATEGORY_TARGET', CATEGORY_TARGET_ENV).strip().lower()
+    if not target or target == 'all':
+        return CATEGORY_TARGETS
+    matched = [item for item in CATEGORY_TARGETS if item[0].lower() == target or target in item[0].lower()]
+    if matched:
+        print(f"[CATEGORY FILTER] Filtering crawl to target category: '{target}' ({len(matched)} match)")
+        return matched
+    print(f"[CATEGORY FILTER] Target '{target}' not found in predefined list. Using custom search query.")
+    return [(target, f"https://www.framer.com/marketplace/components/?search={target}")]
 
 def get_existing_slugs():
     if not os.path.exists(DB_PATH):
@@ -339,29 +352,35 @@ async def run_pipeline():
             user_agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36"
         )
         
-        # 1. High-speed multi-feed API stream (Popular, Newest, Trending)
-        main_page = await context.new_page()
-        try:
-            await main_page.goto('https://www.framer.com/marketplace/components/?pricing=free', wait_until='domcontentloaded', timeout=15000)
-            
-            feeds = [
-                ("Free Popular", "https://www.framer.com/creators/api/unified/resources/?limit=64&pricing=free&sort=popular&type=component"),
-                ("Free Newest", "https://www.framer.com/creators/api/unified/resources/?limit=64&pricing=free&sort=newest&type=component"),
-                ("Free Trending", "https://www.framer.com/creators/api/unified/resources/?limit=64&pricing=free&sort=trending&type=component"),
-                ("All Components Newest", "https://www.framer.com/creators/api/unified/resources/?limit=64&sort=newest&type=component"),
-                ("All Components Popular", "https://www.framer.com/creators/api/unified/resources/?limit=64&sort=popular&type=component")
-            ]
-            
-            for feed_name, base_url in feeds:
-                try:
-                    await harvest_api_feed(main_page, feed_name, base_url, existing_slugs)
-                except Exception as e:
-                    print(f"Error on feed {feed_name}: {e}")
-        finally:
-            await main_page.close()
+        active_targets = get_active_category_targets()
+        is_targeted = os.environ.get('CATEGORY_TARGET', 'all').strip().lower() != 'all'
+
+        # 1. High-speed multi-feed API stream (only on full sweep, or if 'all' requested)
+        if not is_targeted:
+            main_page = await context.new_page()
+            try:
+                await main_page.goto('https://www.framer.com/marketplace/components/?pricing=free', wait_until='domcontentloaded', timeout=15000)
+                
+                feeds = [
+                    ("Free Popular", "https://www.framer.com/creators/api/unified/resources/?limit=64&pricing=free&sort=popular&type=component"),
+                    ("Free Newest", "https://www.framer.com/creators/api/unified/resources/?limit=64&pricing=free&sort=newest&type=component"),
+                    ("Free Trending", "https://www.framer.com/creators/api/unified/resources/?limit=64&pricing=free&sort=trending&type=component"),
+                    ("All Components Newest", "https://www.framer.com/creators/api/unified/resources/?limit=64&sort=newest&type=component"),
+                    ("All Components Popular", "https://www.framer.com/creators/api/unified/resources/?limit=64&sort=popular&type=component")
+                ]
+                
+                for feed_name, base_url in feeds:
+                    try:
+                        await harvest_api_feed(main_page, feed_name, base_url, existing_slugs)
+                    except Exception as e:
+                        print(f"Error on feed {feed_name}: {e}")
+            finally:
+                await main_page.close()
+        else:
+            print(f"[TARGETED CRAWL] Skipping generic API feeds to prioritize '{os.environ.get('CATEGORY_TARGET')}'")
             
         # 2. Deep crawl categories with isolated tabs
-        for cat_name, target_url in CATEGORY_TARGETS:
+        for cat_name, target_url in active_targets:
             try:
                 await crawl_category_pages(context, cat_name, target_url, existing_slugs)
             except Exception as e:

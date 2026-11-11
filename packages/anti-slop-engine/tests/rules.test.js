@@ -36,7 +36,7 @@ test('AST Analyzer detects transition: all 0.3s ease and placeholder copy', () =
   assert.ok(findings.some(f => f.ruleId === 'COPY-PLACEHOLDER-LEAK'), 'Should detect placeholder copy');
 });
 
-test('Browser/A11y Analyzer catches outline:none without focus ring', () => {
+test('Browser/A11y Analyzer catches outline:none without focus ring', async () => {
   const inaccessibleCode = `
     export function BadButton() {
       return <button className="outline-none h-6 w-6">Icon</button>;
@@ -45,7 +45,7 @@ test('Browser/A11y Analyzer catches outline:none without focus ring', () => {
   const filePath = path.join(TEMP_DIR, 'bad-btn.tsx');
   fs.writeFileSync(filePath, inaccessibleCode, 'utf-8');
 
-  const findings = inspectBrowserAndA11y({ files: [filePath], rootDir: TEMP_DIR });
+  const findings = await inspectBrowserAndA11y({ files: [filePath], rootDir: TEMP_DIR });
   assert.ok(findings.some(f => f.ruleId === 'A11Y-GATE-FAILURE'), 'Should catch missing focus-visible and small tap target');
 });
 
@@ -85,7 +85,7 @@ test('Scoring engine enforces blockers strictly', () => {
   assert.equal(result.score, 0, 'Score is 0 when blocked');
 });
 
-test('Artisanal human-crafted component passes with 1000/1000 score', () => {
+test('Artisanal human-crafted component passes with 1000/1000 score', async () => {
   const pristineCode = `
     import { motion } from "framer-motion";
     const springPreset = { type: "spring", stiffness: 320, damping: 28, mass: 0.8 };
@@ -99,6 +99,7 @@ test('Artisanal human-crafted component passes with 1000/1000 score', () => {
         >
           <h3 className="text-xl font-bold tracking-tight">{title}</h3>
           <button 
+            type="button"
             onClick={onSelect}
             className="min-h-[44px] min-w-[44px] px-4 py-2 bg-primary text-primary-foreground focus-visible:ring-2 focus-visible:ring-ring"
           >
@@ -112,7 +113,7 @@ test('Artisanal human-crafted component passes with 1000/1000 score', () => {
   fs.writeFileSync(filePath, pristineCode, 'utf-8');
 
   const codeFindings = inspectCodeSyntax({ files: [filePath], rootDir: TEMP_DIR });
-  const browserFindings = inspectBrowserAndA11y({ files: [filePath], rootDir: TEMP_DIR });
+  const browserFindings = await inspectBrowserAndA11y({ files: [filePath], rootDir: TEMP_DIR });
   const designFindings = inspectDesignQuality({ files: [filePath], rootDir: TEMP_DIR });
 
   const allFindings = [...codeFindings, ...browserFindings, ...designFindings];

@@ -1,7 +1,8 @@
 {
   "version": "1.0.0",
   "name": "Framer Anti-Slop Evaluation & Quality Policy",
-  "passingScore": 800,
+  "passingScore": 850,
+  "maxMajorsAllowed": 0,
   "maxScore": 1000,
   "rules": [
     {

@@ -250,14 +250,14 @@ async function cmdDNA() {
 
 async function cmdAudit(targetDir = process.cwd()) {
     const resolvedDir = path.resolve(process.cwd(), targetDir);
-    const audit = runFullAudit({ rootDir: resolvedDir });
+    const audit = await runFullAudit({ rootDir: resolvedDir });
     console.log(formatTerminalReport(audit));
     process.exit(audit.passed && !audit.blocked ? 0 : 1);
 }
 
 async function cmdVerify(targetDir = process.cwd()) {
     const resolvedDir = path.resolve(process.cwd(), targetDir);
-    const audit = runFullAudit({ rootDir: resolvedDir });
+    const audit = await runFullAudit({ rootDir: resolvedDir });
     if (audit.blocked || !audit.passed) {
         console.error(`\x1b[31m[VERIFY FAILED] Score: ${audit.score}/${audit.maxScore}. Blockers: ${audit.metrics.blockersCount}, Major Slop: ${audit.metrics.majorsCount}\x1b[0m`);
         for (const f of audit.findings) {
@@ -271,10 +271,15 @@ async function cmdVerify(targetDir = process.cwd()) {
 
 async function cmdRepair(targetDir = process.cwd()) {
     const resolvedDir = path.resolve(process.cwd(), targetDir);
+    console.log(`\x1b[38;2;217;101;59mStarting Autonomous Anti-Slop Repair Loop on:\x1b[0m ${resolvedDir}\n`);
     const report = await qualityLoop({ rootDir: resolvedDir });
     console.log(formatTerminalReport(report.audit));
-    if (report.repairPayload) {
-        console.log('\n\x1b[36m=== PROPOSED REPAIR DIRECTIVE FOR AGENT ===\x1b[0m');
+    if (report.repairedFiles && report.repairedFiles.length > 0) {
+        console.log(`\x1b[32m✔ Successfully repaired ${report.repairedFiles.length} file(s) across ${report.attempt} attempt(s):\x1b[0m`);
+        report.repairedFiles.forEach(f => console.log(`  - \x1b[36m${path.relative(process.cwd(), f)}\x1b[0m`));
+    }
+    if (report.repairPayload && report.status !== 'passed') {
+        console.log('\n\x1b[36m=== PROPOSED REMAINING REPAIR DIRECTIVE FOR AGENT ===\x1b[0m');
         console.log(report.repairPayload.userPrompt);
     }
     process.exit(report.status === 'passed' ? 0 : 1);

@@ -26,7 +26,10 @@ export function calculateQualityScore(findings, totalFilesScanned = 1) {
   // A blocker immediately blocks and sets score to 0
   const rawScore = Math.max(0, maxScore - totalPenalty);
   const blocked = blockersCount > 0;
-  const passed = !blocked && rawScore >= passingScore;
+  
+  // Strict quality gate: No blocker AND no major design slop allowed to pass without repair
+  const maxMajorsAllowed = policy.maxMajorsAllowed ?? 0;
+  const passed = !blocked && (majorsCount <= maxMajorsAllowed) && rawScore >= passingScore;
 
   const allGates = ["build", "interaction", "accessibility", "responsive", "content", "design", "code", "motion"];
   const failedGates = Array.from(failedGateSet);
