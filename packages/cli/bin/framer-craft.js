@@ -3,7 +3,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 
-const API_BASE = 'https://jishnupg-hermes.hf.space/preview/3000/api';
+const API_BASE = 'https://jishnupg-opencode-cli.hf.space/preview/3000/api';
 const GITHUB_RAW = 'https://raw.githubusercontent.com/JishnuPG-tech/framer-components-vault/main';
 
 const SHIM_CONTENT = `// Universal Framer Runtime Shim for Next.js / Vite React
@@ -68,7 +68,7 @@ export const Stack = React.forwardRef(({ children, ...props }: any, ref) => Reac
 const CURSORRULES_CONTENT = `# Artisanal Human-Art UI/UX & Framer Craft Directives
 ## Source of Truth
 - Component Vault: https://github.com/JishnuPG-tech/framer-components-vault
-- Intelligence API: https://jishnupg-hermes.hf.space/preview/3000/api
+- Intelligence API: https://jishnupg-opencode-cli.hf.space/preview/3000/api
 
 ## Rules for Frontend Code
 1. Never generate generic AI-slop (flat 0.3s ease transitions, plain 3-column cards, purple gradients).

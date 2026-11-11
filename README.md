@@ -6,7 +6,7 @@
 [![TypeScript](https://img.shields.io/badge/TypeScript-Strict-3178C6?style=for-the-badge&logo=typescript)](https://github.com/JishnuPG-tech/framer-components-vault)
 [![Framer Motion](https://img.shields.io/badge/Framer_Motion-Spring_Physics-FF0055?style=for-the-badge&logo=framer)](https://github.com/JishnuPG-tech/framer-components-vault)
 [![Next.js 15](https://img.shields.io/badge/Next.js-15_Ready-000000?style=for-the-badge&logo=nextdotjs)](https://github.com/JishnuPG-tech/framer-components-vault)
-[![Live Catalog](https://img.shields.io/badge/Live_Catalog-Hermes_Port_3000-D9653B?style=for-the-badge)](https://jishnupg-hermes.hf.space/preview/3000/)
+[![Live Catalog](https://img.shields.io/badge/Live_Catalog-Hermes_Port_3000-D9653B?style=for-the-badge)](https://jishnupg-opencode-cli.hf.space/preview/3000/)
 
 ---
 

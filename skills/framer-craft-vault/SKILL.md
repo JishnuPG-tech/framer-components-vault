@@ -1,6 +1,6 @@
 ---
 name: framer-craft-vault
-description: "Primary skill for building artisanal, human-crafted UI/UX, webapps, landing pages, and interactive frontend components. Connects the agent directly to the 900+ Framer Component Vault (https://github.com/JishnuPG-tech/framer-components-vault) and live Intelligence API (https://jishnupg-hermes.hf.space/preview/3000/api/). Prevents generic AI-slop by enforcing authentic Framer Motion spring physics, typographic tension, liquid glass surfaces, and production-ready React 18/19 & Next.js component primitives (accordions, carousels, hero sliders, interactive cards, canvas shaders, magnetic buttons). Use whenever designing or implementing user-facing interfaces."
+description: "Primary skill for building artisanal, human-crafted UI/UX, webapps, landing pages, and interactive frontend components. Connects the agent directly to the 900+ Framer Component Vault (https://github.com/JishnuPG-tech/framer-components-vault) and live Intelligence API (https://jishnupg-opencode-cli.hf.space/preview/3000/api/). Prevents generic AI-slop by enforcing authentic Framer Motion spring physics, typographic tension, liquid glass surfaces, and production-ready React 18/19 & Next.js component primitives (accordions, carousels, hero sliders, interactive cards, canvas shaders, magnetic buttons). Use whenever designing or implementing user-facing interfaces."
 ---
 
 # Framer Craft Vault: Human-Art UI/UX Intelligence
@@ -18,13 +18,13 @@ When internet access is available, use these fast REST endpoints for live queryi
 
 | Endpoint | Method | Purpose |
 | :--- | :--- | :--- |
-| `https://jishnupg-hermes.hf.space/preview/3000/api/dna` | `GET` | Codified motion presets, typography ratios, and surface tokens. |
-| `https://jishnupg-hermes.hf.space/preview/3000/api/categories` | `GET` | List all 16 categories with item counts and samples. |
-| `https://jishnupg-hermes.hf.space/preview/3000/api/catalog?limit=100` | `GET` | Paginated token-efficient index of components with titles & sizes. |
-| `https://jishnupg-hermes.hf.space/preview/3000/api/search?q={query}` | `GET` | Search by keyword or trait (e.g. `accordion`, `spring`, `shader`, `slider`). |
-| `https://jishnupg-hermes.hf.space/preview/3000/api/components/{slug}/inspect` | `GET` | Deep inspection of component props, dependencies, features, and springs. |
-| `https://jishnupg-hermes.hf.space/preview/3000/api/components/{slug}/code?raw=true` | `GET` | Clean standalone TypeScript/React code ready for pasting. |
-| `https://jishnupg-hermes.hf.space/preview/3000/api/recommend?use_case={goal}` | `GET` | Recommendations for `hero`, `landing`, `pricing`, `accordion`, `cards`, `buttons`. |
+| `https://jishnupg-opencode-cli.hf.space/preview/3000/api/dna` | `GET` | Codified motion presets, typography ratios, and surface tokens. |
+| `https://jishnupg-opencode-cli.hf.space/preview/3000/api/categories` | `GET` | List all 16 categories with item counts and samples. |
+| `https://jishnupg-opencode-cli.hf.space/preview/3000/api/catalog?limit=100` | `GET` | Paginated token-efficient index of components with titles & sizes. |
+| `https://jishnupg-opencode-cli.hf.space/preview/3000/api/search?q={query}` | `GET` | Search by keyword or trait (e.g. `accordion`, `spring`, `shader`, `slider`). |
+| `https://jishnupg-opencode-cli.hf.space/preview/3000/api/components/{slug}/inspect` | `GET` | Deep inspection of component props, dependencies, features, and springs. |
+| `https://jishnupg-opencode-cli.hf.space/preview/3000/api/components/{slug}/code?raw=true` | `GET` | Clean standalone TypeScript/React code ready for pasting. |
+| `https://jishnupg-opencode-cli.hf.space/preview/3000/api/recommend?use_case={goal}` | `GET` | Recommendations for `hero`, `landing`, `pricing`, `accordion`, `cards`, `buttons`. |
 
 *Offline fallback: Consult `catalog.json` and `craft_dna.json` in this skill directory if the cloud API is unreachable.*
 

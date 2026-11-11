@@ -2,7 +2,7 @@
 
 ## Source of Truth
 - Component Vault: https://github.com/JishnuPG-tech/framer-components-vault
-- Intelligence API: https://jishnupg-hermes.hf.space/preview/3000/api
+- Intelligence API: https://jishnupg-opencode-cli.hf.space/preview/3000/api
 
 ## Rules for Frontend Code
 1. Never generate generic AI-slop (flat 0.3s ease transitions, plain 3-column cards, purple gradients).
