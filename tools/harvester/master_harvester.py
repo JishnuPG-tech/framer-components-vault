@@ -8,9 +8,10 @@ import urllib.request
 import sqlite3
 from playwright.async_api import async_playwright
 
-DB_PATH = '/data/antigravity/framer-pipeline/data/components.db'
-OUTPUT_DIR = '/data/antigravity/framer-pipeline/data/components'
-GIT_REPO_DIR = '/data/antigravity/framer-pipeline/data'
+REPO_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..'))
+DB_PATH = os.environ.get('DB_PATH', os.path.join(REPO_ROOT, 'components.db'))
+OUTPUT_DIR = os.environ.get('OUTPUT_DIR', os.path.join(REPO_ROOT, 'components'))
+GIT_REPO_DIR = os.environ.get('GIT_REPO_DIR', REPO_ROOT)
 
 # Target categories and search feeds
 CATEGORY_TARGETS = [
@@ -119,7 +120,7 @@ def git_commit_and_push(batch_count):
     try:
         subprocess.run(["git", "add", "."], cwd=GIT_REPO_DIR, capture_output=True, timeout=10)
         res = subprocess.run([
-            "git", "commit", "-m", f"feat(vault): add {batch_count} newly harvested Framer components"
+            "git", "commit", "-m", f"feat(vault): add {batch_count} newly harvested Framer components [skip ci]"
         ], cwd=GIT_REPO_DIR, capture_output=True, text=True, timeout=15)
         if res.returncode == 0:
             push_res = subprocess.run(["git", "push", "origin", "main"], cwd=GIT_REPO_DIR, capture_output=True, text=True, timeout=30)

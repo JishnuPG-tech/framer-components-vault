@@ -1,0 +1,65 @@
+name: Harvest Framer Components
+
+on:
+  workflow_dispatch:
+    inputs:
+      category_target:
+        description: 'Specific category to prioritize (or leave blank for all categories)'
+        required: false
+        default: 'all'
+  schedule:
+    # Daily run at 03:00 UTC for automated new component discovery
+    - cron: '0 3 * * *'
+
+concurrency:
+  group: framer-harvest
+  cancel-in-progress: false
+
+jobs:
+  harvest:
+    name: Crawl & Unbundle Framer Components
+    runs-on: ubuntu-latest
+    timeout-minutes: 360
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout Vault Repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+
+      - name: Install Playwright & Chromium
+        run: |
+          python -m pip install --upgrade pip
+          pip install playwright
+          playwright install --with-deps chromium
+
+      - name: Configure Git Committer
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Execute High-Speed Harvester
+        env:
+          CATEGORY_TARGET: ${{ github.event.inputs.category_target || 'all' }}
+        run: |
+          python tools/harvester/master_harvester.py
+
+      - name: Final Sweep Git Push
+        if: always()
+        run: |
+          git add components components.db || true
+          if git diff --staged --quiet; then
+            echo "No new components to commit."
+          else
+            git commit -m "feat(vault): auto-sync harvested Framer components [skip ci]"
+            git push origin main
+          fi
