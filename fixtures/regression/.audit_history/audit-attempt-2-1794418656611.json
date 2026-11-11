@@ -1,0 +1,26 @@
+{
+  "score": 1000,
+  "maxScore": 1000,
+  "passingScore": 850,
+  "passed": true,
+  "blocked": false,
+  "findings": [],
+  "metrics": {
+    "totalFiles": 1,
+    "blockersCount": 0,
+    "majorsCount": 0,
+    "minorsCount": 0,
+    "passedGates": [
+      "build",
+      "interaction",
+      "accessibility",
+      "responsive",
+      "content",
+      "design",
+      "code",
+      "motion"
+    ],
+    "failedGates": []
+  },
+  "timestamp": "2026-11-11T17:37:36.611Z"
+}

@@ -73,14 +73,16 @@ export async function inspectBrowserAndA11y(options) {
 async function runLivePlaywrightAudit(url) {
   const liveFindings = [];
   try {
-    let playwright;
+    let chromium;
     try {
-      playwright = (await import('playwright')).default;
+      const pwMod = await import('playwright');
+      chromium = pwMod.chromium || pwMod.default?.chromium;
+      if (!chromium) return liveFindings;
     } catch (_) {
       return liveFindings; // Playwright not available in environment
     }
 
-    const browser = await playwright.chromium.launch({ headless: true });
+    const browser = await chromium.launch({ headless: true });
     const context = await browser.newContext();
 
     const viewports = [
@@ -97,7 +99,7 @@ async function runLivePlaywrightAudit(url) {
       page.on('pageerror', err => pageErrors.push(err.message));
 
       try {
-        await page.goto(url, { waitUntil: 'domcontentloaded', timeout: 10000 });
+        await page.goto(url, { waitUntil: 'domcontentloaded', timeout: 25000 });
       } catch (navErr) {
         liveFindings.push(createFindingFromRule(
           "BUILD-UNRESOLVED-IMPORTS",

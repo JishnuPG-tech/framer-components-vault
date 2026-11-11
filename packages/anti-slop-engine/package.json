@@ -10,7 +10,10 @@
   },
   "scripts": {
     "build": "node -e 'console.log(\"Engine ready\")'",
-    "test": "node --test tests/*.test.js || echo 'Tests complete'"
+    "test": "node --test tests/*.test.js"
+  },
+  "optionalDependencies": {
+    "playwright": "^1.50.0"
   },
   "keywords": [
     "anti-slop",

@@ -1,11 +1,39 @@
 {
-  "philosophy": "Human-Artisanal Craft UI - Non-Generative, Physics-Driven, High-Contrast Typography",
+  "philosophy": "Human-Artisanal Craft UI - Non-Generative, Physics-Driven, High-Contrast Typography, Headless Accessibility",
+  "reward_system": {
+    "passing_score": 200,
+    "instant_disqualifications": [
+      "WCAG AA contrast failure (< 4.5:1 text, < 3.0:1 large/controls)",
+      "Touch target < 44x44px",
+      "outline: none without focus-visible replacement",
+      "Instant 0ms or transition: all 0.3s ease linear snap"
+    ],
+    "negative_penalties": {
+      "generic_purple_blue_glow": -100,
+      "sterile_default_void": -90,
+      "template_monotony_copy_paste_cards": -80,
+      "raw_hex_colors_in_components": -70,
+      "excessive_glassmorphism": -60,
+      "uniform_pill_radius_everywhere": -50,
+      "generic_emojis_or_mismatched_icons": -50,
+      "soft_floaty_shadows_everywhere": -40
+    },
+    "positive_rewards": {
+      "headless_radix_accessibility": 90,
+      "calibrated_framer_motion_springs": 80,
+      "typographic_tension_and_scale_contrast": 80,
+      "tactile_surface_depth_and_ambient_light": 70,
+      "reference_locked_evidence": 60,
+      "strict_iconsax_24px_consistency": 50
+    }
+  },
   "spring_presets": {
     "snappy": {
       "type": "spring",
       "stiffness": 320,
       "damping": 28,
       "mass": 0.8,
+      "restDelta": 0.001,
       "desc": "Buttons, badges, fast toggles"
     },
     "fluid": {
@@ -13,6 +41,7 @@
       "stiffness": 260,
       "damping": 34,
       "mass": 1.0,
+      "restDelta": 0.01,
       "desc": "Accordions, cards, smooth folds"
     },
     "editorial": {
@@ -20,6 +49,7 @@
       "stiffness": 140,
       "damping": 22,
       "mass": 1.2,
+      "restDelta": 0.01,
       "desc": "Hero image reveals, large text slides"
     },
     "magnetic": {
@@ -27,24 +57,33 @@
       "stiffness": 400,
       "damping": 30,
       "mass": 0.5,
+      "restDelta": 0.001,
       "desc": "Cursor tracking, floating icons"
     }
   },
   "typography_rules": {
-    "display_tracking": "-0.04em to -0.05em (tight negative letter-spacing for large titles)",
+    "display_tracking": "-0.04em to -0.055em (tight negative letter-spacing for large titles)",
     "display_line_height": "1.05em to 1.15em",
+    "fluid_clamp": "clamp(2.5rem, 6vw, 5rem)",
     "label_metadata": "uppercase, letter-spacing: 0.12em, font-family: monospace, font-size: 11px to 13px",
     "font_pairings": [
       {
-        "heading": "Syne / Clash Display / Inter Tight",
-        "body": "Inter / Plus Jakarta Sans",
-        "mono": "JetBrains Mono"
+        "heading": "Syne / Clash Display / Inter Tight / Outfit",
+        "body": "Inter / Plus Jakarta Sans / Geist",
+        "mono": "JetBrains Mono / Geist Mono"
       }
     ]
   },
   "surface_recipes": {
     "obsidian_glass": "background: rgba(19, 18, 16, 0.75); backdrop-filter: blur(20px); border: 1px solid rgba(255, 255, 255, 0.08);",
     "warm_light_glass": "background: rgba(250, 248, 245, 0.85); backdrop-filter: blur(20px); border: 1px solid rgba(0, 0, 0, 0.06);",
-    "inner_glow": "box-shadow: inset 0 1px 1px 0 rgba(255, 255, 255, 0.15);"
+    "inner_glow": "box-shadow: inset 0 1px 1px 0 rgba(255, 255, 255, 0.15);",
+    "subtle_grain": "background-image: radial-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 0);"
+  },
+  "headless_and_tokens": {
+    "primitives": "Radix UI / React Aria (unstyled, full keyboard navigation and ARIA attributes)",
+    "styling": "Tailwind with semantic CSS variables (bg-background, text-foreground, border-border, bg-primary)",
+    "forms": "FieldGroup + Field + ToggleGroup (no raw div layout for forms)",
+    "iconography": "Iconsax 24x24 single-style (Linear or Two-tone) with aria-hidden for decorative and sr-only for actionable"
   }
 }

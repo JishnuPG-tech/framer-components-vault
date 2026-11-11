@@ -69,7 +69,7 @@ export function applyAutomatedRepairs(findings, rootDir = process.cwd()) {
         if (/transition\s*:\s*["']?[^"';{}]*(?:all\s+0\.[1-5]s|ease-in-out|0\.3s\s+ease)[^"';{}]*["']?/i.test(content)) {
           content = content.replace(
             /transition\s*:\s*["']?[^"';{}]*(?:all\s+0\.[1-5]s|ease-in-out|0\.3s\s+ease)[^"';{}]*["']?/gi,
-            'transition: "all 0.4s cubic-bezier(0.16, 1, 0.3, 1)"'
+            'transition: "transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1)"'
           );
           changed = true;
         }
@@ -79,17 +79,17 @@ export function applyAutomatedRepairs(findings, rootDir = process.cwd()) {
         }
       }
 
-      // 2. Accessibility repairs
+      // 2. Accessibility repairs (idempotent guards prevent duplicate expansions when multiple a11y findings occur)
       if (f.ruleId === 'A11Y-GATE-FAILURE') {
-        if (/\boutline-none\b(?![^"']*focus-visible)/i.test(content)) {
-          content = content.replace(/\boutline-none\b/gi, 'focus-visible:ring-2 focus-visible:ring-primary focus-visible:outline-none');
+        if (/\boutline-none\b/i.test(content) && !content.includes('focus-visible:ring') && !content.includes('focus:outline')) {
+          content = content.replace(/(?<!focus-visible:)\boutline-none\b/gi, 'focus-visible:ring-2 focus-visible:ring-primary focus-visible:outline-none');
           changed = true;
         }
         if (/<img(?![^>]*\balt=)/i.test(content)) {
-          content = content.replace(/<img\b/gi, '<img alt="" aria-hidden="true"');
+          content = content.replace(/<img(?![^>]*\balt=)/gi, '<img alt="" aria-hidden="true"');
           changed = true;
         }
-        if (/<button([^>]*\b(?:h-6|h-7|h-8|w-6|w-7|w-8)\b[^>]*)>/i.test(content)) {
+        if (/<button(?![^>]*min-h-\[44px\])([^>]*\b(?:h-6|h-7|h-8|w-6|w-7|w-8)\b[^>]*)>/i.test(content)) {
           content = content.replace(/<button([^>]*\b)(h-[6-8]|w-[6-8])\b/gi, '<button$1min-h-[44px] min-w-[44px] px-3 py-2');
           changed = true;
         }

@@ -1,0 +1,88 @@
+{
+  "score": 0,
+  "maxScore": 1000,
+  "passingScore": 850,
+  "passed": false,
+  "blocked": true,
+  "findings": [
+    {
+      "ruleId": "MOTION-UNCALIBRATED-TRANSITION",
+      "name": "Uncalibrated linear transition timing",
+      "severity": "minor",
+      "penalty": -70,
+      "category": "motion",
+      "evidence": "Uncalibrated linear transition detected: \"transition: \"all 0.3s ease\"\". Lacks calibrated spring physics.",
+      "location": "RepairedPricingCard.tsx",
+      "repairInstruction": "Replace linear ease with Framer Motion spring preset: { type: 'spring', stiffness: 320, damping: 28, mass: 0.8 } from craft_dna.json."
+    },
+    {
+      "ruleId": "COPY-PLACEHOLDER-LEAK",
+      "name": "Placeholder copy in finished product",
+      "severity": "major",
+      "penalty": -200,
+      "category": "content",
+      "evidence": "Unreplaced placeholder copy leak: \"Lorem ipsum\"",
+      "location": "RepairedPricingCard.tsx",
+      "repairInstruction": "Replace generic placeholder text with authentic, domain-specific terminology matching the product brief."
+    },
+    {
+      "ruleId": "TOKEN-RAW-STYLING-BYPASS",
+      "name": "Raw styling bypasses design tokens",
+      "severity": "minor",
+      "penalty": -70,
+      "category": "code",
+      "evidence": "Component has 1 raw hex styling override(s) (bg-[#3b82f6]), bypassing semantic theme tokens.",
+      "location": "RepairedPricingCard.tsx",
+      "repairInstruction": "Refactor raw hex colors to semantic theme variables (e.g. bg-background, text-foreground, border-border, bg-primary) or Astryx/StyleX theme tokens."
+    },
+    {
+      "ruleId": "A11Y-GATE-FAILURE",
+      "name": "Required accessibility gate fails",
+      "severity": "blocker",
+      "penalty": -1000,
+      "category": "accessibility",
+      "evidence": "Image element missing required alt attribute for accessibility.",
+      "location": "RepairedPricingCard.tsx",
+      "repairInstruction": "Add a descriptive alt attribute, or alt='' with aria-hidden='true' if decorative."
+    },
+    {
+      "ruleId": "A11Y-GATE-FAILURE",
+      "name": "Required accessibility gate fails",
+      "severity": "blocker",
+      "penalty": -1000,
+      "category": "accessibility",
+      "evidence": "Found 'outline: none' or 'outline-none' without a designated :focus-visible focus ring indicator. Traps keyboard navigators.",
+      "location": "RepairedPricingCard.tsx",
+      "repairInstruction": "Preserve browser focus rings or provide an explicit focus-visible ring: 'focus-visible:ring-2 focus-visible:ring-primary focus-visible:outline-none'."
+    },
+    {
+      "ruleId": "A11Y-GATE-FAILURE",
+      "name": "Required accessibility gate fails",
+      "severity": "blocker",
+      "penalty": -1000,
+      "category": "accessibility",
+      "evidence": "Interactive button target size appears below 44x44px WCAG touch target guideline.",
+      "location": "RepairedPricingCard.tsx",
+      "repairInstruction": "Ensure all interactive click/tap targets maintain at least 44x44px hit bounds (e.g. min-h-[44px] min-w-[44px] or ample padding)."
+    }
+  ],
+  "metrics": {
+    "totalFiles": 1,
+    "blockersCount": 3,
+    "majorsCount": 1,
+    "minorsCount": 2,
+    "passedGates": [
+      "build",
+      "interaction",
+      "responsive",
+      "content",
+      "design",
+      "code",
+      "motion"
+    ],
+    "failedGates": [
+      "accessibility"
+    ]
+  },
+  "timestamp": "2026-11-11T17:37:36.605Z"
+}

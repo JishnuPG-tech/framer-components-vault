@@ -8,6 +8,7 @@ on:
       - 'packages/**'
       - 'policies/**'
       - 'tools/**'
+      - '.github/workflows/quality-gate.yml'
   pull_request:
     branches: [ main ]
     paths:
@@ -15,6 +16,7 @@ on:
       - 'packages/**'
       - 'policies/**'
       - 'tools/**'
+      - '.github/workflows/quality-gate.yml'
   workflow_dispatch:
 
 concurrency:
@@ -36,11 +38,28 @@ jobs:
         with:
           node-version: 22
 
-      - name: Run Anti-Slop Unit & Repair Loop Tests
+      - name: Install Anti-Slop Engine Optional Playwright & Chromium
+        continue-on-error: true
+        run: |
+          cd packages/anti-slop-engine
+          npm install --no-audit --no-fund
+          npx playwright install chromium
+
+      - name: Run Anti-Slop Unit, Repair Loop & Live-URL Tests
         run: |
           cd packages/anti-slop-engine
           node --test tests/*.test.js
 
-      - name: Run Quality Gate Verification Against Accepted Fixtures
+      - name: Verify Accepted & Regression Reference Fixtures Pass
         run: |
           node packages/cli/bin/framer-craft.js verify fixtures/accepted
+          node packages/cli/bin/framer-craft.js verify fixtures/regression
+
+      - name: Verify Generic Slop Regression Fixture Correctly Fails
+        run: |
+          if node packages/cli/bin/framer-craft.js audit fixtures/generic; then
+            echo "ERROR: fixtures/generic unexpectedly passed the quality gate!"
+            exit 1
+          else
+            echo "PASS: fixtures/generic correctly blocked by quality gate."
+          fi
