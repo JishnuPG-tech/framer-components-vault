@@ -1,0 +1,16 @@
+# Artisanal Human-Art UI/UX & Framer Craft Directives
+
+## Source of Truth
+- Component Vault: https://github.com/JishnuPG-tech/framer-components-vault
+- Intelligence API: https://jishnupg-hermes.hf.space/preview/3000/api
+
+## Rules for Frontend Code
+1. Never generate generic AI-slop (flat 0.3s ease transitions, plain 3-column cards, purple gradients).
+2. All animations must use Framer Motion springs:
+   - Snappy (buttons): { type: "spring", stiffness: 320, damping: 28, mass: 0.8 }
+   - Fluid (accordions, cards): { type: "spring", stiffness: 260, damping: 34, mass: 1.0 }
+   - Editorial (hero, image reveals): { type: "spring", stiffness: 140, damping: 22, mass: 1.2 }
+3. Large headlines (>32px) must use negative tracking (-0.04em to -0.055em) and tight line-height (1.05em to 1.12em).
+4. Micro-labels must be uppercase monospace (11px, letter-spacing: 0.12em).
+5. Surfaces: Liquid frosted glass (backdrop-blur, 1px rgba(255,255,255,0.08) border, inset 0 1px 1px highlight).
+6. Before writing components from scratch, query the Vault API (`GET /api/search?q=...`) to adapt human-crafted primitives.

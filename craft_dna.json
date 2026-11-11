@@ -1,0 +1,50 @@
+{
+  "philosophy": "Human-Artisanal Craft UI - Non-Generative, Physics-Driven, High-Contrast Typography",
+  "spring_presets": {
+    "snappy": {
+      "type": "spring",
+      "stiffness": 320,
+      "damping": 28,
+      "mass": 0.8,
+      "desc": "Buttons, badges, fast toggles"
+    },
+    "fluid": {
+      "type": "spring",
+      "stiffness": 260,
+      "damping": 34,
+      "mass": 1.0,
+      "desc": "Accordions, cards, smooth folds"
+    },
+    "editorial": {
+      "type": "spring",
+      "stiffness": 140,
+      "damping": 22,
+      "mass": 1.2,
+      "desc": "Hero image reveals, large text slides"
+    },
+    "magnetic": {
+      "type": "spring",
+      "stiffness": 400,
+      "damping": 30,
+      "mass": 0.5,
+      "desc": "Cursor tracking, floating icons"
+    }
+  },
+  "typography_rules": {
+    "display_tracking": "-0.04em to -0.05em (tight negative letter-spacing for large titles)",
+    "display_line_height": "1.05em to 1.15em",
+    "label_metadata": "uppercase, letter-spacing: 0.12em, font-family: monospace, font-size: 11px to 13px",
+    "font_pairings": [
+      {
+        "heading": "Syne / Clash Display / Inter Tight",
+        "body": "Inter / Plus Jakarta Sans",
+        "mono": "JetBrains Mono"
+      }
+    ]
+  },
+  "surface_recipes": {
+    "obsidian_glass": "background: rgba(19, 18, 16, 0.75); backdrop-filter: blur(20px); border: 1px solid rgba(255, 255, 255, 0.08);",
+    "warm_light_glass": "background: rgba(250, 248, 245, 0.85); backdrop-filter: blur(20px); border: 1px solid rgba(0, 0, 0, 0.06);",
+    "inner_glow": "box-shadow: inset 0 1px 1px 0 rgba(255, 255, 255, 0.15);"
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "name": "framer-craft",
+  "version": "1.0.0",
+  "description": "Instant component installer and AI craft engine for 900+ artisanal Framer components",
+  "type": "module",
+  "bin": {
+    "framer-craft": "./bin/framer-craft.js"
+  },
+  "keywords": [
+    "framer",
+    "framer-motion",
+    "react",
+    "nextjs",
+    "shadcn",
+    "components",
+    "ui",
+    "design-system",
+    "spring-physics"
+  ],
+  "author": "JishnuPG",
+  "license": "MIT"
+}
