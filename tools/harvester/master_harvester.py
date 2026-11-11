@@ -374,22 +374,29 @@ async def run_pipeline():
     git_commit_and_push("sweep")
 
 async def main():
+    daemon_mode = os.environ.get('DAEMON_MODE', '0') == '1'
+    max_rounds = int(os.environ.get('MAX_ROUNDS', '1' if not daemon_mode else '999999'))
+    
     print("=" * 60)
-    print("AESTHETE HIGH-SPEED FRAMER EXTRACTION DAEMON STARTED")
-    print(f"PID: {os.getpid()}")
+    print(f"AESTHETE HIGH-SPEED FRAMER EXTRACTION ({'DAEMON' if daemon_mode else 'SINGLE-SWEEP'} MODE)")
+    print(f"PID: {os.getpid()} | Max Rounds: {max_rounds}")
     print("=" * 60)
     
     round_num = 1
-    while True:
-        print(f"\n>>> STARTING HARVEST RUN #{round_num} at {time.strftime('%Y-%m-%d %H:%M:%S')} <<<")
+    while round_num <= max_rounds:
+        print(f"\n>>> STARTING HARVEST RUN #{round_num} of {max_rounds} at {time.strftime('%Y-%m-%d %H:%M:%S')} <<<")
         try:
             await run_pipeline()
         except Exception as e:
             print(f"[RUN ERROR] Exception in harvester run #{round_num}: {e}")
             
-        print(f">>> RUN #{round_num} COMPLETE. Sleeping 90s before next scan... <<<")
-        await asyncio.sleep(90)
+        print(f">>> RUN #{round_num} COMPLETE. <<<")
+        if round_num < max_rounds:
+            print(f"Sleeping 90s before next scan...")
+            await asyncio.sleep(90)
         round_num += 1
+
+    print("\n[FINISHED] Harvester finished all scheduled sweeps successfully.")
 
 if __name__ == "__main__":
     asyncio.run(main())

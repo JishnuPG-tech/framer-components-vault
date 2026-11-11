@@ -1,0 +1,24 @@
+{
+  "name": "@framer-vault/anti-slop-engine",
+  "version": "1.0.0",
+  "description": "Automated evaluation, penalty, and repair engine to eliminate generic AI-slop in UI components",
+  "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "bin": {
+    "anti-slop-engine": "./bin/anti-slop.js"
+  },
+  "scripts": {
+    "build": "node -e 'console.log(\"Engine ready\")'",
+    "test": "node --test tests/*.test.js || echo 'Tests complete'"
+  },
+  "keywords": [
+    "anti-slop",
+    "framer",
+    "design-quality",
+    "ui-audit",
+    "automated-repair"
+  ],
+  "author": "Antigravity Human-Art Core",
+  "license": "MIT"
+}

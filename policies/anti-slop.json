@@ -1,0 +1,128 @@
+{
+  "version": "1.0.0",
+  "name": "Framer Anti-Slop Evaluation & Quality Policy",
+  "passingScore": 800,
+  "maxScore": 1000,
+  "rules": [
+    {
+      "id": "BUILD-UNRESOLVED-IMPORTS",
+      "name": "Application build and unresolved imports",
+      "severity": "blocker",
+      "penalty": -1000,
+      "category": "build",
+      "enforcement": "block",
+      "description": "Component fails to compile, has missing dependencies or imports non-existent files.",
+      "repairInstruction": "Verify all import statements. Ensure referenced modules, packages, and local files exist and are correctly exported."
+    },
+    {
+      "id": "INTERACTION-BROKEN-ACTIONS",
+      "name": "Broken required interactions",
+      "severity": "blocker",
+      "penalty": -1000,
+      "category": "interaction",
+      "enforcement": "block",
+      "description": "Interactive elements (buttons, links, toggles) lack event handlers, onClick callbacks, or valid hrefs.",
+      "repairInstruction": "Provide functional onClick handlers or valid href targets. If intentionally disabled or static, apply appropriate aria-disabled or presentational roles."
+    },
+    {
+      "id": "A11Y-GATE-FAILURE",
+      "name": "Required accessibility gate fails",
+      "severity": "blocker",
+      "penalty": -1000,
+      "category": "accessibility",
+      "enforcement": "block",
+      "description": "Contrast ratio below WCAG AA (4.5:1 text, 3.0:1 controls), missing image alt attributes, or missing keyboard focus outline.",
+      "repairInstruction": "Ensure contrast >= 4.5:1. Replace outline:none with visible focus-visible indicators. Add descriptive alt text to all informative images."
+    },
+    {
+      "id": "LAYOUT-HORIZONTAL-OVERFLOW",
+      "name": "Horizontal overflow at supported viewports",
+      "severity": "blocker",
+      "penalty": -500,
+      "category": "responsive",
+      "enforcement": "block",
+      "description": "Content exceeds viewport width causing horizontal scrolling on desktop (1440px), tablet (768px), or mobile (375px).",
+      "repairInstruction": "Constrain wide elements with max-w-full, overflow-x-hidden, or responsive flex/grid layouts. Avoid fixed pixel widths exceeding 320px."
+    },
+    {
+      "id": "COPY-PLACEHOLDER-LEAK",
+      "name": "Placeholder copy in finished product",
+      "severity": "major",
+      "penalty": -200,
+      "category": "content",
+      "enforcement": "repair",
+      "description": "Detects dummy strings such as 'Lorem ipsum', 'Your Company', 'Feature title', 'John Doe', or unreplaced template copy.",
+      "repairInstruction": "Replace generic placeholder copy with realistic, context-specific product terminology and human-crafted copy."
+    },
+    {
+      "id": "DESIGN-GENERIC-TEMPLATE",
+      "name": "Generic template repeated without purpose",
+      "severity": "major",
+      "penalty": -150,
+      "category": "design",
+      "enforcement": "repair",
+      "description": "Rigid cookie-cutter sequence (Hero -> 3 identical cards -> Testimonials -> FAQ) without adapting to product narrative.",
+      "repairInstruction": "Vary section rhythm based on product narrative. Break formulaic layouts with asymmetrical showcases, lists, or interactive demonstrators."
+    },
+    {
+      "id": "DESIGN-UNMOTIVATED-GLOW",
+      "name": "Unmotivated default gradient or glow",
+      "severity": "major",
+      "penalty": -100,
+      "category": "design",
+      "enforcement": "repair",
+      "description": "Generic purple-to-blue or cyan radial glow orbs behind heroes signaling AI default styling (R-01).",
+      "repairInstruction": "Remove generic blurred gradient orbs. Replace with grounded brand colors, subtle ambient lighting, or texture from craft_dna.json."
+    },
+    {
+      "id": "DESIGN-IDENTICAL-CARD-REPETITION",
+      "name": "Identical cards repeated with no variation",
+      "severity": "major",
+      "penalty": -100,
+      "category": "design",
+      "enforcement": "repair",
+      "description": "Repetitive cards with identical padding, centered icon layout, and equal visual weight (R-14).",
+      "repairInstruction": "Introduce visual hierarchy: highlight the flagship feature with expanded media/interactive playground, while secondary items use compact treatments."
+    },
+    {
+      "id": "TOKEN-RAW-STYLING-BYPASS",
+      "name": "Raw styling bypasses design tokens",
+      "severity": "minor",
+      "penalty": -70,
+      "category": "code",
+      "enforcement": "repair",
+      "description": "Direct hardcoded hex colors (#3b82f6, #000, #fff) or non-standard pixel spacing instead of semantic tokens.",
+      "repairInstruction": "Refactor raw values to semantic tokens: bg-background, text-foreground, border-border, bg-primary."
+    },
+    {
+      "id": "DESIGN-EXCESSIVE-GLASSMORPHISM",
+      "name": "Excessive glassmorphism or decorative effects",
+      "severity": "minor",
+      "penalty": -60,
+      "category": "design",
+      "enforcement": "repair",
+      "description": "Simultaneous backdrop-filter blur on cards, navbar, modals, and sidebar flattening surface depth (R-10).",
+      "repairInstruction": "Dose-cap glassmorphism to at most 1-2 focal components. Keep primary background and cards solid matte."
+    },
+    {
+      "id": "DESIGN-INCONSISTENT-ICONS",
+      "name": "Inconsistent icon families or emoji icons",
+      "severity": "minor",
+      "penalty": -50,
+      "category": "design",
+      "enforcement": "repair",
+      "description": "Using emojis as UI icons or mixing disparate icon sets (e.g., mixing filled, outline, and dual-tone styles randomly).",
+      "repairInstruction": "Use a cohesive icon library (Iconsax 24x24 single-style) with consistent stroke widths and semantic colors."
+    },
+    {
+      "id": "MOTION-UNCALIBRATED-TRANSITION",
+      "name": "Uncalibrated linear transition timing",
+      "severity": "minor",
+      "penalty": -70,
+      "category": "motion",
+      "enforcement": "repair",
+      "description": "Using transition: all 0.3s ease or uncalibrated linear transitions instead of Framer Motion spring physics.",
+      "repairInstruction": "Replace linear easing with calibrated Framer Motion spring presets (snappy, fluid, editorial) from craft_dna.json."
+    }
+  ]
+}

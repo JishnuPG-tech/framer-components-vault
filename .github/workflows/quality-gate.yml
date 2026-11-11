@@ -1,0 +1,46 @@
+name: Anti-Slop Quality Gate
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - 'components/**'
+      - 'packages/**'
+      - 'policies/**'
+  pull_request:
+    branches: [ main ]
+    paths:
+      - 'components/**'
+      - 'packages/**'
+      - 'policies/**'
+  workflow_dispatch:
+
+concurrency:
+  group: quality-gate-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  audit-and-verify:
+    name: Evaluate Anti-Slop & Quality Gates
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: 'npm'
+          cache-dependency-path: 'packages/anti-slop-engine/package.json'
+
+      - name: Run Anti-Slop Unit Tests
+        run: |
+          cd packages/anti-slop-engine
+          node --test tests/*.test.js
+
+      - name: Run Framer Craft Verification
+        run: |
+          node packages/cli/bin/framer-craft.js verify components/accordions
