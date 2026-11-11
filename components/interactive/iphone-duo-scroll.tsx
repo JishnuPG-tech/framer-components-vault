@@ -1,0 +1,1849 @@
+import * as React from "react"
+// Standalone Framer Shim for Next.js / React
+const useIsStaticRenderer = () => false;
+const addPropertyControls = () => {};
+const ControlType = {
+    Boolean: 'boolean', Number: 'number', String: 'string',
+    Color: 'color', Enum: 'enum', Object: 'object',
+    Array: 'array', Image: 'image', ResponsiveImage: 'responsiveImage',
+    Font: 'font', Transition: 'transition', Link: 'link'
+};
+
+import * as THREE from "./vendor/THREE.tsx"
+import { USDCParser } from "./vendor/USDCParser.tsx"
+import { USDAParser } from "./vendor/USDAParser.tsx"
+import { USDComposer } from "./vendor/USDComposer.tsx"
+import { unzipSync } from "./vendor/fflate_module.tsx"
+import { RoomEnvironment } from "./vendor/RoomEnvironment.tsx"
+
+// The local vendor files are JavaScript bundles without declaration files.
+// Keep their runtime exports while preventing TypeScript from inferring
+// incomplete public APIs from the bundled implementation details.
+const Three: any = THREE
+const CanvasTexture: any = Three.CanvasTexture
+
+interface ResponsiveImageValue {
+    src?: string
+    srcSet?: string
+    alt?: string
+}
+
+type ClockMode = "static" | "live"
+type TimeFormat = "auto" | "12-hour" | "24-hour"
+type ScreenFit = "cover" | "contain"
+type PhoneFinish = "star-white" | "night-sky"
+
+interface LockScreenUIOptions {
+    showClock: boolean
+    showWifi: boolean
+    showQuickActions: boolean
+}
+
+interface DisplayOptions {
+    screen: string
+    clockMode: ClockMode
+    timeFormat: TimeFormat
+    clockColor: string
+    timeFont: React.CSSProperties
+    dateFont: React.CSSProperties
+    timeOffsetY: number
+    showClock: boolean
+    showWifi: boolean
+    showQuickActions: boolean
+    innerImageSrc: string
+    outerImageSrc: string
+    imageFit: ScreenFit
+}
+
+function canvasFont(
+    style: React.CSSProperties,
+    defaultSize: number,
+    defaultWeight: number
+) {
+    const parsedSize = Number.parseFloat(String(style?.fontSize ?? defaultSize))
+    const size = Number.isFinite(parsedSize) ? parsedSize : defaultSize
+    const family =
+        style?.fontFamily ||
+        '-apple-system, BlinkMacSystemFont, "SF Pro Display", system-ui, sans-serif'
+    const rawWeight = String(
+        style?.fontWeight || (style as any)?.variant || style?.fontStyle || ""
+    )
+    const weight = /thin/i.test(rawWeight)
+        ? 100
+        : /extra.?light/i.test(rawWeight)
+          ? 200
+          : /light/i.test(rawWeight)
+            ? 300
+            : /medium/i.test(rawWeight)
+              ? 500
+              : /semi.?bold/i.test(rawWeight)
+                ? 600
+                : /bold/i.test(rawWeight)
+                  ? 700
+                  : Number.isFinite(Number(rawWeight))
+                    ? Number(rawWeight)
+                    : defaultWeight
+    const fontStyle =
+        style?.fontStyle === "italic" || style?.fontStyle === "oblique"
+            ? style.fontStyle
+            : "normal"
+    return `${fontStyle} ${weight} ${size}px ${family}`
+}
+
+function loadImageSource(src: string) {
+    return new Promise<HTMLImageElement>((resolve, reject) => {
+        const image = new Image()
+        image.crossOrigin = "anonymous"
+        image.onload = () => resolve(image)
+        image.onerror = () => reject(new Error(`Image unavailable: ${src}`))
+        image.src = src
+    })
+}
+
+function drawFittedImage(
+    context: CanvasRenderingContext2D,
+    image: HTMLImageElement,
+    width: number,
+    height: number,
+    fit: ScreenFit
+) {
+    const imageWidth = image.naturalWidth || image.width
+    const imageHeight = image.naturalHeight || image.height
+    const scale =
+        fit === "contain"
+            ? Math.min(width / imageWidth, height / imageHeight)
+            : Math.max(width / imageWidth, height / imageHeight)
+    const drawWidth = imageWidth * scale
+    const drawHeight = imageHeight * scale
+    context.drawImage(
+        image,
+        (width - drawWidth) / 2,
+        (height - drawHeight) / 2,
+        drawWidth,
+        drawHeight
+    )
+}
+
+function liveClockText(now: Date, timeFormat: TimeFormat) {
+    const hour12 =
+        timeFormat === "12-hour"
+            ? true
+            : timeFormat === "24-hour"
+              ? false
+              : undefined
+    const formatter = new Intl.DateTimeFormat(undefined, {
+        hour: "numeric",
+        minute: "2-digit",
+        ...(hour12 === undefined ? {} : { hour12 }),
+    })
+    const parts = formatter.formatToParts(now)
+    const hour = parts.find((part) => part.type === "hour")?.value || "9"
+    const minute = parts.find((part) => part.type === "minute")?.value || "41"
+    const date = new Intl.DateTimeFormat(undefined, {
+        weekday: "short",
+        month: "short",
+        day: "numeric",
+    })
+        .format(now)
+        .replace(/,/g, "")
+    return { time: `${hour}:${minute}`, date }
+}
+
+const MODEL_PACKAGE_URL =
+    "https://framerusercontent.com/assets/036xdneo3RgAYpg7Q4WYwtwc.zip"
+
+async function loadOpenUSD(phoneFinish: PhoneFinish) {
+    const response = await fetch(MODEL_PACKAGE_URL)
+    if (!response.ok) throw new Error("USD package unavailable")
+    const files = unzipSync(new Uint8Array(await response.arrayBuffer()), {})
+    const assets: Record<string, any> = {}
+    const binary = new USDCParser(),
+        ascii = new USDAParser()
+    const decoder = new TextDecoder()
+    const rootFile =
+        phoneFinish === "night-sky" ? "duo-night.usdc" : "duo-star.usdc"
+    const root = Object.keys(files).find(
+        (name) => name.split("/").pop() === rootFile
+    )
+    if (!root) throw new Error("USD root layer missing")
+    for (const [name, bytes] of Object.entries(files) as [
+        string,
+        Uint8Array,
+    ][]) {
+        if (/\.(usd|usda|usdc)$/i.test(name)) {
+            assets[name] =
+                decoder.decode(bytes.subarray(0, 8)) === "PXR-USDC"
+                    ? binary.parseData(
+                          bytes.buffer.slice(
+                              bytes.byteOffset,
+                              bytes.byteOffset + bytes.byteLength
+                          )
+                      )
+                    : ascii.parseData(decoder.decode(bytes))
+        } else assets[name] = bytes
+    }
+    const composer: any = new USDComposer()
+    const model = composer.compose(
+        assets[root],
+        assets,
+        {},
+        root.includes("/") ? root.slice(0, root.lastIndexOf("/") + 1) : ""
+    )
+    await Promise.all(composer.texturePromises)
+    return model
+}
+
+function createDuoScene(
+    viewport: HTMLDivElement,
+    onReady: () => void,
+    onError: () => void,
+    initialDisplayOptions: DisplayOptions,
+    isStaticPreview: boolean,
+    phoneFinish: PhoneFinish
+) {
+    let disposed = false
+    async function loadDefaultUIs() {
+        const images = Object.fromEntries(
+            await Promise.all(
+                [
+                    "wallpaper-inner.avif",
+                    "clock-inner.avif",
+                    "clock-outer.avif",
+                    "launcher-inner.png",
+                    "launcher-outer.png",
+                ].map(async (name) => {
+                    const image = new Image()
+                    image.crossOrigin = "anonymous"
+                    const suppliedImages: Record<string, string> = {
+                        "wallpaper-inner.avif":
+                            "https://framerusercontent.com/images/jfhLaeG2jyJBYY1M7KfVuII3X0.jpeg",
+                        "clock-inner.avif":
+                            "https://framerusercontent.com/images/3JoKsElnkoE0LmR6XZoQsRmNY.avif",
+                        "clock-outer.avif":
+                            "https://framerusercontent.com/images/Ro2yThb7aZebFfBfGU3bd8QXFp4.avif",
+                        "launcher-inner.png":
+                            "https://framerusercontent.com/images/j1avd8uweIqkEgST6jVnAp1k0.png",
+                        "launcher-outer.png":
+                            "https://framerusercontent.com/images/vkndhYiNh4ZKMZtQcj9ntIGBA.png",
+                    }
+                    const source = suppliedImages[name]
+                    if (!source) throw new Error(`Missing UI asset: ${name}`)
+                    image.src = source
+                    await image.decode()
+                    return [name, image]
+                })
+            )
+        )
+        const themes: Record<string, Record<string, HTMLCanvasElement>> = {
+            wallpaper: {},
+            launcher: {},
+        }
+        const innerWidth = 1600
+        for (const [theme, screens] of Object.entries(themes)) {
+            for (const kind of ["inner", "outer"]) {
+                const canvas = document.createElement("canvas")
+                canvas.width = kind === "inner" ? innerWidth : 774
+                canvas.height = 1125
+                const context = canvas.getContext("2d")
+                if (!context) throw new Error("Canvas 2D unavailable")
+                if (theme === "wallpaper") {
+                    context.drawImage(
+                        images["wallpaper-inner.avif"],
+                        canvas.width - innerWidth,
+                        0,
+                        innerWidth,
+                        canvas.height
+                    )
+                    context.drawImage(
+                        images[`clock-${kind}.avif`],
+                        0,
+                        0,
+                        canvas.width,
+                        canvas.height
+                    )
+                } else {
+                    // The HIG screenshots include a device frame; use only their display area.
+                    const crop =
+                        kind === "inner"
+                            ? [22, 22, 1072, 754]
+                            : [28, 16, 510, 742]
+                    context.drawImage(
+                        images[`launcher-${kind}.png`],
+                        crop[0],
+                        crop[1],
+                        crop[2],
+                        crop[3],
+                        0,
+                        0,
+                        canvas.width,
+                        canvas.height
+                    )
+                }
+                screens[kind] = canvas
+            }
+        }
+        return { images, themes }
+    }
+
+    const scene = new Three.Scene()
+    const camera = new Three.PerspectiveCamera(32, 1, 0.1, 250)
+    camera.position.set(0, 0, 40)
+    const renderer = new Three.WebGLRenderer({ antialias: true, alpha: true })
+    renderer.setPixelRatio(Math.min(devicePixelRatio, 2))
+    renderer.setClearColor(0xf6f6f3, 0)
+    renderer.toneMapping = Three.ACESFilmicToneMapping
+    renderer.toneMappingExposure = 1.18
+    viewport.appendChild(renderer.domElement)
+    const environment = new RoomEnvironment()
+    const pmrem = new Three.PMREMGenerator(renderer)
+    scene.environment = pmrem.fromScene(environment, 0.04).texture
+    environment.dispose()
+    pmrem.dispose()
+    scene.environmentIntensity = 1.35
+    scene.add(new Three.HemisphereLight(0xffffff, 0xb5baa8, 1.8))
+    const key = new Three.DirectionalLight(0xfffcf5, 2.6)
+    key.position.set(-15, 25, 30)
+    scene.add(key)
+    const rim = new Three.DirectionalLight(0xe8edf5, 2)
+    rim.position.set(15, 5, -15)
+    scene.add(rim)
+    camera.lookAt(0, 0, 0.275454)
+    const phone = new Three.Group()
+    scene.add(phone)
+    const bend = { value: 0 }
+    const blurStrength = { value: 1 }
+    const reflectionStrength = { value: 0 }
+    let angle = 0
+    let requestedProgress = 0
+    let sizeMultiplier = 1
+    let visible = true
+    let dirty = true
+    let playing = false
+    let phase = 0
+    let transition = null
+    let ready = false
+    const screens: Record<string, any> = {}
+    let displayOptions = initialDisplayOptions
+    let liveClockTimer = 0
+    let displayRenderRun = 0
+    let updateScene:
+        | ((
+              p: number,
+              size: number,
+              options: DisplayOptions,
+              blur: number,
+              reflection: number,
+              visible: boolean
+          ) => void)
+        | null = null
+    let resizeObserver: ResizeObserver | null = null
+    const uiReferenceEye = new Three.Vector3(0, 0, 40)
+    const innerUIFrame = new Three.Vector4(
+        -7.89935,
+        0.34562 - 5.8974,
+        15.7987,
+        11.1035
+    )
+    const outerUIFrame = new Three.Vector4(
+        0.23396,
+        0.27173 - 5.8974,
+        7.73936,
+        11.2513
+    ).multiplyScalar(
+        (uiReferenceEye.z - 0.24948) / (uiReferenceEye.z - 0.825538)
+    )
+    async function load() {
+        const { images: uiImages, themes: defaultUIs } = await loadDefaultUIs()
+        if (disposed) return
+        for (const kind of ["inner", "outer"]) {
+            const defaultTextures: Record<string, any> = {}
+            for (const [theme, canvases] of Object.entries(defaultUIs)) {
+                const texture = new CanvasTexture(canvases[kind])
+                texture.colorSpace = Three.SRGBColorSpace
+                texture.anisotropy = renderer.capabilities.getMaxAnisotropy()
+                defaultTextures[theme] = texture
+            }
+            const dynamicCanvas = document.createElement("canvas")
+            dynamicCanvas.width = kind === "inner" ? 1600 : 774
+            dynamicCanvas.height = 1125
+            const backgroundCanvas = document.createElement("canvas")
+            backgroundCanvas.width = dynamicCanvas.width
+            backgroundCanvas.height = dynamicCanvas.height
+            const dynamicTexture = new CanvasTexture(dynamicCanvas)
+            dynamicTexture.colorSpace = Three.SRGBColorSpace
+            dynamicTexture.anisotropy = renderer.capabilities.getMaxAnisotropy()
+            const material = new Three.MeshBasicMaterial({
+                map: defaultTextures.wallpaper,
+                toneMapped: false,
+            })
+            screens[kind] = {
+                material,
+                defaultTextures,
+                dynamicCanvas,
+                backgroundCanvas,
+                dynamicTexture,
+                frame: {
+                    value: (kind === "inner"
+                        ? innerUIFrame
+                        : outerUIFrame
+                    ).clone(),
+                },
+                gradient: {
+                    value: new Three.Vector2(
+                        kind === "inner" ? 0.5 : 0,
+                        kind === "inner" ? 0 : 1
+                    ),
+                },
+                pixel: {
+                    value: new Three.Vector2(
+                        1 / defaultUIs.wallpaper[kind].width,
+                        1 / defaultUIs.wallpaper[kind].height
+                    ),
+                },
+            }
+        }
+        function applyScreenTexture(kind: string, texture: any) {
+            const screen = screens[kind]
+            screen.material.map = texture
+            screen.pixel.value.set(
+                1 / texture.image.width,
+                1 / texture.image.height
+            )
+            screen.frame.value.copy(
+                kind === "inner" ? innerUIFrame : outerUIFrame
+            )
+            screen.gradient.value.set(
+                kind === "inner" ? 0.5 : 0,
+                kind === "inner" ? 0 : 1
+            )
+            screen.material.needsUpdate = true
+        }
+        function showDefaultUI(theme: "wallpaper" | "launcher") {
+            for (const [kind, screen] of Object.entries(screens)) {
+                applyScreenTexture(kind, screen.defaultTextures[theme])
+            }
+            dirty = true
+        }
+        function drawDefaultWallpaper(
+            context: CanvasRenderingContext2D,
+            canvas: HTMLCanvasElement
+        ) {
+            const innerWidth = 1600
+            context.drawImage(
+                uiImages["wallpaper-inner.avif"],
+                canvas.width - innerWidth,
+                0,
+                innerWidth,
+                canvas.height
+            )
+        }
+        function drawClockOverlay(
+            context: CanvasRenderingContext2D,
+            canvas: HTMLCanvasElement,
+            kind: string,
+            options: DisplayOptions,
+            backgroundCanvas: HTMLCanvasElement
+        ) {
+            context.drawImage(
+                uiImages[`clock-${kind}.avif`],
+                0,
+                0,
+                canvas.width,
+                canvas.height
+            )
+            const inner = kind === "inner"
+            const restoreRegion = (region: number[]) => {
+                const sourceX = Math.round(region[0] * canvas.width)
+                const sourceY = Math.round(region[1] * canvas.height)
+                const sourceWidth = Math.round(region[2] * canvas.width)
+                const sourceHeight = Math.round(region[3] * canvas.height)
+                context.drawImage(
+                    backgroundCanvas,
+                    sourceX,
+                    sourceY,
+                    sourceWidth,
+                    sourceHeight,
+                    sourceX,
+                    sourceY,
+                    sourceWidth,
+                    sourceHeight
+                )
+            }
+            const clockRegion = inner
+                ? [0.31, 0.025, 0.34, 0.37]
+                : [0.1, 0.025, 0.58, 0.37]
+            const wifiRegion = inner
+                ? [0.91, 0.025, 0.08, 0.095]
+                : [0.82, 0.105, 0.15, 0.105]
+            const quickActionsRegion = inner
+                ? [0.905, 0.75, 0.085, 0.22]
+                : [0.81, 0.75, 0.17, 0.22]
+
+            if (options.clockMode === "live" || !options.showClock)
+                restoreRegion(clockRegion)
+            if (!options.showWifi) restoreRegion(wifiRegion)
+            if (!options.showQuickActions) restoreRegion(quickActionsRegion)
+            if (options.clockMode !== "live" || !options.showClock) return
+
+            const { time, date } = liveClockText(new Date(), options.timeFormat)
+            const clockCenterX = canvas.width / 2
+            context.save()
+            context.fillStyle = options.clockColor
+            context.textAlign = "center"
+            context.textBaseline = "middle"
+            context.font = canvasFont(options.dateFont, 29, 700)
+            ;(context as any).letterSpacing = String(
+                options.dateFont?.letterSpacing || "0px"
+            )
+            context.fillText(date, clockCenterX, canvas.height * 0.073)
+            context.font = canvasFont(options.timeFont, inner ? 320 : 338, 300)
+            ;(context as any).letterSpacing = String(
+                options.timeFont?.letterSpacing || "0px"
+            )
+            context.fillText(
+                time,
+                clockCenterX,
+                canvas.height * (inner ? 0.245 : 0.255) + options.timeOffsetY
+            )
+            context.restore()
+        }
+        async function renderDisplay(options: DisplayOptions) {
+            displayOptions = options
+            const run = ++displayRenderRun
+            window.clearTimeout(liveClockTimer)
+            liveClockTimer = 0
+
+            if (options.screen === "launcher") {
+                showDefaultUI("launcher")
+                return
+            }
+            const custom = options.screen === "custom"
+            const [innerImage, outerImage] = await Promise.all([
+                custom && options.innerImageSrc
+                    ? loadImageSource(options.innerImageSrc).catch(() => null)
+                    : Promise.resolve(null),
+                custom && options.outerImageSrc
+                    ? loadImageSource(options.outerImageSrc).catch(() => null)
+                    : Promise.resolve(null),
+            ])
+            if (
+                options.clockMode === "live" &&
+                options.showClock &&
+                document.fonts
+            )
+                await document.fonts.ready
+            if (disposed || run !== displayRenderRun) return
+
+            for (const kind of ["inner", "outer"]) {
+                const screen = screens[kind]
+                const canvas = screen.dynamicCanvas as HTMLCanvasElement
+                const context = canvas.getContext("2d")
+                const backgroundCanvas =
+                    screen.backgroundCanvas as HTMLCanvasElement
+                const backgroundContext = backgroundCanvas.getContext("2d")
+                if (!context || !backgroundContext) continue
+                const customImage = kind === "inner" ? innerImage : outerImage
+                const drawBackground = () => {
+                    backgroundContext.clearRect(
+                        0,
+                        0,
+                        canvas.width,
+                        canvas.height
+                    )
+                    backgroundContext.fillStyle = "#000"
+                    backgroundContext.fillRect(
+                        0,
+                        0,
+                        canvas.width,
+                        canvas.height
+                    )
+                    if (customImage) {
+                        drawFittedImage(
+                            backgroundContext,
+                            customImage,
+                            canvas.width,
+                            canvas.height,
+                            options.imageFit
+                        )
+                    } else {
+                        drawDefaultWallpaper(backgroundContext, canvas)
+                    }
+                }
+                drawBackground()
+                context.clearRect(0, 0, canvas.width, canvas.height)
+                context.drawImage(backgroundCanvas, 0, 0)
+                drawClockOverlay(
+                    context,
+                    canvas,
+                    kind,
+                    options,
+                    backgroundCanvas
+                )
+                screen.dynamicTexture.needsUpdate = true
+                applyScreenTexture(kind, screen.dynamicTexture)
+            }
+            dirty = true
+
+            if (options.clockMode === "live" && options.showClock) {
+                const delay = 60000 - (Date.now() % 60000) + 50
+                liveClockTimer = window.setTimeout(
+                    () => void renderDisplay(displayOptions),
+                    delay
+                )
+            }
+        }
+        function setAngle(value: number) {
+            angle = value
+            bend.value = ((180 - value) / 180) * Math.PI
+            screens.outer.material.color.setScalar(value >= 180 ? 0 : 1)
+            const c = Math.cos(bend.value),
+                sn = Math.sin(bend.value)
+            const points = []
+            for (const x of [-8, 0])
+                for (const z of [0, 0.825])
+                    points.push([c * x + sn * z, -sn * x + c * z])
+            for (const x of [0, 8])
+                for (const z of [0, 0.825]) points.push([x, z])
+            let offset = 0
+            for (let i = 0; i < 4; i++) {
+                const projected = points.map(
+                    ([x, z]) => (x + offset) / (40 - z)
+                )
+                offset -= (Math.min(...projected) + Math.max(...projected)) * 18
+            }
+            phone.position.x = offset
+            uiReferenceEye.copy(camera.position).sub(phone.position)
+            dirty = true
+        }
+        function resize() {
+            const bounds = viewport.getBoundingClientRect()
+            const width = isStaticPreview ? viewport.clientWidth : bounds.width
+            const height = isStaticPreview
+                ? viewport.clientHeight
+                : bounds.height
+            if (!width || !height) return
+            renderer.setSize(width, height)
+            camera.aspect = width / height
+            const pixelsPerUnit =
+                Math.min(width / 20, height / 19, 44) * sizeMultiplier
+            camera.fov = Three.MathUtils.radToDeg(
+                2 * Math.atan(height / pixelsPerUnit / 2 / 40)
+            )
+            camera.updateProjectionMatrix()
+            dirty = true
+        }
+        resizeObserver = new ResizeObserver(resize)
+        resizeObserver.observe(viewport)
+
+        const screenShader = `
+uniform float foldAngle;
+uniform float uiBlur;
+uniform float uiReflection;
+uniform vec2 uiPixel;
+uniform vec4 uiFrame;
+uniform vec2 uiGradient;
+uniform vec3 uiReferenceEye;
+varying vec3 vUIPosition;
+vec3 screenColor() {
+  // Intersect the fixed front-view ray with the unfolded inner-screen plane.
+  float depth = (0.24948 - uiReferenceEye.z) / (vUIPosition.z - uiReferenceEye.z);
+  vec2 projected = uiReferenceEye.xy + (vUIPosition.xy - uiReferenceEye.xy) * depth;
+  vec2 sourceUV = (projected - uiFrame.xy) / uiFrame.zw;
+  #ifdef INNER_UI
+    float progress = clamp(foldAngle / 1.570796327, 0.0, 1.0);
+  #else
+    // Anchor the image to the projected hinge-side edge of the outer screen.
+    float c = cos(foldAngle), s = sin(foldAngle);
+    vec2 hingeEdge = vec2(-0.23396, -0.27463 - 0.275454);
+    vec2 foldedEdge = vec2(c * hingeEdge.x + s * hingeEdge.y,
+      -s * hingeEdge.x + c * hingeEdge.y + 0.275454);
+    float edgeDepth = (0.24948 - uiReferenceEye.z) / (foldedEdge.y - uiReferenceEye.z);
+    float anchorX = uiReferenceEye.x + (foldedEdge.x - uiReferenceEye.x) * edgeDepth;
+    sourceUV.x = uiGradient.x + (projected.x - anchorX) / uiFrame.z;
+    float progress = clamp((3.141592654 - foldAngle) / 1.570796327, 0.0, 1.0);
+  #endif
+  float edge = (sourceUV.x - uiGradient.x) / (uiGradient.y - uiGradient.x);
+  float motion = smoothstep(0.0, 1.0, progress);
+  float blurGradient = clamp(edge, 0.0, 1.0);
+  float darkenGradient = clamp((edge - 0.2) / 0.8, 0.0, 1.0);
+  float effect = motion * pow(darkenGradient, 1.35);
+  float radius = 72.0 * uiBlur * motion * pow(blurGradient, 1.35);
+  vec2 aa = max(fwidth(sourceUV), uiPixel * 0.5);
+  vec2 dx = dFdx(sourceUV) / uiPixel;
+  vec2 dy = dFdy(sourceUV) / uiPixel;
+  float baseLod = log2(max(1.0, max(length(dx), length(dy))));
+  vec2 coverage = smoothstep(-aa, aa, sourceUV)
+    * (1.0 - smoothstep(vec2(1.0) - aa, vec2(1.0) + aa, sourceUV));
+  vec3 color = textureLod(map, clamp(sourceUV, vec2(0.0), vec2(1.0)), baseLod).rgb * coverage.x * coverage.y;
+  if (radius > 0.0) {
+    // Use the same mip level at zero blur, then increase it continuously.
+    float lod = max(baseLod, log2(max(1.0, radius)));
+    vec2 footprint = max(aa, uiPixel * radius * 0.75);
+    color = vec3(0.0);
+    for (int y = -2; y <= 2; y++) {
+      for (int x = -2; x <= 2; x++) {
+        float wx = x == 0 ? 6.0 : (abs(x) == 1 ? 4.0 : 1.0);
+        float wy = y == 0 ? 6.0 : (abs(y) == 1 ? 4.0 : 1.0);
+        vec2 sampleUV = sourceUV + vec2(float(x), float(y)) * uiPixel * radius;
+        // Blur the image and its coverage together so color spreads into the black margin.
+        vec2 coverage = smoothstep(-footprint, footprint, sampleUV)
+          * (1.0 - smoothstep(vec2(1.0) - footprint, vec2(1.0) + footprint, sampleUV));
+        color += textureLod(map, clamp(sampleUV, vec2(0.0), vec2(1.0)), lod).rgb
+          * coverage.x * coverage.y * wx * wy / 256.0;
+      }
+    }
+  }
+  vec3 shaded = color * (1.0 - min(1.0, effect * 2.0));
+  float reflectionBand = pow(
+    max(0.0, 1.0 - abs((sourceUV.x + sourceUV.y * 0.18) - (0.3 + 0.38 * motion)) * 2.8),
+    3.0
+  );
+  float reflectionAmount = clamp(
+    uiReflection * reflectionBand * (0.03 + 0.17 * abs(sin(foldAngle)))
+      * coverage.x * coverage.y,
+    0.0,
+    0.3
+  );
+  return mix(shaded, vec3(1.0), reflectionAmount);
+}
+`
+
+        // The camera half stays in its original transform. Only the cover half rotates.
+        const foldShader = `
+uniform float foldAngle;
+vec2 rotateHinge(vec2 p) {
+  float c = cos(foldAngle), s = sin(foldAngle);
+  p.y -= 0.275454;
+  return vec2(c * p.x + s * p.y, -s * p.x + c * p.y + 0.275454);
+}
+#ifdef FLEXIBLE_SCREEN
+vec4 bendStrip(vec3 p) {
+  float halfWidth = 0.35;
+  if (p.x >= halfWidth) return vec4(p.x, p.z, 1.0, 0.0);
+  if (p.x <= -halfWidth) return vec4(rotateHinge(p.xz), cos(foldAngle), -sin(foldAngle));
+  float t = (p.x + halfWidth) / (2.0 * halfWidth);
+  float t2 = t*t, t3 = t2*t;
+  vec2 a = rotateHinge(vec2(-halfWidth, p.z));
+  vec2 b = vec2(halfWidth, p.z);
+  vec2 ta = 2.0 * halfWidth * vec2(cos(foldAngle), -sin(foldAngle));
+  vec2 tb = vec2(2.0 * halfWidth, 0.0);
+  vec2 point = (2.0*t3-3.0*t2+1.0)*a + (t3-2.0*t2+t)*ta + (-2.0*t3+3.0*t2)*b + (t3-t2)*tb;
+  vec2 tangent = normalize((6.0*t2-6.0*t)*a + (3.0*t2-4.0*t+1.0)*ta + (-6.0*t2+6.0*t)*b + (3.0*t2-2.0*t)*tb);
+  return vec4(point, tangent);
+}
+#endif
+`
+        try {
+            const model = await loadOpenUSD(phoneFinish)
+            const textures = new Set<any>()
+            model.traverse((object: any) => {
+                const materials = Array.isArray(object.material)
+                    ? object.material
+                    : [object.material]
+                for (const material of materials)
+                    if (material)
+                        for (const value of Object.values(material))
+                            if ((value as any)?.isTexture) textures.add(value)
+            })
+            await Promise.all(
+                Array.from(textures).map(async (texture) => {
+                    const src = texture.image?.src
+                    if (!src || !src.startsWith("http")) return
+                    const image = new Image()
+                    image.crossOrigin = "anonymous"
+                    image.src = src
+                    await image.decode()
+                    texture.image = image
+                    texture.needsUpdate = true
+                })
+            )
+            if (disposed) {
+                model.traverse((object: any) => {
+                    object.geometry?.dispose()
+                })
+                for (const texture of textures) texture.dispose()
+                return
+            }
+            model.scale.multiplyScalar(100)
+            model.updateMatrixWorld(true)
+            const count = { moving: 0, fixed: 0, flexible: 0 }
+            model.traverse((object: any) => {
+                if (!object.isMesh) return
+                const geometry = object.geometry
+                    .clone()
+                    .applyMatrix4(object.matrixWorld)
+                geometry.translate(0, -5.8974, 0)
+                let ancestor = object
+                while (
+                    ancestor &&
+                    !["upTUAKvMVkPOMKq", "SiftyleUEEZwLhF"].includes(
+                        ancestor.name
+                    )
+                )
+                    ancestor = ancestor.parent
+                const moving = ancestor?.name === "upTUAKvMVkPOMKq"
+                const flexible = [
+                    "JnJdTkxbQgUtLwU",
+                    "xdyyaajWsatVNxN",
+                    "UXtsBZYlaUvHoEh",
+                    "MvKPXGSdYDVvSpk",
+                ].includes(object.name)
+                const kind =
+                    object.name === "UXtsBZYlaUvHoEh"
+                        ? "inner"
+                        : object.name === "hhgAIoCGsHXeDPY"
+                          ? "outer"
+                          : null
+                const material = kind
+                    ? screens[kind].material
+                    : object.material.clone()
+                if (kind) {
+                    const p = geometry.attributes.position
+                    const uv = new Float32Array(p.count * 2)
+                    for (let i = 0; i < p.count; i++) {
+                        uv[i * 2] =
+                            kind === "inner"
+                                ? (p.getX(i) + 7.89935) / 15.7987
+                                : (-0.23396 - p.getX(i)) / 7.73936
+                        uv[i * 2 + 1] =
+                            kind === "inner"
+                                ? (p.getY(i) + 5.8974 - 0.34562) / 11.1035
+                                : (p.getY(i) + 5.8974 - 0.27173) / 11.2513
+                    }
+                    geometry.setAttribute(
+                        "uv",
+                        new Three.BufferAttribute(uv, 2)
+                    )
+                }
+                if (moving || flexible) {
+                    material.onBeforeCompile = (shader: any) => {
+                        shader.uniforms.foldAngle = bend
+                        if (kind) {
+                            shader.uniforms.uiBlur = blurStrength
+                            shader.uniforms.uiReflection = reflectionStrength
+                            shader.uniforms.uiFrame = screens[kind].frame
+                            shader.uniforms.uiGradient = screens[kind].gradient
+                            shader.uniforms.uiReferenceEye = {
+                                value: uiReferenceEye,
+                            }
+                            shader.uniforms.uiPixel = screens[kind].pixel
+                            shader.fragmentShader = shader.fragmentShader
+                                .replace(
+                                    "#include <map_pars_fragment>",
+                                    `
+            #include <map_pars_fragment>
+            ${kind === "inner" ? "#define INNER_UI" : ""}
+            ${screenShader}
+          `
+                                )
+                                .replace(
+                                    "#include <map_fragment>",
+                                    "diffuseColor.rgb *= screenColor();"
+                                )
+                            shader.vertexShader = `varying vec3 vUIPosition;\n${shader.vertexShader}`
+                            shader.vertexShader = shader.vertexShader.replace(
+                                "#include <project_vertex>",
+                                `
+            vUIPosition = transformed;
+            #include <project_vertex>
+          `
+                            )
+                        }
+                        shader.vertexShader = `${flexible ? "#define FLEXIBLE_SCREEN\n" : ""}${foldShader}\n${shader.vertexShader}`
+                        shader.vertexShader = shader.vertexShader.replace(
+                            "#include <begin_vertex>",
+                            flexible
+                                ? `
+          vec4 folded = bendStrip(position);
+          vec3 transformed = vec3(folded.x, position.y, folded.y);
+        `
+                                : `
+          vec2 folded = rotateHinge(position.xz);
+          vec3 transformed = vec3(folded.x, position.y, folded.y);
+        `
+                        )
+                        shader.vertexShader = shader.vertexShader.replace(
+                            "#include <beginnormal_vertex>",
+                            `
+          vec3 objectNormal = vec3(normal);
+          ${flexible ? "vec4 strip = bendStrip(position); float a = atan(-strip.w, strip.z);" : "float a = foldAngle;"}
+          objectNormal.x = cos(a) * normal.x + sin(a) * normal.z;
+          objectNormal.z = -sin(a) * normal.x + cos(a) * normal.z;
+        `
+                        )
+                    }
+                    material.customProgramCacheKey = () =>
+                        `${flexible ? "fold-flexible" : "fold-cover"}-${kind || "body"}`
+                }
+                const mesh = new Three.Mesh(geometry, material)
+                mesh.name = object.name
+                mesh.frustumCulled = false
+                phone.add(mesh)
+                count[flexible ? "flexible" : moving ? "moving" : "fixed"]++
+            })
+            console.info(
+                "Official model ready",
+                JSON.stringify({
+                    ...count,
+                    sourceMeshes: phone.children.length,
+                    innerUI: true,
+                    outerUI: true,
+                    fixedHalf: "rear camera",
+                })
+            )
+            await renderDisplay(displayOptions)
+
+            updateScene = (
+                progress,
+                size,
+                options,
+                blur,
+                reflection,
+                isVisible
+            ) => {
+                visible = isVisible
+                const nextBlur = Math.max(0, Math.min(2, blur))
+                const nextReflection = Math.max(0, Math.min(1, reflection))
+                if (
+                    nextBlur !== blurStrength.value ||
+                    nextReflection !== reflectionStrength.value
+                ) {
+                    blurStrength.value = nextBlur
+                    reflectionStrength.value = nextReflection
+                    dirty = true
+                }
+                if (size !== sizeMultiplier) {
+                    sizeMultiplier = size
+                    resize()
+                }
+                const currentKey = JSON.stringify(displayOptions)
+                const nextKey = JSON.stringify(options)
+                if (currentKey !== nextKey) void renderDisplay(options)
+                setAngle(progress * 180)
+            }
+            ready = true
+            setAngle(requestedProgress * 180)
+        } catch (error) {
+            onError()
+            console.error(error)
+        }
+
+        resize()
+        let firstFrameSent = false
+        renderer.setAnimationLoop(() => {
+            if (disposed || !ready || !visible || !dirty) return
+            renderer.render(scene, camera)
+            dirty = false
+            if (!firstFrameSent) {
+                firstFrameSent = true
+                onReady()
+            }
+        })
+    }
+    void load().catch(() => {
+        if (!disposed) onError()
+    })
+    return {
+        update(
+            progress: number,
+            size: number,
+            options: DisplayOptions,
+            blur: number,
+            reflection: number,
+            isVisible: boolean
+        ) {
+            requestedProgress = progress
+            if (!updateScene) sizeMultiplier = size
+            if (!updateScene) {
+                blurStrength.value = Math.max(0, Math.min(2, blur))
+                reflectionStrength.value = Math.max(0, Math.min(1, reflection))
+            }
+            visible = isVisible
+            if (!updateScene) displayOptions = options
+            updateScene?.(progress, size, options, blur, reflection, isVisible)
+        },
+        dispose() {
+            disposed = true
+            window.clearTimeout(liveClockTimer)
+            displayRenderRun++
+            resizeObserver?.disconnect()
+            renderer.setAnimationLoop(null)
+            phone.traverse((object: any) => {
+                object.geometry?.dispose()
+                const materials = Array.isArray(object.material)
+                    ? object.material
+                    : [object.material]
+                for (const material of materials) {
+                    if (!material) continue
+                    for (const value of Object.values(material))
+                        if ((value as any)?.isTexture) (value as any).dispose()
+                    material.dispose()
+                }
+            })
+            for (const screen of Object.values(screens))
+                for (const texture of Object.values(screen.defaultTextures))
+                    (texture as any).dispose()
+            for (const screen of Object.values(screens))
+                screen.dynamicTexture?.dispose()
+            scene.environment?.dispose()
+            renderer.dispose()
+            renderer.domElement.remove()
+        },
+    }
+}
+
+interface Props {
+    interactionMode: "scroll" | "drag"
+    dragInitialFold: number
+    dragSensitivity: number
+    scrollLength: number
+    reverseAnimation: boolean
+    phoneSize: number
+    phoneFinish: PhoneFinish
+    background: string
+    screenBlur: number
+    screenReflection: number
+    screen: string
+    clockMode: ClockMode
+    timeFormat: TimeFormat
+    clockColor: string
+    timeFont: React.CSSProperties
+    dateFont: React.CSSProperties
+    timeOffsetY: number
+    lockScreenUI: LockScreenUIOptions
+    innerImage?: ResponsiveImageValue
+    outerImage?: ResponsiveImageValue
+    imageFit: ScreenFit
+    canvasPreviewEnabled: boolean
+    previewFold: number
+    loaderColor: string
+    loaderOpacity: number
+    loaderStyle: "fold" | "spinner"
+    style?: React.CSSProperties
+}
+/**
+ * @framerIntrinsicWidth 1200
+ * @framerIntrinsicHeight 800
+ * @framerSupportedLayoutWidth any-prefer-fixed
+ * @framerSupportedLayoutHeight auto
+ * @framerDisableUnlink
+ */
+export default function IphoneDuoScroll(props: Props) {
+    const {
+        interactionMode = "scroll",
+        dragInitialFold = 0,
+        dragSensitivity = 200,
+        scrollLength = 180,
+        reverseAnimation = false,
+        phoneSize = 1,
+        phoneFinish = "star-white",
+        background = "#f6f6f3",
+        screenBlur = 1,
+        screenReflection = 0,
+        screen = "wallpaper",
+        clockMode = "static",
+        timeFormat = "auto",
+        clockColor = "#FFFFFF",
+        timeFont = {
+            fontFamily: "Inter",
+            fontSize: "320px",
+            fontWeight: 300,
+        },
+        dateFont = {
+            fontFamily: "Inter",
+            fontSize: "29px",
+            fontWeight: 700,
+        },
+        timeOffsetY = 0,
+        lockScreenUI = {
+            showClock: true,
+            showWifi: true,
+            showQuickActions: true,
+        },
+        innerImage,
+        outerImage,
+        imageFit = "cover",
+        canvasPreviewEnabled = false,
+        previewFold = 100,
+        loaderColor = "#858580",
+        loaderOpacity = 0.5,
+        loaderStyle = "fold",
+        style,
+    } = props
+    const displayOptions = React.useMemo<DisplayOptions>(
+        () => ({
+            screen,
+            clockMode,
+            timeFormat,
+            clockColor,
+            timeFont,
+            dateFont,
+            timeOffsetY,
+            showClock: lockScreenUI?.showClock ?? true,
+            showWifi: lockScreenUI?.showWifi ?? true,
+            showQuickActions: lockScreenUI?.showQuickActions ?? true,
+            innerImageSrc: innerImage?.src || "",
+            outerImageSrc: outerImage?.src || "",
+            imageFit,
+        }),
+        [
+            screen,
+            clockMode,
+            timeFormat,
+            clockColor,
+            timeFont,
+            dateFont,
+            timeOffsetY,
+            lockScreenUI?.showClock,
+            lockScreenUI?.showWifi,
+            lockScreenUI?.showQuickActions,
+            innerImage?.src,
+            outerImage?.src,
+            imageFit,
+        ]
+    )
+    const initialDisplayOptions = React.useRef(displayOptions)
+    const section = React.useRef<HTMLDivElement>(null)
+    const viewportRef = React.useRef<HTMLDivElement>(null)
+    const sceneRef = React.useRef<ReturnType<typeof createDuoScene> | null>(
+        null
+    )
+    const refreshRef = React.useRef<() => void>(() => {})
+    const [loadState, setLoadState] = React.useState<
+        "loading" | "ready" | "error"
+    >("loading")
+    const canvas = RenderTarget.current() === RenderTarget.canvas
+    const isStaticRenderer = useIsStaticRenderer()
+    const staticPreview = canvas || isStaticRenderer
+    const dragProgressRef = React.useRef(
+        Math.max(0, Math.min(1, dragInitialFold / 100))
+    )
+    const [dragProgress, setDragProgress] = React.useState(
+        dragProgressRef.current
+    )
+    const [isDragging, setIsDragging] = React.useState(false)
+    const dragGesture = React.useRef<{
+        pointerId: number
+        startX: number
+        startY: number
+        startProgress: number
+        axis: "pending" | "horizontal" | "vertical"
+    } | null>(null)
+    React.useEffect(() => {
+        if (staticPreview && !canvasPreviewEnabled) return
+        if (!viewportRef.current) return
+        let active = true
+        initialDisplayOptions.current = displayOptions
+        React.startTransition(() => setLoadState("loading"))
+        try {
+            const controller = createDuoScene(
+                viewportRef.current,
+                () => {
+                    if (active) {
+                        React.startTransition(() => setLoadState("ready"))
+                        refreshRef.current()
+                    }
+                },
+                () => {
+                    if (active)
+                        React.startTransition(() => setLoadState("error"))
+                },
+                initialDisplayOptions.current,
+                staticPreview,
+                phoneFinish
+            )
+            sceneRef.current = controller
+            refreshRef.current()
+            return () => {
+                active = false
+                controller.dispose()
+                sceneRef.current = null
+            }
+        } catch {
+            React.startTransition(() => setLoadState("error"))
+        }
+    }, [phoneFinish, staticPreview, canvasPreviewEnabled])
+    React.useEffect(() => {
+        if (staticPreview && !canvasPreviewEnabled) return
+        let raf = 0
+        let disposed = false
+        const reduce = window.matchMedia("(prefers-reduced-motion: reduce)")
+        const update = () => {
+            raf = 0
+            if (disposed || !section.current) return
+            const r = section.current.getBoundingClientRect()
+            const viewport = window.innerHeight
+            const raw = Math.max(
+                0,
+                Math.min(1, -r.top / Math.max(1, r.height - viewport))
+            )
+            const easedProgress = raw * raw * (3 - 2 * raw)
+            const p = staticPreview
+                ? previewFold / 100
+                : interactionMode === "drag"
+                  ? dragProgressRef.current
+                  : reduce.matches
+                    ? reverseAnimation
+                        ? 0
+                        : 1
+                    : reverseAnimation
+                      ? 1 - easedProgress
+                      : easedProgress
+            sceneRef.current?.update(
+                p,
+                phoneSize,
+                displayOptions,
+                screenBlur,
+                screenReflection,
+                staticPreview || (r.bottom > 0 && r.top < viewport)
+            )
+        }
+        const schedule = () => {
+            if (!raf) raf = requestAnimationFrame(update)
+        }
+        refreshRef.current = update
+        window.addEventListener("scroll", schedule, {
+            passive: true,
+            capture: true,
+        })
+        window.addEventListener("resize", schedule)
+        reduce.addEventListener("change", schedule)
+        const observer = new ResizeObserver(schedule)
+        if (section.current) observer.observe(section.current)
+        update()
+        return () => {
+            disposed = true
+            cancelAnimationFrame(raf)
+            observer.disconnect()
+            window.removeEventListener("scroll", schedule, true)
+            window.removeEventListener("resize", schedule)
+            reduce.removeEventListener("change", schedule)
+        }
+    }, [
+        staticPreview,
+        previewFold,
+        interactionMode,
+        reverseAnimation,
+        phoneSize,
+        screenBlur,
+        screenReflection,
+        displayOptions,
+        scrollLength,
+        canvasPreviewEnabled,
+    ])
+    React.useEffect(() => {
+        if (interactionMode !== "drag") return
+        const next = Math.max(0, Math.min(1, dragInitialFold / 100))
+        dragProgressRef.current = next
+        setDragProgress(next)
+        refreshRef.current()
+    }, [interactionMode, dragInitialFold])
+    const setDraggedProgress = React.useCallback(
+        (next: number) => {
+            const value = Math.max(0, Math.min(1, next))
+            dragProgressRef.current = value
+            setDragProgress(value)
+            sceneRef.current?.update(
+                value,
+                phoneSize,
+                displayOptions,
+                screenBlur,
+                screenReflection,
+                true
+            )
+        },
+        [phoneSize, displayOptions, screenBlur, screenReflection]
+    )
+    const handlePointerDown = React.useCallback(
+        (event: React.PointerEvent<HTMLDivElement>) => {
+            if (staticPreview || interactionMode !== "drag") return
+            dragGesture.current = {
+                pointerId: event.pointerId,
+                startX: event.clientX,
+                startY: event.clientY,
+                startProgress: dragProgressRef.current,
+                axis: "pending",
+            }
+            setIsDragging(true)
+            event.currentTarget.setPointerCapture(event.pointerId)
+        },
+        [staticPreview, interactionMode]
+    )
+    const handlePointerMove = React.useCallback(
+        (event: React.PointerEvent<HTMLDivElement>) => {
+            const gesture = dragGesture.current
+            if (!gesture || gesture.pointerId !== event.pointerId) return
+            const deltaX = event.clientX - gesture.startX
+            const deltaY = event.clientY - gesture.startY
+            if (gesture.axis === "pending") {
+                if (Math.max(Math.abs(deltaX), Math.abs(deltaY)) < 6) return
+                gesture.axis =
+                    Math.abs(deltaX) > Math.abs(deltaY)
+                        ? "horizontal"
+                        : "vertical"
+            }
+            if (gesture.axis !== "horizontal") return
+            event.preventDefault()
+            const distance = Math.max(
+                220,
+                event.currentTarget.clientWidth * 0.65
+            )
+            const sensitivity = Math.max(
+                0.25,
+                Math.min(3, dragSensitivity / 100)
+            )
+            setDraggedProgress(
+                gesture.startProgress - (deltaX / distance) * sensitivity
+            )
+        },
+        [dragSensitivity, setDraggedProgress]
+    )
+    const endDrag = React.useCallback(
+        (event: React.PointerEvent<HTMLDivElement>) => {
+            if (dragGesture.current?.pointerId !== event.pointerId) return
+            if (event.currentTarget.hasPointerCapture(event.pointerId))
+                event.currentTarget.releasePointerCapture(event.pointerId)
+            dragGesture.current = null
+            setIsDragging(false)
+        },
+        []
+    )
+    const handleKeyDown = React.useCallback(
+        (event: React.KeyboardEvent<HTMLDivElement>) => {
+            if (interactionMode !== "drag") return
+            let next: number | null = null
+            if (event.key === "ArrowLeft") next = dragProgressRef.current + 0.05
+            if (event.key === "ArrowRight")
+                next = dragProgressRef.current - 0.05
+            if (event.key === "Home") next = 0
+            if (event.key === "End") next = 1
+            if (next === null) return
+            event.preventDefault()
+            setDraggedProgress(next)
+        },
+        [interactionMode, setDraggedProgress]
+    )
+    if (staticPreview && !canvasPreviewEnabled) {
+        return (
+            <div
+                style={{
+                    ...style,
+                    position: "relative",
+                    width: "100%",
+                    height: 800,
+                    minHeight: 800,
+                    boxSizing: "border-box",
+                    background,
+                    display: "grid",
+                    placeItems: "center",
+                    overflow: "hidden",
+                }}
+            >
+                <div
+                    role="status"
+                    aria-label="3D canvas preview disabled"
+                    style={{
+                        width: 220,
+                        height: 140,
+                        boxSizing: "border-box",
+                        backgroundColor: "#faf8ff",
+                        display: "flex",
+                        flexDirection: "column",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        borderRadius: 16,
+                        border: "2px dashed #d1c4e9",
+                        color: "#6a1b9a",
+                        fontFamily:
+                            '-apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
+                        userSelect: "none",
+                        padding: 24,
+                        textAlign: "center",
+                        gap: 8,
+                    }}
+                >
+                    <div
+                        aria-hidden="true"
+                        style={{
+                            fontSize: "1.8rem",
+                            lineHeight: 1,
+                        }}
+                    >
+                        🎲
+                    </div>
+                    <h3
+                        style={{
+                            margin: 0,
+                            fontSize: 13,
+                            fontWeight: 700,
+                            letterSpacing: "-0.01em",
+                        }}
+                    >
+                        3D Preview Disabled
+                    </h3>
+                    <p
+                        style={{
+                            margin: 0,
+                            fontSize: 10,
+                            color: "#9575cd",
+                            lineHeight: 1.4,
+                        }}
+                    >
+                        Enable Canvas Preview in the controls to see the 3D
+                        phone.
+                    </p>
+                </div>
+            </div>
+        )
+    }
+    return (
+        <div
+            ref={section}
+            style={{
+                ...style,
+                position: "relative",
+                width: "100%",
+                height:
+                    staticPreview || interactionMode === "drag"
+                        ? staticPreview
+                            ? 800
+                            : "100vh"
+                        : `${100 + scrollLength}vh`,
+                minHeight: staticPreview ? 800 : undefined,
+                background,
+                overflow: "visible",
+            }}
+        >
+            <div
+                style={{
+                    position:
+                        staticPreview || interactionMode === "drag"
+                            ? "relative"
+                            : "sticky",
+                    top: 0,
+                    height:
+                        staticPreview || interactionMode === "drag"
+                            ? "100%"
+                            : "100vh",
+                    width: "100%",
+                    overflow: "hidden",
+                    display: "grid",
+                    placeItems: "center",
+                }}
+            >
+                <div
+                    ref={viewportRef}
+                    role={interactionMode === "drag" ? "slider" : "img"}
+                    aria-label={
+                        interactionMode === "drag"
+                            ? "iPhone Duo fold position. Drag left to open and right to close."
+                            : "iPhone Duo unfolding as you scroll"
+                    }
+                    aria-valuemin={interactionMode === "drag" ? 0 : undefined}
+                    aria-valuemax={interactionMode === "drag" ? 100 : undefined}
+                    aria-valuenow={
+                        interactionMode === "drag"
+                            ? Math.round(dragProgress * 100)
+                            : undefined
+                    }
+                    tabIndex={
+                        !staticPreview && interactionMode === "drag"
+                            ? 0
+                            : undefined
+                    }
+                    onPointerDown={handlePointerDown}
+                    onPointerMove={handlePointerMove}
+                    onPointerUp={endDrag}
+                    onPointerCancel={endDrag}
+                    onLostPointerCapture={() => {
+                        dragGesture.current = null
+                        setIsDragging(false)
+                    }}
+                    onKeyDown={handleKeyDown}
+                    style={{
+                        position: "absolute",
+                        inset: 0,
+                        opacity: loadState === "ready" ? 1 : 0,
+                        transition: "opacity .45s ease",
+                        pointerEvents:
+                            !staticPreview && interactionMode === "drag"
+                                ? "auto"
+                                : "none",
+                        touchAction:
+                            interactionMode === "drag" ? "pan-y" : "auto",
+                        cursor:
+                            !staticPreview && interactionMode === "drag"
+                                ? isDragging
+                                    ? "grabbing"
+                                    : "grab"
+                                : "default",
+                        userSelect: "none",
+                    }}
+                />
+                <style>{`
+                .iphone-duo-loading-mark { display:flex; width:48px; height:40px; perspective:140px; }
+                .iphone-duo-loading-mark span { width:24px; height:40px; border:1.5px solid currentColor; background:currentColor; opacity:.28; }
+                .iphone-duo-loading-mark span:first-child { border-radius:7px 1px 1px 7px; transform-origin:right center; animation:iphone-duo-loader-hinge 1.8s ease-in-out infinite; }
+                .iphone-duo-loading-mark span:last-child { border-radius:1px 7px 7px 1px; opacity:.6; }
+                .iphone-duo-spinner { width:42px; height:42px; border:3px solid currentColor; border-right-color:transparent; border-radius:50%; animation:iphone-duo-loader-spin .8s linear infinite; }
+                @keyframes iphone-duo-loader-hinge { 0%,100% { transform:rotateY(12deg); opacity:.28; } 50% { transform:rotateY(145deg); opacity:1; } }
+                @keyframes iphone-duo-loader-spin { to { transform:rotate(360deg); } }
+                @media(prefers-reduced-motion:reduce) { .iphone-duo-loading-mark span:first-child { animation:none; transform:rotateY(25deg); } .iphone-duo-spinner { animation:none; } }
+            `}</style>
+                <div
+                    role="status"
+                    aria-live="polite"
+                    aria-label={
+                        loadState === "loading"
+                            ? "Loading iPhone Duo"
+                            : undefined
+                    }
+                    style={{
+                        position: "absolute",
+                        inset: 0,
+                        display: "grid",
+                        placeItems: "center",
+                        pointerEvents: "none",
+                        color: loaderColor,
+                        opacity: loadState === "ready" ? 0 : 1,
+                        visibility:
+                            loadState === "ready" ? "hidden" : "visible",
+                        transition: "opacity .3s ease, visibility .3s",
+                        padding: 24,
+                    }}
+                >
+                    {loadState === "loading" && loaderStyle === "fold" && (
+                        <div
+                            className="iphone-duo-loading-mark"
+                            aria-hidden="true"
+                            style={{ opacity: loaderOpacity }}
+                        >
+                            <span
+                                style={{
+                                    animationPlayState: staticPreview
+                                        ? "paused"
+                                        : "running",
+                                }}
+                            />
+                            <span />
+                        </div>
+                    )}
+                    {loadState === "loading" && loaderStyle === "spinner" && (
+                        <div
+                            className="iphone-duo-spinner"
+                            aria-hidden="true"
+                            style={{
+                                opacity: loaderOpacity,
+                                animationPlayState: staticPreview
+                                    ? "paused"
+                                    : "running",
+                            }}
+                        />
+                    )}
+                    {loadState === "error" && (
+                        <p
+                            style={{
+                                fontFamily: "system-ui, sans-serif",
+                                fontSize: 13,
+                                textAlign: "center",
+                                maxWidth: 280,
+                            }}
+                        >
+                            The 3D model couldn't load. Refresh to retry.
+                        </p>
+                    )}
+                </div>
+            </div>
+        </div>
+    )
+}
+
+IphoneDuoScroll.displayName = "iPhone Duo Scroll"
+
+addPropertyControls(IphoneDuoScroll, {
+    interactionMode: {
+        type: ControlType.Enum,
+        title: "Unfold With",
+        options: ["scroll", "drag"],
+        optionTitles: ["Page Scroll", "Swipe & Drag"],
+        defaultValue: "scroll",
+        displaySegmentedControl: true,
+        segmentedControlDirection: "vertical",
+        description: "Choose how visitors unfold the phone.",
+    },
+    dragInitialFold: {
+        type: ControlType.Number,
+        title: "Starting Fold",
+        defaultValue: 0,
+        min: 0,
+        max: 100,
+        step: 1,
+        unit: "%",
+        hidden: (props) => props.interactionMode !== "drag",
+        description: "The position shown before a visitor swipes.",
+    },
+    dragSensitivity: {
+        type: ControlType.Number,
+        title: "Swipe Sensitivity",
+        defaultValue: 200,
+        min: 25,
+        max: 350,
+        step: 5,
+        unit: "%",
+        hidden: (props) => props.interactionMode !== "drag",
+        description:
+            "Higher values need a shorter swipe to open or close the phone.",
+    },
+    scrollLength: {
+        type: ControlType.Number,
+        title: "Scroll Distance",
+        defaultValue: 180,
+        min: 50,
+        max: 500,
+        step: 10,
+        unit: "vh",
+        hidden: (props) => props.interactionMode === "drag",
+        description: "How much page scrolling unfolds the phone.",
+    },
+    reverseAnimation: {
+        type: ControlType.Boolean,
+        title: "Reverse Direction",
+        defaultValue: false,
+        enabledTitle: "Yes",
+        disabledTitle: "No",
+        hidden: (props) => props.interactionMode === "drag",
+        description: "Choose whether scrolling down opens or closes the phone.",
+    },
+    canvasPreviewEnabled: {
+        type: ControlType.Boolean,
+        title: "Canvas Preview",
+        defaultValue: false,
+        enabledTitle: "On",
+        disabledTitle: "Off",
+        description:
+            "Load and display the 3D phone inside Framer's design canvas. This does not affect the published website.",
+    },
+    previewFold: {
+        type: ControlType.Number,
+        title: "Canvas Preview Fold",
+        defaultValue: 100,
+        min: 0,
+        max: 100,
+        step: 1,
+        unit: "%",
+        hidden: (props) => !props.canvasPreviewEnabled,
+        description: "Design canvas only.",
+    },
+    phoneSize: {
+        type: ControlType.Number,
+        title: "Device Scale",
+        defaultValue: 1,
+        min: 0.5,
+        max: 1.3,
+        step: 0.05,
+        description: "Adjusts the phone size.",
+    },
+    phoneFinish: {
+        type: ControlType.Enum,
+        title: "Phone Edge",
+        options: ["star-white", "night-sky"],
+        optionTitles: ["Star White", "Night Sky"],
+        defaultValue: "star-white",
+        displaySegmentedControl: true,
+        description: "Choose the physical phone color.",
+    },
+    screen: {
+        type: ControlType.Enum,
+        title: "Screen Content",
+        options: ["wallpaper", "launcher", "custom"],
+        optionTitles: ["Lock Screen", "Launcher", "Custom Images"],
+        defaultValue: "wallpaper",
+        displaySegmentedControl: true,
+        segmentedControlDirection: "vertical",
+        description: "Change screen image.",
+    },
+    innerImage: {
+        type: ControlType.ResponsiveImage,
+        title: "Inner Image",
+        hidden: (props) => props.screen !== "custom",
+        description: "Use 1600x1125px landscape for the unfolded inner screen.",
+    },
+    outerImage: {
+        type: ControlType.ResponsiveImage,
+        title: "Outer Image",
+        hidden: (props) => props.screen !== "custom",
+        description: "Use 774x1125px portrait for the outer screen.",
+    },
+    imageFit: {
+        type: ControlType.Enum,
+        title: "Image Fit",
+        options: ["cover", "contain"],
+        optionTitles: ["Cover", "Contain"],
+        defaultValue: "cover",
+        displaySegmentedControl: true,
+        hidden: (props) => props.screen !== "custom",
+        description:
+            "*Cover* fills the display and may crop.\n*Contain* keeps the full image and can add black space.",
+    },
+    background: {
+        type: ControlType.Color,
+        title: "Section BG",
+        defaultValue: "#f6f6f3",
+        description: "Section background color.",
+    },
+    screenBlur: {
+        type: ControlType.Number,
+        title: "Fold Blur",
+        defaultValue: 1,
+        min: 0,
+        max: 2,
+        step: 0.05,
+        description: "Blur applied while the phone folds.",
+    },
+    screenReflection: {
+        type: ControlType.Number,
+        title: "Screen Reflection",
+        defaultValue: 0,
+        min: 0,
+        max: 1,
+        step: 0.05,
+        description:
+            "Adds a soft moving sheen to both screens during the fold.",
+    },
+    clockMode: {
+        type: ControlType.Enum,
+        title: "Clock Mode",
+        options: ["static", "live"],
+        optionTitles: ["Static", "Live"],
+        defaultValue: "static",
+        displaySegmentedControl: true,
+        hidden: (props) => props.screen === "launcher",
+    },
+    timeFormat: {
+        type: ControlType.Enum,
+        title: "Time Format",
+        options: ["auto", "12-hour", "24-hour"],
+        optionTitles: ["Device", "12 Hour", "24 Hour"],
+        defaultValue: "auto",
+        displaySegmentedControl: false,
+        hidden: (props) =>
+            props.screen === "launcher" ||
+            props.clockMode !== "live" ||
+            props.lockScreenUI?.showClock === false,
+        description:
+            "Device follows each visitor's locale. The clock omits AM/PM to match the lock-screen style.",
+    },
+    clockColor: {
+        type: ControlType.Color,
+        title: "Clock Color",
+        defaultValue: "#FFFFFF",
+        hidden: (props) =>
+            props.screen === "launcher" ||
+            props.clockMode !== "live" ||
+            props.lockScreenUI?.showClock === false,
+        description: "Color for the time and date on both displays.",
+    },
+    timeFont: {
+        type: ControlType.Font,
+        title: "Time Font",
+        controls: "extended",
+        defaultFontType: "sans-serif",
+        defaultValue: {
+            fontSize: "320px",
+            variant: "Light",
+            letterSpacing: "-0.04em",
+            lineHeight: "1em",
+        },
+        hidden: (props) =>
+            props.screen === "launcher" ||
+            props.clockMode !== "live" ||
+            props.lockScreenUI?.showClock === false,
+        description: "Typography for the large time on both displays.",
+    },
+    timeOffsetY: {
+        type: ControlType.Number,
+        title: "Time Vertical Offset",
+        defaultValue: 0,
+        min: -250,
+        max: 250,
+        step: 1,
+        unit: "px",
+        hidden: (props) =>
+            props.screen === "launcher" ||
+            props.clockMode !== "live" ||
+            props.lockScreenUI?.showClock === false,
+        description: "Moves the live time up or down.",
+    },
+    dateFont: {
+        type: ControlType.Font,
+        title: "Date Font",
+        controls: "extended",
+        defaultFontType: "sans-serif",
+        defaultValue: {
+            fontSize: "29px",
+            variant: "Bold",
+            letterSpacing: "0em",
+            lineHeight: "1em",
+        },
+        hidden: (props) =>
+            props.screen === "launcher" ||
+            props.clockMode !== "live" ||
+            props.lockScreenUI?.showClock === false,
+        description:
+            "Typography for the weekday and date above the time on both displays.",
+    },
+    lockScreenUI: {
+        type: ControlType.Object,
+        title: "Lock Screen Elements",
+        buttonTitle: "Visibility",
+        hidden: (props) => props.screen === "launcher",
+        controls: {
+            showClock: {
+                type: ControlType.Boolean,
+                title: "Clock & Date",
+                defaultValue: true,
+            },
+            showWifi: {
+                type: ControlType.Boolean,
+                title: "Wi-Fi Icon",
+                defaultValue: true,
+            },
+            showQuickActions: {
+                type: ControlType.Boolean,
+                title: "Torch & Camera",
+                defaultValue: true,
+            },
+        },
+        defaultValue: {
+            showClock: true,
+            showWifi: true,
+            showQuickActions: true,
+        },
+        description:
+            "Show or hide the clock and date, Wi-Fi icon, and bottom torch/camera buttons independently.",
+    },
+    loaderStyle: {
+        type: ControlType.Enum,
+        title: "Loader",
+        options: ["fold", "spinner"],
+        optionTitles: ["Fold", "Spinner"],
+        defaultValue: "fold",
+        displaySegmentedControl: true,
+        description: "Shown while the 3D phone model is loading.",
+    },
+    loaderColor: {
+        type: ControlType.Color,
+        title: "Loader Color",
+        defaultValue: "#858580",
+    },
+    loaderOpacity: {
+        type: ControlType.Number,
+        title: "Loader Opacity",
+        defaultValue: 0.5,
+        min: 0,
+        max: 1,
+        step: 0.05,
+        description:
+            "Controls how visible the loading indicator is. 0 hides it and 1 is fully opaque.\n\n*Version:* 1.1.0\nMade with ❤️ by [Soyeb](https://framer.link/project)\n\n[→ More Components](https://framer.link/project)",
+    },
+})
