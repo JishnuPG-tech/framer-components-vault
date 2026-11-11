@@ -54,13 +54,18 @@ jobs:
         run: |
           python tools/harvester/master_harvester.py
 
+      - name: Rebuild Catalog Index & Ping Live WebApp
+        if: always()
+        run: |
+          python tools/harvester/update_catalog.py || true
+
       - name: Final Sweep Git Push
         if: always()
         run: |
-          git add components components.db || true
+          git add components catalog.json skills/framer-craft-vault/catalog.json components.db || true
           if git diff --staged --quiet; then
             echo "No new components to commit."
           else
-            git commit -m "feat(vault): auto-sync harvested Framer components [skip ci]"
+            git commit -m "feat(vault): auto-sync harvested Framer components and catalog [skip ci]"
             git push origin main
           fi
