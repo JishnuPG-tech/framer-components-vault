@@ -1,16 +1,24 @@
 # Artisanal Human-Art UI/UX & Framer Craft Directives
 
-## Source of Truth
-- Component Vault: https://github.com/JishnuPG-tech/framer-components-vault
-- Intelligence API: https://jishnupg-opencode-cli.hf.space/preview/3000/api
+## Source of Truth & Architecture
+- Component Vault: https://github.com/JishnuPG-tech/framer-components-vault (1,683+ primitives)
+- Live API: https://jishnupg-opencode-cli.hf.space/preview/3000/api
+- Integrated Systems: Anti-Slop Core Filter, Refero Taste Evidence, Radix UI Headless A11y, shadcn Semantic Tokens, Iconsax 24x24 SVGs.
 
-## Rules for Frontend Code
-1. Never generate generic AI-slop (flat 0.3s ease transitions, plain 3-column cards, purple gradients).
-2. All animations must use Framer Motion springs:
-   - Snappy (buttons): { type: "spring", stiffness: 320, damping: 28, mass: 0.8 }
-   - Fluid (accordions, cards): { type: "spring", stiffness: 260, damping: 34, mass: 1.0 }
-   - Editorial (hero, image reveals): { type: "spring", stiffness: 140, damping: 22, mass: 1.2 }
-3. Large headlines (>32px) must use negative tracking (-0.04em to -0.055em) and tight line-height (1.05em to 1.12em).
-4. Micro-labels must be uppercase monospace (11px, letter-spacing: 0.12em).
-5. Surfaces: Liquid frosted glass (backdrop-blur, 1px rgba(255,255,255,0.08) border, inset 0 1px 1px highlight).
-6. Before writing components from scratch, query the Vault API (`GET /api/search?q=...`) to adapt human-crafted primitives.
+## AI Reward Engine (Strict Negative Rewarding)
+- Disqualifications (-1000 pts): Contrast < 4.5:1, touch target < 44x44px, missing focus-visible ring, linear 0.3s ease / 0ms instant snaps.
+- Heavy Penalties (-100 to -50 pts): Generic purple/blue AI glow, sterile default void, copy-paste 3-card templates, raw hex colors in components, excessive glassmorphism everywhere, uniform pill radius.
+- Positive Rewards (+90 to +50 pts): Radix headless a11y, Framer Motion springs, negative tracking typographic clamp, obsidian glass depth, Iconsax 24px SVG consistency.
+- Passing Score: Net >= +200 pts.
+
+## Kinetic Laws
+- Snappy: { type: "spring", stiffness: 320, damping: 28, mass: 0.8, restDelta: 0.001 }
+- Fluid: { type: "spring", stiffness: 260, damping: 34, mass: 1.0, restDelta: 0.01 }
+- Editorial: { type: "spring", stiffness: 140, damping: 22, mass: 1.2, restDelta: 0.01 }
+- Magnetic: { type: "spring", stiffness: 400, damping: 30, mass: 0.5, restDelta: 0.001 }
+
+## Typographic Tension & Surfaces
+- Large headings (>32px): negative tracking (-0.04em to -0.055em), tight line-height (1.05em to 1.15em), clamp(2.5rem, 6vw, 5rem).
+- Micro-labels: uppercase monospace (11px, letter-spacing: 0.12em).
+- Surfaces: Liquid obsidian glass (backdrop-blur, border: 1px solid rgba(255,255,255,0.08), box-shadow: inset 0 1px 1px rgba(255,255,255,0.15)).
+- Headless Visual Inspection: Inspect live UI via computed styles, bounding client rects, and CDP accessibility tree without screenshots.
