@@ -1,5 +1,5 @@
 {
-  "total": 2459,
+  "total": 2656,
   "components": [
     {
       "id": "ApertureAccordion",
@@ -140,6 +140,16 @@
       "code_size_bytes": 32741,
       "source_url": "https://www.framer.com/marketplace/components/expanded-card/",
       "module_url": "https://framer.com/m/expanded-card.js"
+    },
+    {
+      "id": "faq-accordion-bands",
+      "slug": "faq-accordion-bands",
+      "title": "Faq Accordion Bands",
+      "clean_title": "Faq Accordion Bands",
+      "category": "accordions",
+      "code_size_bytes": 13979,
+      "source_url": "https://www.framer.com/marketplace/components/faq-accordion-bands/",
+      "module_url": "https://framer.com/m/faq-accordion-bands.js"
     },
     {
       "id": "faq-accordion-rich",
@@ -982,6 +992,16 @@
       "module_url": "https://framer.com/m/liquid-metal-button.js"
     },
     {
+      "id": "list-hover-animation",
+      "slug": "list-hover-animation",
+      "title": "List Hover Animation",
+      "clean_title": "List Hover Animation",
+      "category": "all-free",
+      "code_size_bytes": 14261,
+      "source_url": "https://www.framer.com/marketplace/components/list-hover-animation/",
+      "module_url": "https://framer.com/m/list-hover-animation.js"
+    },
+    {
       "id": "logo-hover",
       "slug": "logo-hover",
       "title": "Logo Hover",
@@ -1070,6 +1090,16 @@
       "code_size_bytes": 22077,
       "source_url": "https://www.framer.com/marketplace/components/mouse-trail/",
       "module_url": "https://framer.com/m/mouse-trail.js"
+    },
+    {
+      "id": "neobrutalist-card",
+      "slug": "neobrutalist-card",
+      "title": "Neobrutalist Card",
+      "clean_title": "Neobrutalist Card",
+      "category": "all-free",
+      "code_size_bytes": 22784,
+      "source_url": "https://www.framer.com/marketplace/components/neobrutalist-card/",
+      "module_url": "https://framer.com/m/neobrutalist-card.js"
     },
     {
       "id": "neubrutalism-button",
@@ -1682,6 +1712,16 @@
       "module_url": "https://framer.com/m/animated-ribbons-bg.js"
     },
     {
+      "id": "animating-lines",
+      "slug": "animating-lines",
+      "title": "Animating Lines",
+      "clean_title": "Animating Lines",
+      "category": "backgrounds",
+      "code_size_bytes": 13198,
+      "source_url": "https://www.framer.com/marketplace/components/animating-lines/",
+      "module_url": "https://framer.com/m/animating-lines.js"
+    },
+    {
       "id": "apple-bite",
       "slug": "apple-bite",
       "title": "Apple Bite",
@@ -1730,6 +1770,16 @@
       "code_size_bytes": 7243,
       "source_url": "https://www.framer.com/marketplace/components/aurora-effect/",
       "module_url": "https://framer.com/m/aurora-effect.js"
+    },
+    {
+      "id": "aurora-glow",
+      "slug": "aurora-glow",
+      "title": "Aurora Glow",
+      "clean_title": "Aurora Glow",
+      "category": "backgrounds",
+      "code_size_bytes": 17770,
+      "source_url": "https://www.framer.com/marketplace/components/aurora-glow/",
+      "module_url": "https://framer.com/m/aurora-glow.js"
     },
     {
       "id": "aurora-gradient",
@@ -1822,6 +1872,16 @@
       "module_url": "https://framer.com/m/border-pattern.js"
     },
     {
+      "id": "canvasfxpro",
+      "slug": "canvasfxpro",
+      "title": "Canvasfxpro",
+      "clean_title": "Canvasfxpro",
+      "category": "backgrounds",
+      "code_size_bytes": 44511,
+      "source_url": "https://www.framer.com/marketplace/components/canvasfxpro/",
+      "module_url": "https://framer.com/m/canvasfxpro.js"
+    },
+    {
       "id": "cinematic-background",
       "slug": "cinematic-background",
       "title": "Cinematic Background",
@@ -1860,6 +1920,16 @@
       "code_size_bytes": 3159,
       "source_url": "https://www.framer.com/marketplace/components/cosmic-particles/",
       "module_url": "https://framer.com/m/cosmic-particles.js"
+    },
+    {
+      "id": "cosmicverse",
+      "slug": "cosmicverse",
+      "title": "Cosmicverse",
+      "clean_title": "Cosmicverse",
+      "category": "backgrounds",
+      "code_size_bytes": 59850,
+      "source_url": "https://www.framer.com/marketplace/components/cosmicverse/",
+      "module_url": "https://framer.com/m/cosmicverse.js"
     },
     {
       "id": "cracked-marble",
@@ -1992,6 +2062,16 @@
       "module_url": "https://framer.com/m/falling-background.js"
     },
     {
+      "id": "falling-stars",
+      "slug": "falling-stars",
+      "title": "Falling Stars",
+      "clean_title": "Falling Stars",
+      "category": "backgrounds",
+      "code_size_bytes": 11202,
+      "source_url": "https://www.framer.com/marketplace/components/falling-stars/",
+      "module_url": "https://framer.com/m/falling-stars.js"
+    },
+    {
       "id": "filament-flower",
       "slug": "filament-flower",
       "title": "Filament Flower",
@@ -2122,6 +2202,16 @@
       "module_url": "https://framer.com/m/grain-surface.js"
     },
     {
+      "id": "gravity-grid",
+      "slug": "gravity-grid",
+      "title": "Gravity Grid",
+      "clean_title": "Gravity Grid",
+      "category": "backgrounds",
+      "code_size_bytes": 16374,
+      "source_url": "https://www.framer.com/marketplace/components/gravity-grid/",
+      "module_url": "https://framer.com/m/gravity-grid.js"
+    },
+    {
       "id": "gravity-particles",
       "slug": "gravity-particles",
       "title": "Gravity Particles",
@@ -2180,6 +2270,16 @@
       "code_size_bytes": 14140,
       "source_url": "https://www.framer.com/marketplace/components/hex-glass-lite/",
       "module_url": "https://framer.com/m/hex-glass-lite.js"
+    },
+    {
+      "id": "honeycomb-hive",
+      "slug": "honeycomb-hive",
+      "title": "Honeycomb Hive",
+      "clean_title": "Honeycomb Hive",
+      "category": "backgrounds",
+      "code_size_bytes": 26533,
+      "source_url": "https://www.framer.com/marketplace/components/honeycomb-hive/",
+      "module_url": "https://framer.com/m/honeycomb-hive.js"
     },
     {
       "id": "hover-gradient-link",
@@ -2382,6 +2482,36 @@
       "module_url": "https://framer.com/m/magnetic-pattern.js"
     },
     {
+      "id": "magnetizinglines",
+      "slug": "magnetizinglines",
+      "title": "Magnetizinglines",
+      "clean_title": "Magnetizinglines",
+      "category": "backgrounds",
+      "code_size_bytes": 9494,
+      "source_url": "https://www.framer.com/marketplace/components/magnetizinglines/",
+      "module_url": "https://framer.com/m/magnetizinglines.js"
+    },
+    {
+      "id": "magnifyingglass",
+      "slug": "magnifyingglass",
+      "title": "Magnifyingglass",
+      "clean_title": "Magnifyingglass",
+      "category": "backgrounds",
+      "code_size_bytes": 14050,
+      "source_url": "https://www.framer.com/marketplace/components/magnifyingglass/",
+      "module_url": "https://framer.com/m/magnifyingglass.js"
+    },
+    {
+      "id": "mask-scroll-reveal",
+      "slug": "mask-scroll-reveal",
+      "title": "Mask Scroll Reveal",
+      "clean_title": "Mask Scroll Reveal",
+      "category": "backgrounds",
+      "code_size_bytes": 17672,
+      "source_url": "https://www.framer.com/marketplace/components/mask-scroll-reveal/",
+      "module_url": "https://framer.com/m/mask-scroll-reveal.js"
+    },
+    {
       "id": "mesh-grid-component",
       "slug": "mesh-grid-component",
       "title": "Mesh Grid Component",
@@ -2472,6 +2602,16 @@
       "module_url": "https://framer.com/m/noise.js"
     },
     {
+      "id": "numerical-difference",
+      "slug": "numerical-difference",
+      "title": "Numerical Difference",
+      "clean_title": "Numerical Difference",
+      "category": "backgrounds",
+      "code_size_bytes": 108072,
+      "source_url": "https://www.framer.com/marketplace/components/numerical-difference/",
+      "module_url": "https://framer.com/m/numerical-difference.js"
+    },
+    {
       "id": "nurtured-nectarine",
       "slug": "nurtured-nectarine",
       "title": "Nurtured Nectarine",
@@ -2520,6 +2660,16 @@
       "code_size_bytes": 9079,
       "source_url": "https://www.framer.com/marketplace/components/orbital-system/",
       "module_url": "https://framer.com/m/orbital-system.js"
+    },
+    {
+      "id": "particle-typo",
+      "slug": "particle-typo",
+      "title": "Particle Typo",
+      "clean_title": "Particle Typo",
+      "category": "backgrounds",
+      "code_size_bytes": 20813,
+      "source_url": "https://www.framer.com/marketplace/components/particle-typo/",
+      "module_url": "https://framer.com/m/particle-typo.js"
     },
     {
       "id": "particleimage",
@@ -2572,6 +2722,16 @@
       "module_url": "https://framer.com/m/polaroid-shuffle.js"
     },
     {
+      "id": "prism-background",
+      "slug": "prism-background",
+      "title": "Prism Background",
+      "clean_title": "Prism Background",
+      "category": "backgrounds",
+      "code_size_bytes": 33592,
+      "source_url": "https://www.framer.com/marketplace/components/prism-background/",
+      "module_url": "https://framer.com/m/prism-background.js"
+    },
+    {
       "id": "radiant-lines",
       "slug": "radiant-lines",
       "title": "Radiant Lines",
@@ -2590,6 +2750,16 @@
       "code_size_bytes": 27038,
       "source_url": "https://www.framer.com/marketplace/components/rain-effect/",
       "module_url": "https://framer.com/m/rain-effect.js"
+    },
+    {
+      "id": "reactive-morph-grid",
+      "slug": "reactive-morph-grid",
+      "title": "Reactive Morph Grid",
+      "clean_title": "Reactive Morph Grid",
+      "category": "backgrounds",
+      "code_size_bytes": 10093,
+      "source_url": "https://www.framer.com/marketplace/components/reactive-morph-grid/",
+      "module_url": "https://framer.com/m/reactive-morph-grid.js"
     },
     {
       "id": "reflective-fabric-bg",
@@ -2722,6 +2892,16 @@
       "module_url": "https://framer.com/m/silk-gradient.js"
     },
     {
+      "id": "smoothwaves",
+      "slug": "smoothwaves",
+      "title": "Smoothwaves",
+      "clean_title": "Smoothwaves",
+      "category": "backgrounds",
+      "code_size_bytes": 23001,
+      "source_url": "https://www.framer.com/marketplace/components/smoothwaves/",
+      "module_url": "https://framer.com/m/smoothwaves.js"
+    },
+    {
       "id": "snowfall-fx",
       "slug": "snowfall-fx",
       "title": "Snowfall Fx",
@@ -2770,6 +2950,16 @@
       "code_size_bytes": 10343,
       "source_url": "https://www.framer.com/marketplace/components/spiral-layers/",
       "module_url": "https://framer.com/m/spiral-layers.js"
+    },
+    {
+      "id": "star-backgroud",
+      "slug": "star-backgroud",
+      "title": "Star Backgroud",
+      "clean_title": "Star Backgroud",
+      "category": "backgrounds",
+      "code_size_bytes": 7721,
+      "source_url": "https://www.framer.com/marketplace/components/star-backgroud/",
+      "module_url": "https://framer.com/m/star-backgroud.js"
     },
     {
       "id": "starfield-motion",
@@ -2872,6 +3062,16 @@
       "module_url": "https://framer.com/m/wavy-grid-background.js"
     },
     {
+      "id": "wavylines",
+      "slug": "wavylines",
+      "title": "Wavylines",
+      "clean_title": "Wavylines",
+      "category": "backgrounds",
+      "code_size_bytes": 9725,
+      "source_url": "https://www.framer.com/marketplace/components/wavylines/",
+      "module_url": "https://framer.com/m/wavylines.js"
+    },
+    {
       "id": "wireterrain",
       "slug": "wireterrain",
       "title": "Wireterrain",
@@ -2960,6 +3160,16 @@
       "code_size_bytes": 13752,
       "source_url": "https://www.framer.com/marketplace/components/agent-orb-button/",
       "module_url": "https://framer.com/m/agent-orb-button.js"
+    },
+    {
+      "id": "animated-buttons",
+      "slug": "animated-buttons",
+      "title": "Animated Buttons",
+      "clean_title": "Animated Buttons",
+      "category": "buttons",
+      "code_size_bytes": 10495,
+      "source_url": "https://www.framer.com/marketplace/components/animated-buttons/",
+      "module_url": "https://framer.com/m/animated-buttons.js"
     },
     {
       "id": "animated-cart-button",
@@ -3192,6 +3402,16 @@
       "module_url": "https://framer.com/m/button-component-ez.js"
     },
     {
+      "id": "button-dont-touch-me",
+      "slug": "button-dont-touch-me",
+      "title": "Button Dont Touch Me",
+      "clean_title": "Button Dont Touch Me",
+      "category": "buttons",
+      "code_size_bytes": 11006,
+      "source_url": "https://www.framer.com/marketplace/components/button-dont-touch-me/",
+      "module_url": "https://framer.com/m/button-dont-touch-me.js"
+    },
+    {
       "id": "button-effect",
       "slug": "button-effect",
       "title": "Button Effect",
@@ -3200,6 +3420,16 @@
       "code_size_bytes": 16930,
       "source_url": "https://www.framer.com/marketplace/components/button-effect/",
       "module_url": "https://framer.com/m/button-effect.js"
+    },
+    {
+      "id": "button-glow",
+      "slug": "button-glow",
+      "title": "Button Glow",
+      "clean_title": "Button Glow",
+      "category": "buttons",
+      "code_size_bytes": 15752,
+      "source_url": "https://www.framer.com/marketplace/components/button-glow/",
+      "module_url": "https://framer.com/m/button-glow.js"
     },
     {
       "id": "button-group-pro",
@@ -3300,6 +3530,16 @@
       "code_size_bytes": 8562,
       "source_url": "https://www.framer.com/marketplace/components/chamfered-button/",
       "module_url": "https://framer.com/m/chamfered-button.js"
+    },
+    {
+      "id": "channel-chat-button",
+      "slug": "channel-chat-button",
+      "title": "Channel Chat Button",
+      "clean_title": "Channel Chat Button",
+      "category": "buttons",
+      "code_size_bytes": 9859,
+      "source_url": "https://www.framer.com/marketplace/components/channel-chat-button/",
+      "module_url": "https://framer.com/m/channel-chat-button.js"
     },
     {
       "id": "cheeseburger",
@@ -3452,6 +3692,16 @@
       "module_url": "https://framer.com/m/copyme-copy-button.js"
     },
     {
+      "id": "crack-button",
+      "slug": "crack-button",
+      "title": "Crack Button",
+      "clean_title": "Crack Button",
+      "category": "buttons",
+      "code_size_bytes": 61346,
+      "source_url": "https://www.framer.com/marketplace/components/crack-button/",
+      "module_url": "https://framer.com/m/crack-button.js"
+    },
+    {
       "id": "crt-button",
       "slug": "crt-button",
       "title": "Crt Button",
@@ -3472,6 +3722,16 @@
       "module_url": "https://framer.com/m/cta-button-pro.js"
     },
     {
+      "id": "cta-magnetic-button",
+      "slug": "cta-magnetic-button",
+      "title": "Cta Magnetic Button",
+      "clean_title": "Cta Magnetic Button",
+      "category": "buttons",
+      "code_size_bytes": 13659,
+      "source_url": "https://www.framer.com/marketplace/components/cta-magnetic-button/",
+      "module_url": "https://framer.com/m/cta-magnetic-button.js"
+    },
+    {
       "id": "cta-pneuma-button",
       "slug": "cta-pneuma-button",
       "title": "Cta Pneuma Button",
@@ -3480,6 +3740,16 @@
       "code_size_bytes": 13172,
       "source_url": "https://www.framer.com/marketplace/components/cta-pneuma-button/",
       "module_url": "https://framer.com/m/cta-pneuma-button.js"
+    },
+    {
+      "id": "cursor-button",
+      "slug": "cursor-button",
+      "title": "Cursor Button",
+      "clean_title": "Cursor Button",
+      "category": "buttons",
+      "code_size_bytes": 49248,
+      "source_url": "https://www.framer.com/marketplace/components/cursor-button/",
+      "module_url": "https://framer.com/m/cursor-button.js"
     },
     {
       "id": "cut-button",
@@ -3650,6 +3920,16 @@
       "code_size_bytes": 21350,
       "source_url": "https://www.framer.com/marketplace/components/dynamic-toggle/",
       "module_url": "https://framer.com/m/dynamic-toggle.js"
+    },
+    {
+      "id": "elevate-button",
+      "slug": "elevate-button",
+      "title": "Elevate Button",
+      "clean_title": "Elevate Button",
+      "category": "buttons",
+      "code_size_bytes": 8096,
+      "source_url": "https://www.framer.com/marketplace/components/elevate-button/",
+      "module_url": "https://framer.com/m/elevate-button.js"
     },
     {
       "id": "emoji-buttons",
@@ -3892,6 +4172,16 @@
       "module_url": "https://framer.com/m/glass-button-pro.js"
     },
     {
+      "id": "glassy-button",
+      "slug": "glassy-button",
+      "title": "Glassy Button",
+      "clean_title": "Glassy Button",
+      "category": "buttons",
+      "code_size_bytes": 14132,
+      "source_url": "https://www.framer.com/marketplace/components/glassy-button/",
+      "module_url": "https://framer.com/m/glassy-button.js"
+    },
+    {
       "id": "glide-buttons",
       "slug": "glide-buttons",
       "title": "Glide Buttons",
@@ -3902,6 +4192,16 @@
       "module_url": "https://framer.com/m/glide-buttons.js"
     },
     {
+      "id": "glowing-button",
+      "slug": "glowing-button",
+      "title": "Glowing Button",
+      "clean_title": "Glowing Button",
+      "category": "buttons",
+      "code_size_bytes": 12989,
+      "source_url": "https://www.framer.com/marketplace/components/glowing-button/",
+      "module_url": "https://framer.com/m/glowing-button.js"
+    },
+    {
       "id": "glowingbeambutton",
       "slug": "glowingbeambutton",
       "title": "Glowingbeambutton",
@@ -3910,6 +4210,16 @@
       "code_size_bytes": 43231,
       "source_url": "https://www.framer.com/marketplace/components/glowingbeambutton/",
       "module_url": "https://framer.com/m/glowingbeambutton.js"
+    },
+    {
+      "id": "gradient-button",
+      "slug": "gradient-button",
+      "title": "Gradient Button",
+      "clean_title": "Gradient Button",
+      "category": "buttons",
+      "code_size_bytes": 16100,
+      "source_url": "https://www.framer.com/marketplace/components/gradient-button/",
+      "module_url": "https://framer.com/m/gradient-button.js"
     },
     {
       "id": "gravity-button",
@@ -3940,6 +4250,26 @@
       "code_size_bytes": 46865,
       "source_url": "https://www.framer.com/marketplace/components/haptic-feedback/",
       "module_url": "https://framer.com/m/haptic-feedback.js"
+    },
+    {
+      "id": "heart-component",
+      "slug": "heart-component",
+      "title": "Heart Component",
+      "clean_title": "Heart Component",
+      "category": "buttons",
+      "code_size_bytes": 6712,
+      "source_url": "https://www.framer.com/marketplace/components/heart-component/",
+      "module_url": "https://framer.com/m/heart-component.js"
+    },
+    {
+      "id": "hold-to-trigger-link",
+      "slug": "hold-to-trigger-link",
+      "title": "Hold To Trigger Link",
+      "clean_title": "Hold To Trigger Link",
+      "category": "buttons",
+      "code_size_bytes": 16295,
+      "source_url": "https://www.framer.com/marketplace/components/hold-to-trigger-link/",
+      "module_url": "https://framer.com/m/hold-to-trigger-link.js"
     },
     {
       "id": "hover-button-expand",
@@ -4092,6 +4422,16 @@
       "module_url": "https://framer.com/m/liquid-pastel-button.js"
     },
     {
+      "id": "liquid-toggle",
+      "slug": "liquid-toggle",
+      "title": "Liquid Toggle",
+      "clean_title": "Liquid Toggle",
+      "category": "buttons",
+      "code_size_bytes": 24164,
+      "source_url": "https://www.framer.com/marketplace/components/liquid-toggle/",
+      "module_url": "https://framer.com/m/liquid-toggle.js"
+    },
+    {
       "id": "made-in-frame-badge",
       "slug": "made-in-frame-badge",
       "title": "Made In Frame Badge",
@@ -4130,6 +4470,16 @@
       "code_size_bytes": 13994,
       "source_url": "https://www.framer.com/marketplace/components/magnabutton/",
       "module_url": "https://framer.com/m/magnabutton.js"
+    },
+    {
+      "id": "magnet-pull",
+      "slug": "magnet-pull",
+      "title": "Magnet Pull",
+      "clean_title": "Magnet Pull",
+      "category": "buttons",
+      "code_size_bytes": 7243,
+      "source_url": "https://www.framer.com/marketplace/components/magnet-pull/",
+      "module_url": "https://framer.com/m/magnet-pull.js"
     },
     {
       "id": "magnetic-button-01",
@@ -4212,6 +4562,16 @@
       "module_url": "https://framer.com/m/magneticeffect.js"
     },
     {
+      "id": "mechanical-keyboard",
+      "slug": "mechanical-keyboard",
+      "title": "Mechanical Keyboard",
+      "clean_title": "Mechanical Keyboard",
+      "category": "buttons",
+      "code_size_bytes": 41663,
+      "source_url": "https://www.framer.com/marketplace/components/mechanical-keyboard/",
+      "module_url": "https://framer.com/m/mechanical-keyboard.js"
+    },
+    {
       "id": "menu-toggle-button",
       "slug": "menu-toggle-button",
       "title": "Menu Toggle Button",
@@ -4262,6 +4622,16 @@
       "module_url": "https://framer.com/m/modern.js"
     },
     {
+      "id": "modular-pricing-calc",
+      "slug": "modular-pricing-calc",
+      "title": "Modular Pricing Calc",
+      "clean_title": "Modular Pricing Calc",
+      "category": "buttons",
+      "code_size_bytes": 56366,
+      "source_url": "https://www.framer.com/marketplace/components/modular-pricing-calc/",
+      "module_url": "https://framer.com/m/modular-pricing-calc.js"
+    },
+    {
       "id": "moon-button",
       "slug": "moon-button",
       "title": "Moon Button",
@@ -4290,6 +4660,16 @@
       "code_size_bytes": 11370,
       "source_url": "https://www.framer.com/marketplace/components/moving-glow-button/",
       "module_url": "https://framer.com/m/moving-glow-button.js"
+    },
+    {
+      "id": "multi-state-button",
+      "slug": "multi-state-button",
+      "title": "Multi State Button",
+      "clean_title": "Multi State Button",
+      "category": "buttons",
+      "code_size_bytes": 15415,
+      "source_url": "https://www.framer.com/marketplace/components/multi-state-button/",
+      "module_url": "https://framer.com/m/multi-state-button.js"
     },
     {
       "id": "nabby-copy-button",
@@ -4442,6 +4822,16 @@
       "module_url": "https://framer.com/m/os-download-button.js"
     },
     {
+      "id": "outline-draw-button",
+      "slug": "outline-draw-button",
+      "title": "Outline Draw Button",
+      "clean_title": "Outline Draw Button",
+      "category": "buttons",
+      "code_size_bytes": 4884,
+      "source_url": "https://www.framer.com/marketplace/components/outline-draw-button/",
+      "module_url": "https://framer.com/m/outline-draw-button.js"
+    },
+    {
       "id": "paper-button",
       "slug": "paper-button",
       "title": "Paper Button",
@@ -4580,6 +4970,16 @@
       "code_size_bytes": 40906,
       "source_url": "https://www.framer.com/marketplace/components/progress-scroll/",
       "module_url": "https://framer.com/m/progress-scroll.js"
+    },
+    {
+      "id": "promo-bubble-cta",
+      "slug": "promo-bubble-cta",
+      "title": "Promo Bubble Cta",
+      "clean_title": "Promo Bubble Cta",
+      "category": "buttons",
+      "code_size_bytes": 17261,
+      "source_url": "https://www.framer.com/marketplace/components/promo-bubble-cta/",
+      "module_url": "https://framer.com/m/promo-bubble-cta.js"
     },
     {
       "id": "pulse-animated-cta",
@@ -4752,6 +5152,16 @@
       "module_url": "https://framer.com/m/shader-glassy-button.js"
     },
     {
+      "id": "share-button",
+      "slug": "share-button",
+      "title": "Share Button",
+      "clean_title": "Share Button",
+      "category": "buttons",
+      "code_size_bytes": 11170,
+      "source_url": "https://www.framer.com/marketplace/components/share-button/",
+      "module_url": "https://framer.com/m/share-button.js"
+    },
+    {
       "id": "share-segments",
       "slug": "share-segments",
       "title": "Share Segments",
@@ -4832,6 +5242,16 @@
       "module_url": "https://framer.com/m/shuttertap-button.js"
     },
     {
+      "id": "signal-cta",
+      "slug": "signal-cta",
+      "title": "Signal Cta",
+      "clean_title": "Signal Cta",
+      "category": "buttons",
+      "code_size_bytes": 24031,
+      "source_url": "https://www.framer.com/marketplace/components/signal-cta/",
+      "module_url": "https://framer.com/m/signal-cta.js"
+    },
+    {
       "id": "simple-button",
       "slug": "simple-button",
       "title": "Simple Button",
@@ -4850,6 +5270,16 @@
       "code_size_bytes": 11248,
       "source_url": "https://www.framer.com/marketplace/components/skeuomorphic-button/",
       "module_url": "https://framer.com/m/skeuomorphic-button.js"
+    },
+    {
+      "id": "skylift",
+      "slug": "skylift",
+      "title": "Skylift",
+      "clean_title": "Skylift",
+      "category": "buttons",
+      "code_size_bytes": 33897,
+      "source_url": "https://www.framer.com/marketplace/components/skylift/",
+      "module_url": "https://framer.com/m/skylift.js"
     },
     {
       "id": "slanted-button",
@@ -5192,6 +5622,16 @@
       "module_url": "https://framer.com/m/textthemetoggle.js"
     },
     {
+      "id": "the-toggle-pro",
+      "slug": "the-toggle-pro",
+      "title": "The Toggle Pro",
+      "clean_title": "The Toggle Pro",
+      "category": "buttons",
+      "code_size_bytes": 24121,
+      "source_url": "https://www.framer.com/marketplace/components/the-toggle-pro/",
+      "module_url": "https://framer.com/m/the-toggle-pro.js"
+    },
+    {
       "id": "themeaware-image",
       "slug": "themeaware-image",
       "title": "Themeaware Image",
@@ -5210,6 +5650,16 @@
       "code_size_bytes": 11995,
       "source_url": "https://www.framer.com/marketplace/components/throw-button/",
       "module_url": "https://framer.com/m/throw-button.js"
+    },
+    {
+      "id": "ticket-button",
+      "slug": "ticket-button",
+      "title": "Ticket Button",
+      "clean_title": "Ticket Button",
+      "category": "buttons",
+      "code_size_bytes": 14555,
+      "source_url": "https://www.framer.com/marketplace/components/ticket-button/",
+      "module_url": "https://framer.com/m/ticket-button.js"
     },
     {
       "id": "totem-side-bar",
@@ -5292,6 +5742,16 @@
       "module_url": "https://framer.com/m/wave-reveal-button.js"
     },
     {
+      "id": "wave-shader-button",
+      "slug": "wave-shader-button",
+      "title": "Wave Shader Button",
+      "clean_title": "Wave Shader Button",
+      "category": "buttons",
+      "code_size_bytes": 13196,
+      "source_url": "https://www.framer.com/marketplace/components/wave-shader-button/",
+      "module_url": "https://framer.com/m/wave-shader-button.js"
+    },
+    {
       "id": "wavey-button",
       "slug": "wavey-button",
       "title": "Wavey Button",
@@ -5310,6 +5770,16 @@
       "code_size_bytes": 14788,
       "source_url": "https://www.framer.com/marketplace/components/webgl-button/",
       "module_url": "https://framer.com/m/webgl-button.js"
+    },
+    {
+      "id": "wet-paint-button",
+      "slug": "wet-paint-button",
+      "title": "Wet Paint Button",
+      "clean_title": "Wet Paint Button",
+      "category": "buttons",
+      "code_size_bytes": 9789,
+      "source_url": "https://www.framer.com/marketplace/components/wet-paint-button/",
+      "module_url": "https://framer.com/m/wet-paint-button.js"
     },
     {
       "id": "whatsapp-chat-button",
@@ -5482,6 +5952,16 @@
       "module_url": "https://framer.com/m/animated-productcard.js"
     },
     {
+      "id": "animated-social-card",
+      "slug": "animated-social-card",
+      "title": "Animated Social Card",
+      "clean_title": "Animated Social Card",
+      "category": "cards",
+      "code_size_bytes": 18388,
+      "source_url": "https://www.framer.com/marketplace/components/animated-social-card/",
+      "module_url": "https://framer.com/m/animated-social-card.js"
+    },
+    {
       "id": "arc-deck-pro",
       "slug": "arc-deck-pro",
       "title": "Arc Deck Pro",
@@ -5500,6 +5980,16 @@
       "code_size_bytes": 50022,
       "source_url": "https://www.framer.com/marketplace/components/astrosyncportal/",
       "module_url": "https://framer.com/m/astrosyncportal.js"
+    },
+    {
+      "id": "aura-pricing-card",
+      "slug": "aura-pricing-card",
+      "title": "Aura Pricing Card",
+      "clean_title": "Aura Pricing Card",
+      "category": "cards",
+      "code_size_bytes": 29117,
+      "source_url": "https://www.framer.com/marketplace/components/aura-pricing-card/",
+      "module_url": "https://framer.com/m/aura-pricing-card.js"
     },
     {
       "id": "authcard",
@@ -5632,6 +6122,16 @@
       "module_url": "https://framer.com/m/card-stack-expand.js"
     },
     {
+      "id": "card-stack-showcase",
+      "slug": "card-stack-showcase",
+      "title": "Card Stack Showcase",
+      "clean_title": "Card Stack Showcase",
+      "category": "cards",
+      "code_size_bytes": 76740,
+      "source_url": "https://www.framer.com/marketplace/components/card-stack-showcase/",
+      "module_url": "https://framer.com/m/card-stack-showcase.js"
+    },
+    {
       "id": "card-stack",
       "slug": "card-stack",
       "title": "Card Stack",
@@ -5640,6 +6140,16 @@
       "code_size_bytes": 8327,
       "source_url": "https://www.framer.com/marketplace/components/card-stack/",
       "module_url": "https://framer.com/m/card-stack.js"
+    },
+    {
+      "id": "card-stacker",
+      "slug": "card-stacker",
+      "title": "Card Stacker",
+      "clean_title": "Card Stacker",
+      "category": "cards",
+      "code_size_bytes": 57025,
+      "source_url": "https://www.framer.com/marketplace/components/card-stacker/",
+      "module_url": "https://framer.com/m/card-stacker.js"
     },
     {
       "id": "cardfanmini",
@@ -5660,6 +6170,16 @@
       "code_size_bytes": 52617,
       "source_url": "https://www.framer.com/marketplace/components/cardifyy/",
       "module_url": "https://framer.com/m/cardifyy.js"
+    },
+    {
+      "id": "casemetriccard",
+      "slug": "casemetriccard",
+      "title": "Casemetriccard",
+      "clean_title": "Casemetriccard",
+      "category": "cards",
+      "code_size_bytes": 72795,
+      "source_url": "https://www.framer.com/marketplace/components/casemetriccard/",
+      "module_url": "https://framer.com/m/casemetriccard.js"
     },
     {
       "id": "circlecards",
@@ -6002,6 +6522,16 @@
       "module_url": "https://framer.com/m/free-crypto-card-ui.js"
     },
     {
+      "id": "free-group-poll-card",
+      "slug": "free-group-poll-card",
+      "title": "Free Group Poll Card",
+      "clean_title": "Free Group Poll Card",
+      "category": "cards",
+      "code_size_bytes": 12255,
+      "source_url": "https://www.framer.com/marketplace/components/free-group-poll-card/",
+      "module_url": "https://framer.com/m/free-group-poll-card.js"
+    },
+    {
       "id": "frosted-reveal-card",
       "slug": "frosted-reveal-card",
       "title": "Frosted Reveal Card",
@@ -6062,6 +6592,16 @@
       "module_url": "https://framer.com/m/glass-card-shuffle.js"
     },
     {
+      "id": "glasscardstackpro",
+      "slug": "glasscardstackpro",
+      "title": "Glasscardstackpro",
+      "clean_title": "Glasscardstackpro",
+      "category": "cards",
+      "code_size_bytes": 38986,
+      "source_url": "https://www.framer.com/marketplace/components/glasscardstackpro/",
+      "module_url": "https://framer.com/m/glasscardstackpro.js"
+    },
+    {
       "id": "glow-pricing",
       "slug": "glow-pricing",
       "title": "Glow Pricing",
@@ -6112,6 +6652,16 @@
       "module_url": "https://framer.com/m/hover-card-motion.js"
     },
     {
+      "id": "hover-expand-card",
+      "slug": "hover-expand-card",
+      "title": "Hover Expand Card",
+      "clean_title": "Hover Expand Card",
+      "category": "cards",
+      "code_size_bytes": 12587,
+      "source_url": "https://www.framer.com/marketplace/components/hover-expand-card/",
+      "module_url": "https://framer.com/m/hover-expand-card.js"
+    },
+    {
       "id": "hover-flip-card",
       "slug": "hover-flip-card",
       "title": "Hover Flip Card",
@@ -6150,6 +6700,16 @@
       "code_size_bytes": 19139,
       "source_url": "https://www.framer.com/marketplace/components/hover-location-card/",
       "module_url": "https://framer.com/m/hover-location-card.js"
+    },
+    {
+      "id": "hover-reveal-cards",
+      "slug": "hover-reveal-cards",
+      "title": "Hover Reveal Cards",
+      "clean_title": "Hover Reveal Cards",
+      "category": "cards",
+      "code_size_bytes": 36284,
+      "source_url": "https://www.framer.com/marketplace/components/hover-reveal-cards/",
+      "module_url": "https://framer.com/m/hover-reveal-cards.js"
     },
     {
       "id": "hover-tilt-card",
@@ -6202,6 +6762,16 @@
       "module_url": "https://framer.com/m/identity-kit.js"
     },
     {
+      "id": "index-stack",
+      "slug": "index-stack",
+      "title": "Index Stack",
+      "clean_title": "Index Stack",
+      "category": "cards",
+      "code_size_bytes": 19863,
+      "source_url": "https://www.framer.com/marketplace/components/index-stack/",
+      "module_url": "https://framer.com/m/index-stack.js"
+    },
+    {
       "id": "infinite-canvas-3d",
       "slug": "infinite-canvas-3d",
       "title": "Infinite Canvas 3D",
@@ -6250,6 +6820,26 @@
       "code_size_bytes": 16236,
       "source_url": "https://www.framer.com/marketplace/components/jelly-feature-tabs/",
       "module_url": "https://framer.com/m/jelly-feature-tabs.js"
+    },
+    {
+      "id": "jelly-tab-cards",
+      "slug": "jelly-tab-cards",
+      "title": "Jelly Tab Cards",
+      "clean_title": "Jelly Tab Cards",
+      "category": "cards",
+      "code_size_bytes": 24407,
+      "source_url": "https://www.framer.com/marketplace/components/jelly-tab-cards/",
+      "module_url": "https://framer.com/m/jelly-tab-cards.js"
+    },
+    {
+      "id": "kpi-stat-cards",
+      "slug": "kpi-stat-cards",
+      "title": "Kpi Stat Cards",
+      "clean_title": "Kpi Stat Cards",
+      "category": "cards",
+      "code_size_bytes": 39851,
+      "source_url": "https://www.framer.com/marketplace/components/kpi-stat-cards/",
+      "module_url": "https://framer.com/m/kpi-stat-cards.js"
     },
     {
       "id": "lanyard-motion-card",
@@ -6382,6 +6972,16 @@
       "module_url": "https://framer.com/m/modern-pricing-cards.js"
     },
     {
+      "id": "modern-social-card-u",
+      "slug": "modern-social-card-u",
+      "title": "Modern Social Card U",
+      "clean_title": "Modern Social Card U",
+      "category": "cards",
+      "code_size_bytes": 28336,
+      "source_url": "https://www.framer.com/marketplace/components/modern-social-card-u/",
+      "module_url": "https://framer.com/m/modern-social-card-u.js"
+    },
+    {
       "id": "monarch-card",
       "slug": "monarch-card",
       "title": "Monarch Card",
@@ -6430,6 +7030,16 @@
       "code_size_bytes": 6619,
       "source_url": "https://www.framer.com/marketplace/components/neon-border-beam/",
       "module_url": "https://framer.com/m/neon-border-beam.js"
+    },
+    {
+      "id": "neuralorbitdashboard",
+      "slug": "neuralorbitdashboard",
+      "title": "Neuralorbitdashboard",
+      "clean_title": "Neuralorbitdashboard",
+      "category": "cards",
+      "code_size_bytes": 45491,
+      "source_url": "https://www.framer.com/marketplace/components/neuralorbitdashboard/",
+      "module_url": "https://framer.com/m/neuralorbitdashboard.js"
     },
     {
       "id": "orbit-breath",
@@ -6482,6 +7092,16 @@
       "module_url": "https://framer.com/m/photo-card-stack.js"
     },
     {
+      "id": "physicsglass-card",
+      "slug": "physicsglass-card",
+      "title": "Physicsglass Card",
+      "clean_title": "Physicsglass Card",
+      "category": "cards",
+      "code_size_bytes": 7630,
+      "source_url": "https://www.framer.com/marketplace/components/physicsglass-card/",
+      "module_url": "https://framer.com/m/physicsglass-card.js"
+    },
+    {
       "id": "pixel-flip-card",
       "slug": "pixel-flip-card",
       "title": "Pixel Flip Card",
@@ -6520,6 +7140,16 @@
       "code_size_bytes": 16856,
       "source_url": "https://www.framer.com/marketplace/components/portfoliocard/",
       "module_url": "https://framer.com/m/portfoliocard.js"
+    },
+    {
+      "id": "practical-ui-cards",
+      "slug": "practical-ui-cards",
+      "title": "Practical Ui Cards",
+      "clean_title": "Practical Ui Cards",
+      "category": "cards",
+      "code_size_bytes": 24652,
+      "source_url": "https://www.framer.com/marketplace/components/practical-ui-cards/",
+      "module_url": "https://framer.com/m/practical-ui-cards.js"
     },
     {
       "id": "premium-glow-cards",
@@ -6612,6 +7242,16 @@
       "module_url": "https://framer.com/m/prism-service-card.js"
     },
     {
+      "id": "prisma-pricing-cards",
+      "slug": "prisma-pricing-cards",
+      "title": "Prisma Pricing Cards",
+      "clean_title": "Prisma Pricing Cards",
+      "category": "cards",
+      "code_size_bytes": 12532,
+      "source_url": "https://www.framer.com/marketplace/components/prisma-pricing-cards/",
+      "module_url": "https://framer.com/m/prisma-pricing-cards.js"
+    },
+    {
       "id": "productcard",
       "slug": "productcard",
       "title": "Productcard",
@@ -6660,6 +7300,16 @@
       "code_size_bytes": 32677,
       "source_url": "https://www.framer.com/marketplace/components/project-hover-reveal/",
       "module_url": "https://framer.com/m/project-hover-reveal.js"
+    },
+    {
+      "id": "proprofile",
+      "slug": "proprofile",
+      "title": "Proprofile",
+      "clean_title": "Proprofile",
+      "category": "cards",
+      "code_size_bytes": 37813,
+      "source_url": "https://www.framer.com/marketplace/components/proprofile/",
+      "module_url": "https://framer.com/m/proprofile.js"
     },
     {
       "id": "purched-card",
@@ -6762,6 +7412,16 @@
       "module_url": "https://framer.com/m/sleek-tilt-card.js"
     },
     {
+      "id": "slide-content-toggle",
+      "slug": "slide-content-toggle",
+      "title": "Slide Content Toggle",
+      "clean_title": "Slide Content Toggle",
+      "category": "cards",
+      "code_size_bytes": 39640,
+      "source_url": "https://www.framer.com/marketplace/components/slide-content-toggle/",
+      "module_url": "https://framer.com/m/slide-content-toggle.js"
+    },
+    {
       "id": "slidinghighlightgrid",
       "slug": "slidinghighlightgrid",
       "title": "Slidinghighlightgrid",
@@ -6850,6 +7510,16 @@
       "code_size_bytes": 8309,
       "source_url": "https://www.framer.com/marketplace/components/stats-card/",
       "module_url": "https://framer.com/m/stats-card.js"
+    },
+    {
+      "id": "stickyscrollshowcase",
+      "slug": "stickyscrollshowcase",
+      "title": "Stickyscrollshowcase",
+      "clean_title": "Stickyscrollshowcase",
+      "category": "cards",
+      "code_size_bytes": 30322,
+      "source_url": "https://www.framer.com/marketplace/components/stickyscrollshowcase/",
+      "module_url": "https://framer.com/m/stickyscrollshowcase.js"
     },
     {
       "id": "story-progress-card",
@@ -7032,6 +7702,16 @@
       "module_url": "https://framer.com/m/underline-card.js"
     },
     {
+      "id": "velocity-card",
+      "slug": "velocity-card",
+      "title": "Velocity Card",
+      "clean_title": "Velocity Card",
+      "category": "cards",
+      "code_size_bytes": 30064,
+      "source_url": "https://www.framer.com/marketplace/components/velocity-card/",
+      "module_url": "https://framer.com/m/velocity-card.js"
+    },
+    {
       "id": "video-card",
       "slug": "video-card",
       "title": "Video Card",
@@ -7072,6 +7752,16 @@
       "module_url": "https://framer.com/m/whom-3d-glass-card.js"
     },
     {
+      "id": "workshopexperience",
+      "slug": "workshopexperience",
+      "title": "Workshopexperience",
+      "clean_title": "Workshopexperience",
+      "category": "cards",
+      "code_size_bytes": 26843,
+      "source_url": "https://www.framer.com/marketplace/components/workshopexperience/",
+      "module_url": "https://framer.com/m/workshopexperience.js"
+    },
+    {
       "id": "zoom-reveal-card",
       "slug": "zoom-reveal-card",
       "title": "Zoom Reveal Card",
@@ -7080,6 +7770,16 @@
       "code_size_bytes": 15735,
       "source_url": "https://www.framer.com/marketplace/components/zoom-reveal-card/",
       "module_url": "https://framer.com/m/zoom-reveal-card.js"
+    },
+    {
+      "id": "2d-parallax-carousel",
+      "slug": "2d-parallax-carousel",
+      "title": "2D Parallax Carousel",
+      "clean_title": "2D Parallax Carousel",
+      "category": "carousels",
+      "code_size_bytes": 55005,
+      "source_url": "https://www.framer.com/marketplace/components/2d-parallax-carousel/",
+      "module_url": "https://framer.com/m/2d-parallax-carousel.js"
     },
     {
       "id": "3d-carousel-lite",
@@ -7092,6 +7792,16 @@
       "module_url": "https://framer.com/m/3d-carousel-lite.js"
     },
     {
+      "id": "3d-carousel-roll",
+      "slug": "3d-carousel-roll",
+      "title": "3D Carousel Roll",
+      "clean_title": "3D Carousel Roll",
+      "category": "carousels",
+      "code_size_bytes": 9179,
+      "source_url": "https://www.framer.com/marketplace/components/3d-carousel-roll/",
+      "module_url": "https://framer.com/m/3d-carousel-roll.js"
+    },
+    {
       "id": "3d-center-carousel",
       "slug": "3d-center-carousel",
       "title": "3D Center Carousel",
@@ -7100,6 +7810,16 @@
       "code_size_bytes": 67444,
       "source_url": "https://www.framer.com/marketplace/components/3d-center-carousel/",
       "module_url": "https://framer.com/m/3d-center-carousel.js"
+    },
+    {
+      "id": "3d-glow-carousel",
+      "slug": "3d-glow-carousel",
+      "title": "3D Glow Carousel",
+      "clean_title": "3D Glow Carousel",
+      "category": "carousels",
+      "code_size_bytes": 61713,
+      "source_url": "https://www.framer.com/marketplace/components/3d-glow-carousel/",
+      "module_url": "https://framer.com/m/3d-glow-carousel.js"
     },
     {
       "id": "3d-media-showcase",
@@ -7190,6 +7910,16 @@
       "code_size_bytes": 15509,
       "source_url": "https://www.framer.com/marketplace/components/arc-carousel-gallery/",
       "module_url": "https://framer.com/m/arc-carousel-gallery.js"
+    },
+    {
+      "id": "arc-motion-carousel",
+      "slug": "arc-motion-carousel",
+      "title": "Arc Motion Carousel",
+      "clean_title": "Arc Motion Carousel",
+      "category": "carousels",
+      "code_size_bytes": 60100,
+      "source_url": "https://www.framer.com/marketplace/components/arc-motion-carousel/",
+      "module_url": "https://framer.com/m/arc-motion-carousel.js"
     },
     {
       "id": "arccarouselspring",
@@ -7420,6 +8150,16 @@
       "code_size_bytes": 66733,
       "source_url": "https://www.framer.com/marketplace/components/cms-type-carousel/",
       "module_url": "https://framer.com/m/cms-type-carousel.js"
+    },
+    {
+      "id": "coniccarousel",
+      "slug": "coniccarousel",
+      "title": "Coniccarousel",
+      "clean_title": "Coniccarousel",
+      "category": "carousels",
+      "code_size_bytes": 33799,
+      "source_url": "https://www.framer.com/marketplace/components/coniccarousel/",
+      "module_url": "https://framer.com/m/coniccarousel.js"
     },
     {
       "id": "contact-carousel",
@@ -7742,6 +8482,16 @@
       "module_url": "https://framer.com/m/flip-flap-carousel.js"
     },
     {
+      "id": "focus-slideshow",
+      "slug": "focus-slideshow",
+      "title": "Focus Slideshow",
+      "clean_title": "Focus Slideshow",
+      "category": "carousels",
+      "code_size_bytes": 89291,
+      "source_url": "https://www.framer.com/marketplace/components/focus-slideshow/",
+      "module_url": "https://framer.com/m/focus-slideshow.js"
+    },
+    {
       "id": "framer-story",
       "slug": "framer-story",
       "title": "Framer Story",
@@ -7962,6 +8712,16 @@
       "module_url": "https://framer.com/m/lens-wrap-carousel.js"
     },
     {
+      "id": "liquid-hero-slider",
+      "slug": "liquid-hero-slider",
+      "title": "Liquid Hero Slider",
+      "clean_title": "Liquid Hero Slider",
+      "category": "carousels",
+      "code_size_bytes": 45678,
+      "source_url": "https://www.framer.com/marketplace/components/liquid-hero-slider/",
+      "module_url": "https://framer.com/m/liquid-hero-slider.js"
+    },
+    {
       "id": "liquid-inertia-deck",
       "slug": "liquid-inertia-deck",
       "title": "Liquid Inertia Deck",
@@ -8000,6 +8760,16 @@
       "code_size_bytes": 45971,
       "source_url": "https://www.framer.com/marketplace/components/logo-ticker-marquee/",
       "module_url": "https://framer.com/m/logo-ticker-marquee.js"
+    },
+    {
+      "id": "macos-preview",
+      "slug": "macos-preview",
+      "title": "Macos Preview",
+      "clean_title": "Macos Preview",
+      "category": "carousels",
+      "code_size_bytes": 56607,
+      "source_url": "https://www.framer.com/marketplace/components/macos-preview/",
+      "module_url": "https://framer.com/m/macos-preview.js"
     },
     {
       "id": "marquee-ticker-ml",
@@ -8052,6 +8822,16 @@
       "module_url": "https://framer.com/m/motion-carousel-2-0.js"
     },
     {
+      "id": "motion-carousel-pro",
+      "slug": "motion-carousel-pro",
+      "title": "Motion Carousel Pro",
+      "clean_title": "Motion Carousel Pro",
+      "category": "carousels",
+      "code_size_bytes": 68598,
+      "source_url": "https://www.framer.com/marketplace/components/motion-carousel-pro/",
+      "module_url": "https://framer.com/m/motion-carousel-pro.js"
+    },
+    {
       "id": "motionflow-carousel",
       "slug": "motionflow-carousel",
       "title": "Motionflow Carousel",
@@ -8060,6 +8840,26 @@
       "code_size_bytes": 16674,
       "source_url": "https://www.framer.com/marketplace/components/motionflow-carousel/",
       "module_url": "https://framer.com/m/motionflow-carousel.js"
+    },
+    {
+      "id": "newspapercarousel",
+      "slug": "newspapercarousel",
+      "title": "Newspapercarousel",
+      "clean_title": "Newspapercarousel",
+      "category": "carousels",
+      "code_size_bytes": 49129,
+      "source_url": "https://www.framer.com/marketplace/components/newspapercarousel/",
+      "module_url": "https://framer.com/m/newspapercarousel.js"
+    },
+    {
+      "id": "omni-slideshow",
+      "slug": "omni-slideshow",
+      "title": "Omni Slideshow",
+      "clean_title": "Omni Slideshow",
+      "category": "carousels",
+      "code_size_bytes": 66695,
+      "source_url": "https://www.framer.com/marketplace/components/omni-slideshow/",
+      "module_url": "https://framer.com/m/omni-slideshow.js"
     },
     {
       "id": "orbit-3d-carousel",
@@ -8130,6 +8930,16 @@
       "code_size_bytes": 25907,
       "source_url": "https://www.framer.com/marketplace/components/photo-slider/",
       "module_url": "https://framer.com/m/photo-slider.js"
+    },
+    {
+      "id": "playful-step-cards",
+      "slug": "playful-step-cards",
+      "title": "Playful Step Cards",
+      "clean_title": "Playful Step Cards",
+      "category": "carousels",
+      "code_size_bytes": 17070,
+      "source_url": "https://www.framer.com/marketplace/components/playful-step-cards/",
+      "module_url": "https://framer.com/m/playful-step-cards.js"
     },
     {
       "id": "polaroid-display",
@@ -8310,6 +9120,16 @@
       "code_size_bytes": 18768,
       "source_url": "https://www.framer.com/marketplace/components/reviews-slider/",
       "module_url": "https://framer.com/m/reviews-slider.js"
+    },
+    {
+      "id": "rotating-carousel-3d",
+      "slug": "rotating-carousel-3d",
+      "title": "Rotating Carousel 3D",
+      "clean_title": "Rotating Carousel 3D",
+      "category": "carousels",
+      "code_size_bytes": 20633,
+      "source_url": "https://www.framer.com/marketplace/components/rotating-carousel-3d/",
+      "module_url": "https://framer.com/m/rotating-carousel-3d.js"
     },
     {
       "id": "rotating-slideshow",
@@ -8552,6 +9372,16 @@
       "module_url": "https://framer.com/m/spotlight-carousel.js"
     },
     {
+      "id": "stack-flow-carousel",
+      "slug": "stack-flow-carousel",
+      "title": "Stack Flow Carousel",
+      "clean_title": "Stack Flow Carousel",
+      "category": "carousels",
+      "code_size_bytes": 33189,
+      "source_url": "https://www.framer.com/marketplace/components/stack-flow-carousel/",
+      "module_url": "https://framer.com/m/stack-flow-carousel.js"
+    },
+    {
       "id": "stacked-slider",
       "slug": "stacked-slider",
       "title": "Stacked Slider",
@@ -8632,6 +9462,16 @@
       "module_url": "https://framer.com/m/team-orbit.js"
     },
     {
+      "id": "testimoniacarousel3d",
+      "slug": "testimoniacarousel3d",
+      "title": "Testimoniacarousel3D",
+      "clean_title": "Testimoniacarousel3D",
+      "category": "carousels",
+      "code_size_bytes": 26697,
+      "source_url": "https://www.framer.com/marketplace/components/testimoniacarousel3d/",
+      "module_url": "https://framer.com/m/testimoniacarousel3d.js"
+    },
+    {
       "id": "testimonial-slider-a",
       "slug": "testimonial-slider-a",
       "title": "Testimonial Slider A",
@@ -8670,6 +9510,16 @@
       "code_size_bytes": 103747,
       "source_url": "https://www.framer.com/marketplace/components/threedslider/",
       "module_url": "https://framer.com/m/threedslider.js"
+    },
+    {
+      "id": "thumbnail-slider-pro",
+      "slug": "thumbnail-slider-pro",
+      "title": "Thumbnail Slider Pro",
+      "clean_title": "Thumbnail Slider Pro",
+      "category": "carousels",
+      "code_size_bytes": 19160,
+      "source_url": "https://www.framer.com/marketplace/components/thumbnail-slider-pro/",
+      "module_url": "https://framer.com/m/thumbnail-slider-pro.js"
     },
     {
       "id": "tier-pricing-slider",
@@ -8770,6 +9620,16 @@
       "code_size_bytes": 24543,
       "source_url": "https://www.framer.com/marketplace/components/vogue-testimonial/",
       "module_url": "https://framer.com/m/vogue-testimonial.js"
+    },
+    {
+      "id": "wave-ticker",
+      "slug": "wave-ticker",
+      "title": "Wave Ticker",
+      "clean_title": "Wave Ticker",
+      "category": "carousels",
+      "code_size_bytes": 9686,
+      "source_url": "https://www.framer.com/marketplace/components/wave-ticker/",
+      "module_url": "https://framer.com/m/wave-ticker.js"
     },
     {
       "id": "wavymotion-carousel",
@@ -8972,6 +9832,16 @@
       "module_url": "https://framer.com/m/34-activity-heatmap.js"
     },
     {
+      "id": "35-funnel-chart",
+      "slug": "35-funnel-chart",
+      "title": "35 Funnel Chart",
+      "clean_title": "35 Funnel Chart",
+      "category": "charts",
+      "code_size_bytes": 61245,
+      "source_url": "https://www.framer.com/marketplace/components/35-funnel-chart/",
+      "module_url": "https://framer.com/m/35-funnel-chart.js"
+    },
+    {
       "id": "animated-beam-chart",
       "slug": "animated-beam-chart",
       "title": "Animated Beam Chart",
@@ -9062,6 +9932,16 @@
       "module_url": "https://framer.com/m/data-visualise-pro.js"
     },
     {
+      "id": "funnel-chart",
+      "slug": "funnel-chart",
+      "title": "Funnel Chart",
+      "clean_title": "Funnel Chart",
+      "category": "charts",
+      "code_size_bytes": 52855,
+      "source_url": "https://www.framer.com/marketplace/components/funnel-chart/",
+      "module_url": "https://framer.com/m/funnel-chart.js"
+    },
+    {
       "id": "futuristicdonutchart",
       "slug": "futuristicdonutchart",
       "title": "Futuristicdonutchart",
@@ -9140,6 +10020,16 @@
       "code_size_bytes": 18224,
       "source_url": "https://www.framer.com/marketplace/components/interactive-donut/",
       "module_url": "https://framer.com/m/interactive-donut.js"
+    },
+    {
+      "id": "journey-map-lite",
+      "slug": "journey-map-lite",
+      "title": "Journey Map Lite",
+      "clean_title": "Journey Map Lite",
+      "category": "charts",
+      "code_size_bytes": 43989,
+      "source_url": "https://www.framer.com/marketplace/components/journey-map-lite/",
+      "module_url": "https://framer.com/m/journey-map-lite.js"
     },
     {
       "id": "linechart",
@@ -9612,6 +10502,16 @@
       "module_url": "https://framer.com/m/hover-magnetic.js"
     },
     {
+      "id": "image-trail-effect-c",
+      "slug": "image-trail-effect-c",
+      "title": "Image Trail Effect C",
+      "clean_title": "Image Trail Effect C",
+      "category": "cursors",
+      "code_size_bytes": 21540,
+      "source_url": "https://www.framer.com/marketplace/components/image-trail-effect-c/",
+      "module_url": "https://framer.com/m/image-trail-effect-c.js"
+    },
+    {
       "id": "kineticcursorvideo",
       "slug": "kineticcursorvideo",
       "title": "Kineticcursorvideo",
@@ -9710,6 +10610,16 @@
       "code_size_bytes": 4909,
       "source_url": "https://www.framer.com/marketplace/components/pencil-cursor/",
       "module_url": "https://framer.com/m/pencil-cursor.js"
+    },
+    {
+      "id": "phantom-image-trail",
+      "slug": "phantom-image-trail",
+      "title": "Phantom Image Trail",
+      "clean_title": "Phantom Image Trail",
+      "category": "cursors",
+      "code_size_bytes": 29623,
+      "source_url": "https://www.framer.com/marketplace/components/phantom-image-trail/",
+      "module_url": "https://framer.com/m/phantom-image-trail.js"
     },
     {
       "id": "pixeled-cursor-trail",
@@ -9872,6 +10782,16 @@
       "module_url": "https://framer.com/m/webxcursor-spotlight.js"
     },
     {
+      "id": "x-ray-figma-cursor",
+      "slug": "x-ray-figma-cursor",
+      "title": "X Ray Figma Cursor",
+      "clean_title": "X Ray Figma Cursor",
+      "category": "cursors",
+      "code_size_bytes": 13441,
+      "source_url": "https://www.framer.com/marketplace/components/x-ray-figma-cursor/",
+      "module_url": "https://framer.com/m/x-ray-figma-cursor.js"
+    },
+    {
       "id": "3d-orbit-image",
       "slug": "3d-orbit-image",
       "title": "3D Orbit Image",
@@ -9882,6 +10802,16 @@
       "module_url": "https://framer.com/m/3d-orbit-image.js"
     },
     {
+      "id": "3d-parallax-grid",
+      "slug": "3d-parallax-grid",
+      "title": "3D Parallax Grid",
+      "clean_title": "3D Parallax Grid",
+      "category": "effects",
+      "code_size_bytes": 27830,
+      "source_url": "https://www.framer.com/marketplace/components/3d-parallax-grid/",
+      "module_url": "https://framer.com/m/3d-parallax-grid.js"
+    },
+    {
       "id": "3d-rotate",
       "slug": "3d-rotate",
       "title": "3D Rotate",
@@ -9890,6 +10820,16 @@
       "code_size_bytes": 17566,
       "source_url": "https://www.framer.com/marketplace/components/3d-rotate/",
       "module_url": "https://framer.com/m/3d-rotate.js"
+    },
+    {
+      "id": "404-page-error",
+      "slug": "404-page-error",
+      "title": "404 Page Error",
+      "clean_title": "404 Page Error",
+      "category": "effects",
+      "code_size_bytes": 11507,
+      "source_url": "https://www.framer.com/marketplace/components/404-page-error/",
+      "module_url": "https://framer.com/m/404-page-error.js"
     },
     {
       "id": "9-part-image-reveal",
@@ -10262,6 +11202,26 @@
       "module_url": "https://framer.com/m/fluid-viscosity.js"
     },
     {
+      "id": "flux-grid",
+      "slug": "flux-grid",
+      "title": "Flux Grid",
+      "clean_title": "Flux Grid",
+      "category": "effects",
+      "code_size_bytes": 95576,
+      "source_url": "https://www.framer.com/marketplace/components/flux-grid/",
+      "module_url": "https://framer.com/m/flux-grid.js"
+    },
+    {
+      "id": "flying-cards-hero",
+      "slug": "flying-cards-hero",
+      "title": "Flying Cards Hero",
+      "clean_title": "Flying Cards Hero",
+      "category": "effects",
+      "code_size_bytes": 87999,
+      "source_url": "https://www.framer.com/marketplace/components/flying-cards-hero/",
+      "module_url": "https://framer.com/m/flying-cards-hero.js"
+    },
+    {
       "id": "fractal-glass-effect",
       "slug": "fractal-glass-effect",
       "title": "Fractal Glass Effect",
@@ -10352,6 +11312,16 @@
       "module_url": "https://framer.com/m/glyphstream.js"
     },
     {
+      "id": "gradient-glow-cta",
+      "slug": "gradient-glow-cta",
+      "title": "Gradient Glow Cta",
+      "clean_title": "Gradient Glow Cta",
+      "category": "effects",
+      "code_size_bytes": 11451,
+      "source_url": "https://www.framer.com/marketplace/components/gradient-glow-cta/",
+      "module_url": "https://framer.com/m/gradient-glow-cta.js"
+    },
+    {
       "id": "gradient-transition",
       "slug": "gradient-transition",
       "title": "Gradient Transition",
@@ -10430,6 +11400,16 @@
       "code_size_bytes": 15063,
       "source_url": "https://www.framer.com/marketplace/components/hologramimageeffect/",
       "module_url": "https://framer.com/m/hologramimageeffect.js"
+    },
+    {
+      "id": "honeycomb-images",
+      "slug": "honeycomb-images",
+      "title": "Honeycomb Images",
+      "clean_title": "Honeycomb Images",
+      "category": "effects",
+      "code_size_bytes": 12470,
+      "source_url": "https://www.framer.com/marketplace/components/honeycomb-images/",
+      "module_url": "https://framer.com/m/honeycomb-images.js"
     },
     {
       "id": "hover-image-blur",
@@ -10702,6 +11682,16 @@
       "module_url": "https://framer.com/m/liquidhoverfx.js"
     },
     {
+      "id": "live-indicator-pro",
+      "slug": "live-indicator-pro",
+      "title": "Live Indicator Pro",
+      "clean_title": "Live Indicator Pro",
+      "category": "effects",
+      "code_size_bytes": 47521,
+      "source_url": "https://www.framer.com/marketplace/components/live-indicator-pro/",
+      "module_url": "https://framer.com/m/live-indicator-pro.js"
+    },
+    {
       "id": "living-prizma-shader",
       "slug": "living-prizma-shader",
       "title": "Living Prizma Shader",
@@ -10812,6 +11802,16 @@
       "module_url": "https://framer.com/m/motion-text-fx.js"
     },
     {
+      "id": "multi-images-reveal",
+      "slug": "multi-images-reveal",
+      "title": "Multi Images Reveal",
+      "clean_title": "Multi Images Reveal",
+      "category": "effects",
+      "code_size_bytes": 15445,
+      "source_url": "https://www.framer.com/marketplace/components/multi-images-reveal/",
+      "module_url": "https://framer.com/m/multi-images-reveal.js"
+    },
+    {
       "id": "negative-exposure",
       "slug": "negative-exposure",
       "title": "Negative Exposure",
@@ -10830,6 +11830,16 @@
       "code_size_bytes": 2877,
       "source_url": "https://www.framer.com/marketplace/components/neoneffect/",
       "module_url": "https://framer.com/m/neoneffect.js"
+    },
+    {
+      "id": "neopreview-showcase",
+      "slug": "neopreview-showcase",
+      "title": "Neopreview Showcase",
+      "clean_title": "Neopreview Showcase",
+      "category": "effects",
+      "code_size_bytes": 55414,
+      "source_url": "https://www.framer.com/marketplace/components/neopreview-showcase/",
+      "module_url": "https://framer.com/m/neopreview-showcase.js"
     },
     {
       "id": "neuralfluxportal",
@@ -10932,6 +11942,26 @@
       "module_url": "https://framer.com/m/pixel-scroll-divider.js"
     },
     {
+      "id": "pixelated-img-reveal",
+      "slug": "pixelated-img-reveal",
+      "title": "Pixelated Img Reveal",
+      "clean_title": "Pixelated Img Reveal",
+      "category": "effects",
+      "code_size_bytes": 15390,
+      "source_url": "https://www.framer.com/marketplace/components/pixelated-img-reveal/",
+      "module_url": "https://framer.com/m/pixelated-img-reveal.js"
+    },
+    {
+      "id": "pixelimagehover",
+      "slug": "pixelimagehover",
+      "title": "Pixelimagehover",
+      "clean_title": "Pixelimagehover",
+      "category": "effects",
+      "code_size_bytes": 27182,
+      "source_url": "https://www.framer.com/marketplace/components/pixelimagehover/",
+      "module_url": "https://framer.com/m/pixelimagehover.js"
+    },
+    {
       "id": "png-to-particles",
       "slug": "png-to-particles",
       "title": "Png To Particles",
@@ -11010,6 +12040,26 @@
       "code_size_bytes": 54612,
       "source_url": "https://www.framer.com/marketplace/components/reactive-face/",
       "module_url": "https://framer.com/m/reactive-face.js"
+    },
+    {
+      "id": "realistic-shadows",
+      "slug": "realistic-shadows",
+      "title": "Realistic Shadows",
+      "clean_title": "Realistic Shadows",
+      "category": "effects",
+      "code_size_bytes": 1126,
+      "source_url": "https://www.framer.com/marketplace/components/realistic-shadows/",
+      "module_url": "https://framer.com/m/realistic-shadows.js"
+    },
+    {
+      "id": "reality-fog-lens",
+      "slug": "reality-fog-lens",
+      "title": "Reality Fog Lens",
+      "clean_title": "Reality Fog Lens",
+      "category": "effects",
+      "code_size_bytes": 19785,
+      "source_url": "https://www.framer.com/marketplace/components/reality-fog-lens/",
+      "module_url": "https://framer.com/m/reality-fog-lens.js"
     },
     {
       "id": "refraction-plate",
@@ -11152,6 +12202,16 @@
       "module_url": "https://framer.com/m/scrollmotion.js"
     },
     {
+      "id": "scrollparallax-media",
+      "slug": "scrollparallax-media",
+      "title": "Scrollparallax Media",
+      "clean_title": "Scrollparallax Media",
+      "category": "effects",
+      "code_size_bytes": 18524,
+      "source_url": "https://www.framer.com/marketplace/components/scrollparallax-media/",
+      "module_url": "https://framer.com/m/scrollparallax-media.js"
+    },
+    {
       "id": "sequencer",
       "slug": "sequencer",
       "title": "Sequencer",
@@ -11262,6 +12322,16 @@
       "module_url": "https://framer.com/m/swipe-glitch-button.js"
     },
     {
+      "id": "text-ticker",
+      "slug": "text-ticker",
+      "title": "Text Ticker",
+      "clean_title": "Text Ticker",
+      "category": "effects",
+      "code_size_bytes": 9288,
+      "source_url": "https://www.framer.com/marketplace/components/text-ticker/",
+      "module_url": "https://framer.com/m/text-ticker.js"
+    },
+    {
       "id": "texture-mask",
       "slug": "texture-mask",
       "title": "Texture Mask",
@@ -11290,6 +12360,16 @@
       "code_size_bytes": 23287,
       "source_url": "https://www.framer.com/marketplace/components/tilthalo/",
       "module_url": "https://framer.com/m/tilthalo.js"
+    },
+    {
+      "id": "tsunami",
+      "slug": "tsunami",
+      "title": "Tsunami",
+      "clean_title": "Tsunami",
+      "category": "effects",
+      "code_size_bytes": 10459,
+      "source_url": "https://www.framer.com/marketplace/components/tsunami/",
+      "module_url": "https://framer.com/m/tsunami.js"
     },
     {
       "id": "unfocused",
@@ -11542,6 +12622,16 @@
       "module_url": "https://framer.com/m/chat-messages.js"
     },
     {
+      "id": "check-list",
+      "slug": "check-list",
+      "title": "Check List",
+      "clean_title": "Check List",
+      "category": "forms",
+      "code_size_bytes": 5942,
+      "source_url": "https://www.framer.com/marketplace/components/check-list/",
+      "module_url": "https://framer.com/m/check-list.js"
+    },
+    {
       "id": "cloud-search-pro",
       "slug": "cloud-search-pro",
       "title": "Cloud Search Pro",
@@ -11762,6 +12852,16 @@
       "module_url": "https://framer.com/m/lead-qualifier.js"
     },
     {
+      "id": "livesearchpro",
+      "slug": "livesearchpro",
+      "title": "Livesearchpro",
+      "clean_title": "Livesearchpro",
+      "category": "forms",
+      "code_size_bytes": 50214,
+      "source_url": "https://www.framer.com/marketplace/components/livesearchpro/",
+      "module_url": "https://framer.com/m/livesearchpro.js"
+    },
+    {
       "id": "livestorm-form",
       "slug": "livestorm-form",
       "title": "Livestorm Form",
@@ -11790,6 +12890,16 @@
       "code_size_bytes": 28242,
       "source_url": "https://www.framer.com/marketplace/components/motion-submit-button/",
       "module_url": "https://framer.com/m/motion-submit-button.js"
+    },
+    {
+      "id": "multistepformnew",
+      "slug": "multistepformnew",
+      "title": "Multistepformnew",
+      "clean_title": "Multistepformnew",
+      "category": "forms",
+      "code_size_bytes": 67961,
+      "source_url": "https://www.framer.com/marketplace/components/multistepformnew/",
+      "module_url": "https://framer.com/m/multistepformnew.js"
     },
     {
       "id": "neurofield",
@@ -12252,6 +13362,16 @@
       "module_url": "https://framer.com/m/compare-two-images.js"
     },
     {
+      "id": "cover-flow-gallery",
+      "slug": "cover-flow-gallery",
+      "title": "Cover Flow Gallery",
+      "clean_title": "Cover Flow Gallery",
+      "category": "galleries",
+      "code_size_bytes": 30190,
+      "source_url": "https://www.framer.com/marketplace/components/cover-flow-gallery/",
+      "module_url": "https://framer.com/m/cover-flow-gallery.js"
+    },
+    {
       "id": "current-club",
       "slug": "current-club",
       "title": "Current Club",
@@ -12270,6 +13390,16 @@
       "code_size_bytes": 16302,
       "source_url": "https://www.framer.com/marketplace/components/cylinder-scroll/",
       "module_url": "https://framer.com/m/cylinder-scroll.js"
+    },
+    {
+      "id": "dnahelixgallery",
+      "slug": "dnahelixgallery",
+      "title": "Dnahelixgallery",
+      "clean_title": "Dnahelixgallery",
+      "category": "galleries",
+      "code_size_bytes": 21079,
+      "source_url": "https://www.framer.com/marketplace/components/dnahelixgallery/",
+      "module_url": "https://framer.com/m/dnahelixgallery.js"
     },
     {
       "id": "dynamic-lightbox",
@@ -12302,6 +13432,16 @@
       "module_url": "https://framer.com/m/endless-cms-feed.js"
     },
     {
+      "id": "endless-cms-reel",
+      "slug": "endless-cms-reel",
+      "title": "Endless Cms Reel",
+      "clean_title": "Endless Cms Reel",
+      "category": "galleries",
+      "code_size_bytes": 53160,
+      "source_url": "https://www.framer.com/marketplace/components/endless-cms-reel/",
+      "module_url": "https://framer.com/m/endless-cms-reel.js"
+    },
+    {
       "id": "fade-up-grid",
       "slug": "fade-up-grid",
       "title": "Fade Up Grid",
@@ -12330,6 +13470,16 @@
       "code_size_bytes": 20284,
       "source_url": "https://www.framer.com/marketplace/components/flip-modal/",
       "module_url": "https://framer.com/m/flip-modal.js"
+    },
+    {
+      "id": "gallery-blur-sweep",
+      "slug": "gallery-blur-sweep",
+      "title": "Gallery Blur Sweep",
+      "clean_title": "Gallery Blur Sweep",
+      "category": "galleries",
+      "code_size_bytes": 35034,
+      "source_url": "https://www.framer.com/marketplace/components/gallery-blur-sweep/",
+      "module_url": "https://framer.com/m/gallery-blur-sweep.js"
     },
     {
       "id": "gallery-circular",
@@ -12392,6 +13542,16 @@
       "module_url": "https://framer.com/m/genie-gallary.js"
     },
     {
+      "id": "gif-image-animator",
+      "slug": "gif-image-animator",
+      "title": "Gif Image Animator",
+      "clean_title": "Gif Image Animator",
+      "category": "galleries",
+      "code_size_bytes": 7065,
+      "source_url": "https://www.framer.com/marketplace/components/gif-image-animator/",
+      "module_url": "https://framer.com/m/gif-image-animator.js"
+    },
+    {
       "id": "glass-gallery-cube",
       "slug": "glass-gallery-cube",
       "title": "Glass Gallery Cube",
@@ -12400,6 +13560,16 @@
       "code_size_bytes": 48800,
       "source_url": "https://www.framer.com/marketplace/components/glass-gallery-cube/",
       "module_url": "https://framer.com/m/glass-gallery-cube.js"
+    },
+    {
+      "id": "hanging-gallery-wall",
+      "slug": "hanging-gallery-wall",
+      "title": "Hanging Gallery Wall",
+      "clean_title": "Hanging Gallery Wall",
+      "category": "galleries",
+      "code_size_bytes": 40508,
+      "source_url": "https://www.framer.com/marketplace/components/hanging-gallery-wall/",
+      "module_url": "https://framer.com/m/hanging-gallery-wall.js"
     },
     {
       "id": "heat-ink-trail",
@@ -12462,6 +13632,16 @@
       "module_url": "https://framer.com/m/image-asset-compare.js"
     },
     {
+      "id": "image-grid-animation",
+      "slug": "image-grid-animation",
+      "title": "Image Grid Animation",
+      "clean_title": "Image Grid Animation",
+      "category": "galleries",
+      "code_size_bytes": 20066,
+      "source_url": "https://www.framer.com/marketplace/components/image-grid-animation/",
+      "module_url": "https://framer.com/m/image-grid-animation.js"
+    },
+    {
       "id": "image-project-index",
       "slug": "image-project-index",
       "title": "Image Project Index",
@@ -12480,6 +13660,16 @@
       "code_size_bytes": 49094,
       "source_url": "https://www.framer.com/marketplace/components/image-tunnel/",
       "module_url": "https://framer.com/m/image-tunnel.js"
+    },
+    {
+      "id": "imagegallerytouch",
+      "slug": "imagegallerytouch",
+      "title": "Imagegallerytouch",
+      "clean_title": "Imagegallerytouch",
+      "category": "galleries",
+      "code_size_bytes": 21736,
+      "source_url": "https://www.framer.com/marketplace/components/imagegallerytouch/",
+      "module_url": "https://framer.com/m/imagegallerytouch.js"
     },
     {
       "id": "imagesviewer",
@@ -12530,6 +13720,16 @@
       "code_size_bytes": 19961,
       "source_url": "https://www.framer.com/marketplace/components/infinite-scroll-fall/",
       "module_url": "https://framer.com/m/infinite-scroll-fall.js"
+    },
+    {
+      "id": "infinite-slipstream",
+      "slug": "infinite-slipstream",
+      "title": "Infinite Slipstream",
+      "clean_title": "Infinite Slipstream",
+      "category": "galleries",
+      "code_size_bytes": 37510,
+      "source_url": "https://www.framer.com/marketplace/components/infinite-slipstream/",
+      "module_url": "https://framer.com/m/infinite-slipstream.js"
     },
     {
       "id": "infinitecarousel3d",
@@ -12632,6 +13832,16 @@
       "module_url": "https://framer.com/m/lumen-archive.js"
     },
     {
+      "id": "m-bius-gallery",
+      "slug": "m-bius-gallery",
+      "title": "M Bius Gallery",
+      "clean_title": "M Bius Gallery",
+      "category": "galleries",
+      "code_size_bytes": 96560,
+      "source_url": "https://www.framer.com/marketplace/components/m-bius-gallery/",
+      "module_url": "https://framer.com/m/m-bius-gallery.js"
+    },
+    {
       "id": "masonry-caption-grid",
       "slug": "masonry-caption-grid",
       "title": "Masonry Caption Grid",
@@ -12660,6 +13870,16 @@
       "code_size_bytes": 17823,
       "source_url": "https://www.framer.com/marketplace/components/masonry-pro/",
       "module_url": "https://framer.com/m/masonry-pro.js"
+    },
+    {
+      "id": "media-lightbox-pro",
+      "slug": "media-lightbox-pro",
+      "title": "Media Lightbox Pro",
+      "clean_title": "Media Lightbox Pro",
+      "category": "galleries",
+      "code_size_bytes": 235967,
+      "source_url": "https://www.framer.com/marketplace/components/media-lightbox-pro/",
+      "module_url": "https://framer.com/m/media-lightbox-pro.js"
     },
     {
       "id": "misty-showreel",
@@ -12702,6 +13922,16 @@
       "module_url": "https://framer.com/m/ok-gallery-lite.js"
     },
     {
+      "id": "orbit-reveal-gallery",
+      "slug": "orbit-reveal-gallery",
+      "title": "Orbit Reveal Gallery",
+      "clean_title": "Orbit Reveal Gallery",
+      "category": "galleries",
+      "code_size_bytes": 33765,
+      "source_url": "https://www.framer.com/marketplace/components/orbit-reveal-gallery/",
+      "module_url": "https://framer.com/m/orbit-reveal-gallery.js"
+    },
+    {
       "id": "orbit-showcase",
       "slug": "orbit-showcase",
       "title": "Orbit Showcase",
@@ -12720,6 +13950,26 @@
       "code_size_bytes": 22410,
       "source_url": "https://www.framer.com/marketplace/components/orbitox-gallery/",
       "module_url": "https://framer.com/m/orbitox-gallery.js"
+    },
+    {
+      "id": "parallaxdepthgrid",
+      "slug": "parallaxdepthgrid",
+      "title": "Parallaxdepthgrid",
+      "clean_title": "Parallaxdepthgrid",
+      "category": "galleries",
+      "code_size_bytes": 25847,
+      "source_url": "https://www.framer.com/marketplace/components/parallaxdepthgrid/",
+      "module_url": "https://framer.com/m/parallaxdepthgrid.js"
+    },
+    {
+      "id": "parallaxscrollgaller",
+      "slug": "parallaxscrollgaller",
+      "title": "Parallaxscrollgaller",
+      "clean_title": "Parallaxscrollgaller",
+      "category": "galleries",
+      "code_size_bytes": 72887,
+      "source_url": "https://www.framer.com/marketplace/components/parallaxscrollgaller/",
+      "module_url": "https://framer.com/m/parallaxscrollgaller.js"
     },
     {
       "id": "peekgallery",
@@ -12790,6 +14040,16 @@
       "code_size_bytes": 21514,
       "source_url": "https://www.framer.com/marketplace/components/prod-gallery/",
       "module_url": "https://framer.com/m/prod-gallery.js"
+    },
+    {
+      "id": "product-gallery-free",
+      "slug": "product-gallery-free",
+      "title": "Product Gallery Free",
+      "clean_title": "Product Gallery Free",
+      "category": "galleries",
+      "code_size_bytes": 36031,
+      "source_url": "https://www.framer.com/marketplace/components/product-gallery-free/",
+      "module_url": "https://framer.com/m/product-gallery-free.js"
     },
     {
       "id": "random-video-wall",
@@ -12882,6 +14142,16 @@
       "module_url": "https://framer.com/m/scroll-warp-lite.js"
     },
     {
+      "id": "scroll3dgallerypro",
+      "slug": "scroll3dgallerypro",
+      "title": "Scroll3Dgallerypro",
+      "clean_title": "Scroll3Dgallerypro",
+      "category": "galleries",
+      "code_size_bytes": 40079,
+      "source_url": "https://www.framer.com/marketplace/components/scroll3dgallerypro/",
+      "module_url": "https://framer.com/m/scroll3dgallerypro.js"
+    },
+    {
       "id": "silkunfoldgallery",
       "slug": "silkunfoldgallery",
       "title": "Silkunfoldgallery",
@@ -12962,6 +14232,16 @@
       "module_url": "https://framer.com/m/split-flap-gallery.js"
     },
     {
+      "id": "stacked-polaroid",
+      "slug": "stacked-polaroid",
+      "title": "Stacked Polaroid",
+      "clean_title": "Stacked Polaroid",
+      "category": "galleries",
+      "code_size_bytes": 39450,
+      "source_url": "https://www.framer.com/marketplace/components/stacked-polaroid/",
+      "module_url": "https://framer.com/m/stacked-polaroid.js"
+    },
+    {
       "id": "storiesnetwork",
       "slug": "storiesnetwork",
       "title": "Storiesnetwork",
@@ -12980,6 +14260,16 @@
       "code_size_bytes": 21357,
       "source_url": "https://www.framer.com/marketplace/components/the-infinite-grid/",
       "module_url": "https://framer.com/m/the-infinite-grid.js"
+    },
+    {
+      "id": "torusringgallery",
+      "slug": "torusringgallery",
+      "title": "Torusringgallery",
+      "clean_title": "Torusringgallery",
+      "category": "galleries",
+      "code_size_bytes": 22644,
+      "source_url": "https://www.framer.com/marketplace/components/torusringgallery/",
+      "module_url": "https://framer.com/m/torusringgallery.js"
     },
     {
       "id": "twist-scroll-gallery",
@@ -14822,6 +16112,16 @@
       "module_url": "https://framer.com/m/nova-glow-navigation.js"
     },
     {
+      "id": "old-projector",
+      "slug": "old-projector",
+      "title": "Old Projector",
+      "clean_title": "Old Projector",
+      "category": "heroes",
+      "code_size_bytes": 58487,
+      "source_url": "https://www.framer.com/marketplace/components/old-projector/",
+      "module_url": "https://framer.com/m/old-projector.js"
+    },
+    {
       "id": "orbit-360-image",
       "slug": "orbit-360-image",
       "title": "Orbit 360 Image",
@@ -15060,6 +16360,16 @@
       "code_size_bytes": 6306,
       "source_url": "https://www.framer.com/marketplace/components/progress-bar/",
       "module_url": "https://framer.com/m/progress-bar.js"
+    },
+    {
+      "id": "progress-cards",
+      "slug": "progress-cards",
+      "title": "Progress Cards",
+      "clean_title": "Progress Cards",
+      "category": "heroes",
+      "code_size_bytes": 23352,
+      "source_url": "https://www.framer.com/marketplace/components/progress-cards/",
+      "module_url": "https://framer.com/m/progress-cards.js"
     },
     {
       "id": "progressiveblur",
@@ -16222,6 +17532,16 @@
       "module_url": "https://framer.com/m/browser-showcase.js"
     },
     {
+      "id": "bump-tags",
+      "slug": "bump-tags",
+      "title": "Bump Tags",
+      "clean_title": "Bump Tags",
+      "category": "interactive",
+      "code_size_bytes": 21806,
+      "source_url": "https://www.framer.com/marketplace/components/bump-tags/",
+      "module_url": "https://framer.com/m/bump-tags.js"
+    },
+    {
       "id": "calendar",
       "slug": "calendar",
       "title": "Calendar",
@@ -16762,6 +18082,16 @@
       "module_url": "https://framer.com/m/formatted-counter.js"
     },
     {
+      "id": "fusetone",
+      "slug": "fusetone",
+      "title": "Fusetone",
+      "clean_title": "Fusetone",
+      "category": "interactive",
+      "code_size_bytes": 49578,
+      "source_url": "https://www.framer.com/marketplace/components/fusetone/",
+      "module_url": "https://framer.com/m/fusetone.js"
+    },
+    {
       "id": "glass-before-after",
       "slug": "glass-before-after",
       "title": "Glass Before After",
@@ -16820,6 +18150,16 @@
       "code_size_bytes": 33942,
       "source_url": "https://www.framer.com/marketplace/components/glow-jump-game/",
       "module_url": "https://framer.com/m/glow-jump-game.js"
+    },
+    {
+      "id": "gravity-box",
+      "slug": "gravity-box",
+      "title": "Gravity Box",
+      "clean_title": "Gravity Box",
+      "category": "interactive",
+      "code_size_bytes": 59747,
+      "source_url": "https://www.framer.com/marketplace/components/gravity-box/",
+      "module_url": "https://framer.com/m/gravity-box.js"
     },
     {
       "id": "gravity-cubes",
@@ -17032,6 +18372,16 @@
       "module_url": "https://framer.com/m/interactive-flag.js"
     },
     {
+      "id": "interactive-id-card",
+      "slug": "interactive-id-card",
+      "title": "Interactive Id Card",
+      "clean_title": "Interactive Id Card",
+      "category": "interactive",
+      "code_size_bytes": 114450,
+      "source_url": "https://www.framer.com/marketplace/components/interactive-id-card/",
+      "module_url": "https://framer.com/m/interactive-id-card.js"
+    },
+    {
       "id": "interactive-keyboard",
       "slug": "interactive-keyboard",
       "title": "Interactive Keyboard",
@@ -17230,6 +18580,16 @@
       "code_size_bytes": 21120,
       "source_url": "https://www.framer.com/marketplace/components/material-zoom-lens/",
       "module_url": "https://framer.com/m/material-zoom-lens.js"
+    },
+    {
+      "id": "memory-cards-game",
+      "slug": "memory-cards-game",
+      "title": "Memory Cards Game",
+      "clean_title": "Memory Cards Game",
+      "category": "interactive",
+      "code_size_bytes": 23102,
+      "source_url": "https://www.framer.com/marketplace/components/memory-cards-game/",
+      "module_url": "https://framer.com/m/memory-cards-game.js"
     },
     {
       "id": "memory-constellation",
@@ -17560,6 +18920,26 @@
       "code_size_bytes": 48593,
       "source_url": "https://www.framer.com/marketplace/components/pomodorotimer/",
       "module_url": "https://framer.com/m/pomodorotimer.js"
+    },
+    {
+      "id": "poster-rail",
+      "slug": "poster-rail",
+      "title": "Poster Rail",
+      "clean_title": "Poster Rail",
+      "category": "interactive",
+      "code_size_bytes": 45617,
+      "source_url": "https://www.framer.com/marketplace/components/poster-rail/",
+      "module_url": "https://framer.com/m/poster-rail.js"
+    },
+    {
+      "id": "pre-checkout-modal",
+      "slug": "pre-checkout-modal",
+      "title": "Pre Checkout Modal",
+      "clean_title": "Pre Checkout Modal",
+      "category": "interactive",
+      "code_size_bytes": 119738,
+      "source_url": "https://www.framer.com/marketplace/components/pre-checkout-modal/",
+      "module_url": "https://framer.com/m/pre-checkout-modal.js"
     },
     {
       "id": "price-calc-lite",
@@ -17922,6 +19302,16 @@
       "module_url": "https://framer.com/m/simple-qr-code.js"
     },
     {
+      "id": "skills-wall",
+      "slug": "skills-wall",
+      "title": "Skills Wall",
+      "clean_title": "Skills Wall",
+      "category": "interactive",
+      "code_size_bytes": 32701,
+      "source_url": "https://www.framer.com/marketplace/components/skills-wall/",
+      "module_url": "https://framer.com/m/skills-wall.js"
+    },
+    {
       "id": "sliding-tabs",
       "slug": "sliding-tabs",
       "title": "Sliding Tabs",
@@ -17930,6 +19320,16 @@
       "code_size_bytes": 23058,
       "source_url": "https://www.framer.com/marketplace/components/sliding-tabs/",
       "module_url": "https://framer.com/m/sliding-tabs.js"
+    },
+    {
+      "id": "smart-email-copy",
+      "slug": "smart-email-copy",
+      "title": "Smart Email Copy",
+      "clean_title": "Smart Email Copy",
+      "category": "interactive",
+      "code_size_bytes": 41878,
+      "source_url": "https://www.framer.com/marketplace/components/smart-email-copy/",
+      "module_url": "https://framer.com/m/smart-email-copy.js"
     },
     {
       "id": "smoothcustomodometer",
@@ -18272,6 +19672,16 @@
       "module_url": "https://framer.com/m/text-video-reveal.js"
     },
     {
+      "id": "timeline-slider",
+      "slug": "timeline-slider",
+      "title": "Timeline Slider",
+      "clean_title": "Timeline Slider",
+      "category": "interactive",
+      "code_size_bytes": 144914,
+      "source_url": "https://www.framer.com/marketplace/components/timeline-slider/",
+      "module_url": "https://framer.com/m/timeline-slider.js"
+    },
+    {
       "id": "timer-widget",
       "slug": "timer-widget",
       "title": "Timer Widget",
@@ -18390,6 +19800,16 @@
       "code_size_bytes": 24419,
       "source_url": "https://www.framer.com/marketplace/components/viewport/",
       "module_url": "https://framer.com/m/viewport.js"
+    },
+    {
+      "id": "volume-slider",
+      "slug": "volume-slider",
+      "title": "Volume Slider",
+      "clean_title": "Volume Slider",
+      "category": "interactive",
+      "code_size_bytes": 43229,
+      "source_url": "https://www.framer.com/marketplace/components/volume-slider/",
+      "module_url": "https://framer.com/m/volume-slider.js"
     },
     {
       "id": "voronoi",
@@ -18702,6 +20122,16 @@
       "module_url": "https://framer.com/m/loadingspinner.js"
     },
     {
+      "id": "logostrokepreloader",
+      "slug": "logostrokepreloader",
+      "title": "Logostrokepreloader",
+      "clean_title": "Logostrokepreloader",
+      "category": "loaders",
+      "code_size_bytes": 40401,
+      "source_url": "https://www.framer.com/marketplace/components/logostrokepreloader/",
+      "module_url": "https://framer.com/m/logostrokepreloader.js"
+    },
+    {
       "id": "lumo-zero-to-hero",
       "slug": "lumo-zero-to-hero",
       "title": "Lumo Zero To Hero",
@@ -18802,6 +20232,16 @@
       "module_url": "https://framer.com/m/reveal-preloader-pro.js"
     },
     {
+      "id": "ripple-effect-loader",
+      "slug": "ripple-effect-loader",
+      "title": "Ripple Effect Loader",
+      "clean_title": "Ripple Effect Loader",
+      "category": "loaders",
+      "code_size_bytes": 7525,
+      "source_url": "https://www.framer.com/marketplace/components/ripple-effect-loader/",
+      "module_url": "https://framer.com/m/ripple-effect-loader.js"
+    },
+    {
       "id": "scenario-lens",
       "slug": "scenario-lens",
       "title": "Scenario Lens",
@@ -18822,6 +20262,16 @@
       "module_url": "https://framer.com/m/sequential-preloader.js"
     },
     {
+      "id": "simple-preloader",
+      "slug": "simple-preloader",
+      "title": "Simple Preloader",
+      "clean_title": "Simple Preloader",
+      "category": "loaders",
+      "code_size_bytes": 9412,
+      "source_url": "https://www.framer.com/marketplace/components/simple-preloader/",
+      "module_url": "https://framer.com/m/simple-preloader.js"
+    },
+    {
       "id": "slide-preloader",
       "slug": "slide-preloader",
       "title": "Slide Preloader",
@@ -18840,6 +20290,16 @@
       "code_size_bytes": 6958,
       "source_url": "https://www.framer.com/marketplace/components/square-loader/",
       "module_url": "https://framer.com/m/square-loader.js"
+    },
+    {
+      "id": "text-preloader",
+      "slug": "text-preloader",
+      "title": "Text Preloader",
+      "clean_title": "Text Preloader",
+      "category": "loaders",
+      "code_size_bytes": 21602,
+      "source_url": "https://www.framer.com/marketplace/components/text-preloader/",
+      "module_url": "https://framer.com/m/text-preloader.js"
     },
     {
       "id": "text-reveal-preloade",
@@ -18872,6 +20332,16 @@
       "module_url": "https://framer.com/m/venetian-preloader.js"
     },
     {
+      "id": "3d-map",
+      "slug": "3d-map",
+      "title": "3D Map",
+      "clean_title": "3D Map",
+      "category": "maps",
+      "code_size_bytes": 63396,
+      "source_url": "https://www.framer.com/marketplace/components/3d-map/",
+      "module_url": "https://framer.com/m/3d-map.js"
+    },
+    {
       "id": "atomic-globe",
       "slug": "atomic-globe",
       "title": "Atomic Globe",
@@ -18890,6 +20360,16 @@
       "code_size_bytes": 38994,
       "source_url": "https://www.framer.com/marketplace/components/campusmap/",
       "module_url": "https://framer.com/m/campusmap.js"
+    },
+    {
+      "id": "cinematic-3d-globe",
+      "slug": "cinematic-3d-globe",
+      "title": "Cinematic 3D Globe",
+      "clean_title": "Cinematic 3D Globe",
+      "category": "maps",
+      "code_size_bytes": 71388,
+      "source_url": "https://www.framer.com/marketplace/components/cinematic-3d-globe/",
+      "module_url": "https://framer.com/m/cinematic-3d-globe.js"
     },
     {
       "id": "dot-map-globe-3d",
@@ -18962,6 +20442,36 @@
       "module_url": "https://framer.com/m/google-map-embed.js"
     },
     {
+      "id": "interactive-3dglobe",
+      "slug": "interactive-3dglobe",
+      "title": "Interactive 3Dglobe",
+      "clean_title": "Interactive 3Dglobe",
+      "category": "maps",
+      "code_size_bytes": 15904,
+      "source_url": "https://www.framer.com/marketplace/components/interactive-3dglobe/",
+      "module_url": "https://framer.com/m/interactive-3dglobe.js"
+    },
+    {
+      "id": "interactive-globe-3d",
+      "slug": "interactive-globe-3d",
+      "title": "Interactive Globe 3D",
+      "clean_title": "Interactive Globe 3D",
+      "category": "maps",
+      "code_size_bytes": 79020,
+      "source_url": "https://www.framer.com/marketplace/components/interactive-globe-3d/",
+      "module_url": "https://framer.com/m/interactive-globe-3d.js"
+    },
+    {
+      "id": "map-europe",
+      "slug": "map-europe",
+      "title": "Map Europe",
+      "clean_title": "Map Europe",
+      "category": "maps",
+      "code_size_bytes": 64639,
+      "source_url": "https://www.framer.com/marketplace/components/map-europe/",
+      "module_url": "https://framer.com/m/map-europe.js"
+    },
+    {
       "id": "multi-location-map",
       "slug": "multi-location-map",
       "title": "Multi Location Map",
@@ -19010,6 +20520,16 @@
       "code_size_bytes": 119082,
       "source_url": "https://www.framer.com/marketplace/components/pixel-world-map/",
       "module_url": "https://framer.com/m/pixel-world-map.js"
+    },
+    {
+      "id": "regionalpropertymap",
+      "slug": "regionalpropertymap",
+      "title": "Regionalpropertymap",
+      "clean_title": "Regionalpropertymap",
+      "category": "maps",
+      "code_size_bytes": 34326,
+      "source_url": "https://www.framer.com/marketplace/components/regionalpropertymap/",
+      "module_url": "https://framer.com/m/regionalpropertymap.js"
     },
     {
       "id": "3d-circular-menu",
@@ -19122,6 +20642,16 @@
       "module_url": "https://framer.com/m/article-toc-island.js"
     },
     {
+      "id": "auto-breadcrumb",
+      "slug": "auto-breadcrumb",
+      "title": "Auto Breadcrumb",
+      "clean_title": "Auto Breadcrumb",
+      "category": "navigation",
+      "code_size_bytes": 23400,
+      "source_url": "https://www.framer.com/marketplace/components/auto-breadcrumb/",
+      "module_url": "https://framer.com/m/auto-breadcrumb.js"
+    },
+    {
       "id": "back-to-top-ring",
       "slug": "back-to-top-ring",
       "title": "Back To Top Ring",
@@ -19140,6 +20670,16 @@
       "code_size_bytes": 31020,
       "source_url": "https://www.framer.com/marketplace/components/blob-featured-works/",
       "module_url": "https://framer.com/m/blob-featured-works.js"
+    },
+    {
+      "id": "blur-navigation",
+      "slug": "blur-navigation",
+      "title": "Blur Navigation",
+      "clean_title": "Blur Navigation",
+      "category": "navigation",
+      "code_size_bytes": 29829,
+      "source_url": "https://www.framer.com/marketplace/components/blur-navigation/",
+      "module_url": "https://framer.com/m/blur-navigation.js"
     },
     {
       "id": "bottom-navigation",
@@ -19222,6 +20762,16 @@
       "module_url": "https://framer.com/m/compact-navbar.js"
     },
     {
+      "id": "contextmenuclick",
+      "slug": "contextmenuclick",
+      "title": "Contextmenuclick",
+      "clean_title": "Contextmenuclick",
+      "category": "navigation",
+      "code_size_bytes": 32455,
+      "source_url": "https://www.framer.com/marketplace/components/contextmenuclick/",
+      "module_url": "https://framer.com/m/contextmenuclick.js"
+    },
+    {
       "id": "contour-dock",
       "slug": "contour-dock",
       "title": "Contour Dock",
@@ -19230,6 +20780,16 @@
       "code_size_bytes": 28910,
       "source_url": "https://www.framer.com/marketplace/components/contour-dock/",
       "module_url": "https://framer.com/m/contour-dock.js"
+    },
+    {
+      "id": "cyberpunknavbar",
+      "slug": "cyberpunknavbar",
+      "title": "Cyberpunknavbar",
+      "clean_title": "Cyberpunknavbar",
+      "category": "navigation",
+      "code_size_bytes": 28744,
+      "source_url": "https://www.framer.com/marketplace/components/cyberpunknavbar/",
+      "module_url": "https://framer.com/m/cyberpunknavbar.js"
     },
     {
       "id": "dock-menu",
@@ -19282,6 +20842,16 @@
       "module_url": "https://framer.com/m/dropdownnavigation.js"
     },
     {
+      "id": "editorialnavbar",
+      "slug": "editorialnavbar",
+      "title": "Editorialnavbar",
+      "clean_title": "Editorialnavbar",
+      "category": "navigation",
+      "code_size_bytes": 28721,
+      "source_url": "https://www.framer.com/marketplace/components/editorialnavbar/",
+      "module_url": "https://framer.com/m/editorialnavbar.js"
+    },
+    {
       "id": "ember-footer",
       "slug": "ember-footer",
       "title": "Ember Footer",
@@ -19330,6 +20900,26 @@
       "code_size_bytes": 58072,
       "source_url": "https://www.framer.com/marketplace/components/fancyfloatingmenu/",
       "module_url": "https://framer.com/m/fancyfloatingmenu.js"
+    },
+    {
+      "id": "featurebasenavbar",
+      "slug": "featurebasenavbar",
+      "title": "Featurebasenavbar",
+      "clean_title": "Featurebasenavbar",
+      "category": "navigation",
+      "code_size_bytes": 53119,
+      "source_url": "https://www.framer.com/marketplace/components/featurebasenavbar/",
+      "module_url": "https://framer.com/m/featurebasenavbar.js"
+    },
+    {
+      "id": "featuretabspro",
+      "slug": "featuretabspro",
+      "title": "Featuretabspro",
+      "clean_title": "Featuretabspro",
+      "category": "navigation",
+      "code_size_bytes": 47308,
+      "source_url": "https://www.framer.com/marketplace/components/featuretabspro/",
+      "module_url": "https://framer.com/m/featuretabspro.js"
     },
     {
       "id": "float-bar",
@@ -19432,6 +21022,16 @@
       "module_url": "https://framer.com/m/full-overlay-header.js"
     },
     {
+      "id": "glassdocknavmenu",
+      "slug": "glassdocknavmenu",
+      "title": "Glassdocknavmenu",
+      "clean_title": "Glassdocknavmenu",
+      "category": "navigation",
+      "code_size_bytes": 7603,
+      "source_url": "https://www.framer.com/marketplace/components/glassdocknavmenu/",
+      "module_url": "https://framer.com/m/glassdocknavmenu.js"
+    },
+    {
       "id": "gooey-glass-nav",
       "slug": "gooey-glass-nav",
       "title": "Gooey Glass Nav",
@@ -19480,6 +21080,16 @@
       "code_size_bytes": 9771,
       "source_url": "https://www.framer.com/marketplace/components/hohoho-motion-menu/",
       "module_url": "https://framer.com/m/hohoho-motion-menu.js"
+    },
+    {
+      "id": "holographfluidtabbar",
+      "slug": "holographfluidtabbar",
+      "title": "Holographfluidtabbar",
+      "clean_title": "Holographfluidtabbar",
+      "category": "navigation",
+      "code_size_bytes": 14772,
+      "source_url": "https://www.framer.com/marketplace/components/holographfluidtabbar/",
+      "module_url": "https://framer.com/m/holographfluidtabbar.js"
     },
     {
       "id": "hover-reveal-tabs",
@@ -19622,6 +21232,16 @@
       "module_url": "https://framer.com/m/liquid-metal-navbar.js"
     },
     {
+      "id": "macdockpro",
+      "slug": "macdockpro",
+      "title": "Macdockpro",
+      "clean_title": "Macdockpro",
+      "category": "navigation",
+      "code_size_bytes": 20397,
+      "source_url": "https://www.framer.com/marketplace/components/macdockpro/",
+      "module_url": "https://framer.com/m/macdockpro.js"
+    },
+    {
       "id": "magnet-side-navbar",
       "slug": "magnet-side-navbar",
       "title": "Magnet Side Navbar",
@@ -19670,6 +21290,26 @@
       "code_size_bytes": 30916,
       "source_url": "https://www.framer.com/marketplace/components/mega-menu/",
       "module_url": "https://framer.com/m/mega-menu.js"
+    },
+    {
+      "id": "mega-saas-navigation",
+      "slug": "mega-saas-navigation",
+      "title": "Mega Saas Navigation",
+      "clean_title": "Mega Saas Navigation",
+      "category": "navigation",
+      "code_size_bytes": 177154,
+      "source_url": "https://www.framer.com/marketplace/components/mega-saas-navigation/",
+      "module_url": "https://framer.com/m/mega-saas-navigation.js"
+    },
+    {
+      "id": "megamenudarklight",
+      "slug": "megamenudarklight",
+      "title": "Megamenudarklight",
+      "clean_title": "Megamenudarklight",
+      "category": "navigation",
+      "code_size_bytes": 60249,
+      "source_url": "https://www.framer.com/marketplace/components/megamenudarklight/",
+      "module_url": "https://framer.com/m/megamenudarklight.js"
     },
     {
       "id": "menu-click-component",
@@ -19800,6 +21440,16 @@
       "code_size_bytes": 59234,
       "source_url": "https://www.framer.com/marketplace/components/navbarcorporate/",
       "module_url": "https://framer.com/m/navbarcorporate.js"
+    },
+    {
+      "id": "navcop1",
+      "slug": "navcop1",
+      "title": "Navcop1",
+      "clean_title": "Navcop1",
+      "category": "navigation",
+      "code_size_bytes": 32104,
+      "source_url": "https://www.framer.com/marketplace/components/navcop1/",
+      "module_url": "https://framer.com/m/navcop1.js"
     },
     {
       "id": "navigation-button",
@@ -19942,6 +21592,16 @@
       "module_url": "https://framer.com/m/pipboy.js"
     },
     {
+      "id": "pivot-navigation",
+      "slug": "pivot-navigation",
+      "title": "Pivot Navigation",
+      "clean_title": "Pivot Navigation",
+      "category": "navigation",
+      "code_size_bytes": 76005,
+      "source_url": "https://www.framer.com/marketplace/components/pivot-navigation/",
+      "module_url": "https://framer.com/m/pivot-navigation.js"
+    },
+    {
       "id": "playful-navigation",
       "slug": "playful-navigation",
       "title": "Playful Navigation",
@@ -20032,6 +21692,26 @@
       "module_url": "https://framer.com/m/saas-navbar.js"
     },
     {
+      "id": "saasnavbarpro",
+      "slug": "saasnavbarpro",
+      "title": "Saasnavbarpro",
+      "clean_title": "Saasnavbarpro",
+      "category": "navigation",
+      "code_size_bytes": 65136,
+      "source_url": "https://www.framer.com/marketplace/components/saasnavbarpro/",
+      "module_url": "https://framer.com/m/saasnavbarpro.js"
+    },
+    {
+      "id": "saasnavmegamenu",
+      "slug": "saasnavmegamenu",
+      "title": "Saasnavmegamenu",
+      "clean_title": "Saasnavmegamenu",
+      "category": "navigation",
+      "code_size_bytes": 88565,
+      "source_url": "https://www.framer.com/marketplace/components/saasnavmegamenu/",
+      "module_url": "https://framer.com/m/saasnavmegamenu.js"
+    },
+    {
       "id": "scroll-for-next-page",
       "slug": "scroll-for-next-page",
       "title": "Scroll For Next Page",
@@ -20080,6 +21760,16 @@
       "code_size_bytes": 73854,
       "source_url": "https://www.framer.com/marketplace/components/service-tabs/",
       "module_url": "https://framer.com/m/service-tabs.js"
+    },
+    {
+      "id": "servicetabscatalog",
+      "slug": "servicetabscatalog",
+      "title": "Servicetabscatalog",
+      "clean_title": "Servicetabscatalog",
+      "category": "navigation",
+      "code_size_bytes": 15354,
+      "source_url": "https://www.framer.com/marketplace/components/servicetabscatalog/",
+      "module_url": "https://framer.com/m/servicetabscatalog.js"
     },
     {
       "id": "simple-hover-menu",
@@ -20140,6 +21830,26 @@
       "code_size_bytes": 17042,
       "source_url": "https://www.framer.com/marketplace/components/split-underline-link/",
       "module_url": "https://framer.com/m/split-underline-link.js"
+    },
+    {
+      "id": "stage-menu",
+      "slug": "stage-menu",
+      "title": "Stage Menu",
+      "clean_title": "Stage Menu",
+      "category": "navigation",
+      "code_size_bytes": 138791,
+      "source_url": "https://www.framer.com/marketplace/components/stage-menu/",
+      "module_url": "https://framer.com/m/stage-menu.js"
+    },
+    {
+      "id": "storenavbar-cart",
+      "slug": "storenavbar-cart",
+      "title": "Storenavbar Cart",
+      "clean_title": "Storenavbar Cart",
+      "category": "navigation",
+      "code_size_bytes": 83019,
+      "source_url": "https://www.framer.com/marketplace/components/storenavbar-cart/",
+      "module_url": "https://framer.com/m/storenavbar-cart.js"
     },
     {
       "id": "studio-navigation",
@@ -20482,6 +22192,16 @@
       "module_url": "https://framer.com/m/minesweeper-game.js"
     },
     {
+      "id": "morsecodecommunicate",
+      "slug": "morsecodecommunicate",
+      "title": "Morsecodecommunicate",
+      "clean_title": "Morsecodecommunicate",
+      "category": "players",
+      "code_size_bytes": 36509,
+      "source_url": "https://www.framer.com/marketplace/components/morsecodecommunicate/",
+      "module_url": "https://framer.com/m/morsecodecommunicate.js"
+    },
+    {
       "id": "mp3-sound-player",
       "slug": "mp3-sound-player",
       "title": "Mp3 Sound Player",
@@ -20752,6 +22472,16 @@
       "module_url": "https://framer.com/m/aura-radiant-flow.js"
     },
     {
+      "id": "avatar-stack-reveal",
+      "slug": "avatar-stack-reveal",
+      "title": "Avatar Stack Reveal",
+      "clean_title": "Avatar Stack Reveal",
+      "category": "sections",
+      "code_size_bytes": 19402,
+      "source_url": "https://www.framer.com/marketplace/components/avatar-stack-reveal/",
+      "module_url": "https://framer.com/m/avatar-stack-reveal.js"
+    },
+    {
       "id": "bentogridultimate",
       "slug": "bentogridultimate",
       "title": "Bentogridultimate",
@@ -20852,6 +22582,16 @@
       "module_url": "https://framer.com/m/clients-logo-wall.js"
     },
     {
+      "id": "cms-3d-gallery",
+      "slug": "cms-3d-gallery",
+      "title": "Cms 3D Gallery",
+      "clean_title": "Cms 3D Gallery",
+      "category": "sections",
+      "code_size_bytes": 46329,
+      "source_url": "https://www.framer.com/marketplace/components/cms-3d-gallery/",
+      "module_url": "https://framer.com/m/cms-3d-gallery.js"
+    },
+    {
       "id": "code-block-pro",
       "slug": "code-block-pro",
       "title": "Code Block Pro",
@@ -20890,6 +22630,16 @@
       "code_size_bytes": 15849,
       "source_url": "https://www.framer.com/marketplace/components/creativeexperiencefx/",
       "module_url": "https://framer.com/m/creativeexperiencefx.js"
+    },
+    {
+      "id": "cyberpunkfooter",
+      "slug": "cyberpunkfooter",
+      "title": "Cyberpunkfooter",
+      "clean_title": "Cyberpunkfooter",
+      "category": "sections",
+      "code_size_bytes": 20677,
+      "source_url": "https://www.framer.com/marketplace/components/cyberpunkfooter/",
+      "module_url": "https://framer.com/m/cyberpunkfooter.js"
     },
     {
       "id": "daybreak",
@@ -21100,6 +22850,16 @@
       "code_size_bytes": 19531,
       "source_url": "https://www.framer.com/marketplace/components/flapwall/",
       "module_url": "https://framer.com/m/flapwall.js"
+    },
+    {
+      "id": "floathoverfx",
+      "slug": "floathoverfx",
+      "title": "Floathoverfx",
+      "clean_title": "Floathoverfx",
+      "category": "sections",
+      "code_size_bytes": 71490,
+      "source_url": "https://www.framer.com/marketplace/components/floathoverfx/",
+      "module_url": "https://framer.com/m/floathoverfx.js"
     },
     {
       "id": "floating-dots",
@@ -21372,6 +23132,26 @@
       "module_url": "https://framer.com/m/logo-wall.js"
     },
     {
+      "id": "magazinefooter",
+      "slug": "magazinefooter",
+      "title": "Magazinefooter",
+      "clean_title": "Magazinefooter",
+      "category": "sections",
+      "code_size_bytes": 27719,
+      "source_url": "https://www.framer.com/marketplace/components/magazinefooter/",
+      "module_url": "https://framer.com/m/magazinefooter.js"
+    },
+    {
+      "id": "magical-unicorn",
+      "slug": "magical-unicorn",
+      "title": "Magical Unicorn",
+      "clean_title": "Magical Unicorn",
+      "category": "sections",
+      "code_size_bytes": 46809,
+      "source_url": "https://www.framer.com/marketplace/components/magical-unicorn/",
+      "module_url": "https://framer.com/m/magical-unicorn.js"
+    },
+    {
       "id": "mile-markers",
       "slug": "mile-markers",
       "title": "Mile Markers",
@@ -21502,6 +23282,16 @@
       "module_url": "https://framer.com/m/paint-reveal.js"
     },
     {
+      "id": "pawsome-hero",
+      "slug": "pawsome-hero",
+      "title": "Pawsome Hero",
+      "clean_title": "Pawsome Hero",
+      "category": "sections",
+      "code_size_bytes": 63300,
+      "source_url": "https://www.framer.com/marketplace/components/pawsome-hero/",
+      "module_url": "https://framer.com/m/pawsome-hero.js"
+    },
+    {
       "id": "pixel-reveal-hero",
       "slug": "pixel-reveal-hero",
       "title": "Pixel Reveal Hero",
@@ -21602,6 +23392,16 @@
       "module_url": "https://framer.com/m/quote-stepper-panel.js"
     },
     {
+      "id": "radialshowcase",
+      "slug": "radialshowcase",
+      "title": "Radialshowcase",
+      "clean_title": "Radialshowcase",
+      "category": "sections",
+      "code_size_bytes": 22504,
+      "source_url": "https://www.framer.com/marketplace/components/radialshowcase/",
+      "module_url": "https://framer.com/m/radialshowcase.js"
+    },
+    {
       "id": "rayo-cta",
       "slug": "rayo-cta",
       "title": "Rayo Cta",
@@ -21620,6 +23420,16 @@
       "code_size_bytes": 12337,
       "source_url": "https://www.framer.com/marketplace/components/rayo-hero/",
       "module_url": "https://framer.com/m/rayo-hero.js"
+    },
+    {
+      "id": "reactiveparticle",
+      "slug": "reactiveparticle",
+      "title": "Reactiveparticle",
+      "clean_title": "Reactiveparticle",
+      "category": "sections",
+      "code_size_bytes": 33479,
+      "source_url": "https://www.framer.com/marketplace/components/reactiveparticle/",
+      "module_url": "https://framer.com/m/reactiveparticle.js"
     },
     {
       "id": "reel-testimonial",
@@ -21660,6 +23470,16 @@
       "code_size_bytes": 59004,
       "source_url": "https://www.framer.com/marketplace/components/reviews-ratings/",
       "module_url": "https://framer.com/m/reviews-ratings.js"
+    },
+    {
+      "id": "sci-fi-glass-footer",
+      "slug": "sci-fi-glass-footer",
+      "title": "Sci Fi Glass Footer",
+      "clean_title": "Sci Fi Glass Footer",
+      "category": "sections",
+      "code_size_bytes": 89450,
+      "source_url": "https://www.framer.com/marketplace/components/sci-fi-glass-footer/",
+      "module_url": "https://framer.com/m/sci-fi-glass-footer.js"
     },
     {
       "id": "scroll-cue",
@@ -21742,6 +23562,16 @@
       "module_url": "https://framer.com/m/scrollvelocitywarp.js"
     },
     {
+      "id": "scrollytellingsplit",
+      "slug": "scrollytellingsplit",
+      "title": "Scrollytellingsplit",
+      "clean_title": "Scrollytellingsplit",
+      "category": "sections",
+      "code_size_bytes": 49089,
+      "source_url": "https://www.framer.com/marketplace/components/scrollytellingsplit/",
+      "module_url": "https://framer.com/m/scrollytellingsplit.js"
+    },
+    {
       "id": "section-morph",
       "slug": "section-morph",
       "title": "Section Morph",
@@ -21780,6 +23610,16 @@
       "code_size_bytes": 47504,
       "source_url": "https://www.framer.com/marketplace/components/services-roll/",
       "module_url": "https://framer.com/m/services-roll.js"
+    },
+    {
+      "id": "shaderhero",
+      "slug": "shaderhero",
+      "title": "Shaderhero",
+      "clean_title": "Shaderhero",
+      "category": "sections",
+      "code_size_bytes": 47061,
+      "source_url": "https://www.framer.com/marketplace/components/shaderhero/",
+      "module_url": "https://framer.com/m/shaderhero.js"
     },
     {
       "id": "signature-animation",
@@ -22042,6 +23882,16 @@
       "module_url": "https://framer.com/m/transition-section.js"
     },
     {
+      "id": "tunnelvortex",
+      "slug": "tunnelvortex",
+      "title": "Tunnelvortex",
+      "clean_title": "Tunnelvortex",
+      "category": "sections",
+      "code_size_bytes": 44442,
+      "source_url": "https://www.framer.com/marketplace/components/tunnelvortex/",
+      "module_url": "https://framer.com/m/tunnelvortex.js"
+    },
+    {
       "id": "unit-story",
       "slug": "unit-story",
       "title": "Unit Story",
@@ -22270,6 +24120,16 @@
       "code_size_bytes": 134115,
       "source_url": "https://www.framer.com/marketplace/components/arc-text-carousel/",
       "module_url": "https://framer.com/m/arc-text-carousel.js"
+    },
+    {
+      "id": "avatar-pop",
+      "slug": "avatar-pop",
+      "title": "Avatar Pop",
+      "clean_title": "Avatar Pop",
+      "category": "text",
+      "code_size_bytes": 13996,
+      "source_url": "https://www.framer.com/marketplace/components/avatar-pop/",
+      "module_url": "https://framer.com/m/avatar-pop.js"
     },
     {
       "id": "behave",
@@ -22982,6 +24842,16 @@
       "module_url": "https://framer.com/m/hover-stats.js"
     },
     {
+      "id": "hover-text-reveal",
+      "slug": "hover-text-reveal",
+      "title": "Hover Text Reveal",
+      "clean_title": "Hover Text Reveal",
+      "category": "text",
+      "code_size_bytes": 5457,
+      "source_url": "https://www.framer.com/marketplace/components/hover-text-reveal/",
+      "module_url": "https://framer.com/m/hover-text-reveal.js"
+    },
+    {
       "id": "hover-typography",
       "slug": "hover-typography",
       "title": "Hover Typography",
@@ -22990,6 +24860,16 @@
       "code_size_bytes": 19168,
       "source_url": "https://www.framer.com/marketplace/components/hover-typography/",
       "module_url": "https://framer.com/m/hover-typography.js"
+    },
+    {
+      "id": "hoverlight",
+      "slug": "hoverlight",
+      "title": "Hoverlight",
+      "clean_title": "Hoverlight",
+      "category": "text",
+      "code_size_bytes": 27972,
+      "source_url": "https://www.framer.com/marketplace/components/hoverlight/",
+      "module_url": "https://framer.com/m/hoverlight.js"
     },
     {
       "id": "hovertext-link",
@@ -23312,6 +25192,16 @@
       "module_url": "https://framer.com/m/masked-text-reveal.js"
     },
     {
+      "id": "masked-video",
+      "slug": "masked-video",
+      "title": "Masked Video",
+      "clean_title": "Masked Video",
+      "category": "text",
+      "code_size_bytes": 7708,
+      "source_url": "https://www.framer.com/marketplace/components/masked-video/",
+      "module_url": "https://framer.com/m/masked-video.js"
+    },
+    {
       "id": "matrix-text-scramble",
       "slug": "matrix-text-scramble",
       "title": "Matrix Text Scramble",
@@ -23412,6 +25302,16 @@
       "module_url": "https://framer.com/m/motion-colour-text.js"
     },
     {
+      "id": "mousewavetext",
+      "slug": "mousewavetext",
+      "title": "Mousewavetext",
+      "clean_title": "Mousewavetext",
+      "category": "text",
+      "code_size_bytes": 10616,
+      "source_url": "https://www.framer.com/marketplace/components/mousewavetext/",
+      "module_url": "https://framer.com/m/mousewavetext.js"
+    },
+    {
       "id": "nebula-3d-text-align",
       "slug": "nebula-3d-text-align",
       "title": "Nebula 3D Text Align",
@@ -23510,6 +25410,16 @@
       "code_size_bytes": 11739,
       "source_url": "https://www.framer.com/marketplace/components/path-drawing-text/",
       "module_url": "https://framer.com/m/path-drawing-text.js"
+    },
+    {
+      "id": "path-text-reveal",
+      "slug": "path-text-reveal",
+      "title": "Path Text Reveal",
+      "clean_title": "Path Text Reveal",
+      "category": "text",
+      "code_size_bytes": 4498,
+      "source_url": "https://www.framer.com/marketplace/components/path-text-reveal/",
+      "module_url": "https://framer.com/m/path-text-reveal.js"
     },
     {
       "id": "phototype",
@@ -23690,6 +25600,16 @@
       "code_size_bytes": 12794,
       "source_url": "https://www.framer.com/marketplace/components/reviewreel/",
       "module_url": "https://framer.com/m/reviewreel.js"
+    },
+    {
+      "id": "rotating-text-navbar",
+      "slug": "rotating-text-navbar",
+      "title": "Rotating Text Navbar",
+      "clean_title": "Rotating Text Navbar",
+      "category": "text",
+      "code_size_bytes": 6580,
+      "source_url": "https://www.framer.com/marketplace/components/rotating-text-navbar/",
+      "module_url": "https://framer.com/m/rotating-text-navbar.js"
     },
     {
       "id": "runaround-text-wrap",
@@ -23922,6 +25842,16 @@
       "module_url": "https://framer.com/m/shiny-text-effect.js"
     },
     {
+      "id": "shuffle-text",
+      "slug": "shuffle-text",
+      "title": "Shuffle Text",
+      "clean_title": "Shuffle Text",
+      "category": "text",
+      "code_size_bytes": 3525,
+      "source_url": "https://www.framer.com/marketplace/components/shuffle-text/",
+      "module_url": "https://framer.com/m/shuffle-text.js"
+    },
+    {
       "id": "simple-copy",
       "slug": "simple-copy",
       "title": "Simple Copy",
@@ -24042,6 +25972,16 @@
       "module_url": "https://framer.com/m/spoiler-reveal.js"
     },
     {
+      "id": "statement-fill",
+      "slug": "statement-fill",
+      "title": "Statement Fill",
+      "clean_title": "Statement Fill",
+      "category": "text",
+      "code_size_bytes": 7623,
+      "source_url": "https://www.framer.com/marketplace/components/statement-fill/",
+      "module_url": "https://framer.com/m/statement-fill.js"
+    },
+    {
       "id": "stickr",
       "slug": "stickr",
       "title": "Stickr",
@@ -24112,6 +26052,16 @@
       "module_url": "https://framer.com/m/text-cycle.js"
     },
     {
+      "id": "text-drift-scroll",
+      "slug": "text-drift-scroll",
+      "title": "Text Drift Scroll",
+      "clean_title": "Text Drift Scroll",
+      "category": "text",
+      "code_size_bytes": 19510,
+      "source_url": "https://www.framer.com/marketplace/components/text-drift-scroll/",
+      "module_url": "https://framer.com/m/text-drift-scroll.js"
+    },
+    {
       "id": "text-editor-pro",
       "slug": "text-editor-pro",
       "title": "Text Editor Pro",
@@ -24120,6 +26070,16 @@
       "code_size_bytes": 104010,
       "source_url": "https://www.framer.com/marketplace/components/text-editor-pro/",
       "module_url": "https://framer.com/m/text-editor-pro.js"
+    },
+    {
+      "id": "text-effects-lite",
+      "slug": "text-effects-lite",
+      "title": "Text Effects Lite",
+      "clean_title": "Text Effects Lite",
+      "category": "text",
+      "code_size_bytes": 31201,
+      "source_url": "https://www.framer.com/marketplace/components/text-effects-lite/",
+      "module_url": "https://framer.com/m/text-effects-lite.js"
     },
     {
       "id": "text-flow",
@@ -24590,6 +26550,16 @@
       "code_size_bytes": 36110,
       "source_url": "https://www.framer.com/marketplace/components/x-chat-window/",
       "module_url": "https://framer.com/m/x-chat-window.js"
+    },
+    {
+      "id": "zoom-text-tunnel",
+      "slug": "zoom-text-tunnel",
+      "title": "Zoom Text Tunnel",
+      "clean_title": "Zoom Text Tunnel",
+      "category": "text",
+      "code_size_bytes": 23904,
+      "source_url": "https://www.framer.com/marketplace/components/zoom-text-tunnel/",
+      "module_url": "https://framer.com/m/zoom-text-tunnel.js"
     }
   ]
 }
